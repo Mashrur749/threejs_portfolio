@@ -2,6 +2,10 @@ import * as THREE from "three";
 import vertexShader from "./shaders/vertexShader.glsl";
 import fragmentShader from "./shaders/fragmentShader.glsl";
 
+import {
+    CSS3DObject
+ } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
+
 let scrollable = document.querySelector(".scrollable");
 const imageElements = document.querySelectorAll("img");
 let current = 0;
@@ -167,3 +171,37 @@ class MeshItem {
 
 init();
 new EffectCanvas();
+
+
+
+
+function make3DElementObject(type, width, height) {
+    const obj = new THREE.Object3D
+
+    const element = document.createElement( type );
+    element.style.width = width+'px';
+    element.style.height = height+'px';
+    element.style.opacity = 0.999;
+    element.style.boxSizing = 'border-box'
+
+    var css3dObject = new CSS3DObject( element );
+    obj.css3dObject = css3dObject
+    obj.add(css3dObject)
+
+    // make an invisible plane for the DOM element to chop
+    // clip a WebGL geometry with it.
+    var material = new THREE.MeshPhongMaterial({
+        opacity	: 0.15,
+        color	: new THREE.Color( 0x111111 ),
+        blending: THREE.NoBlending,
+        // side	: THREE.DoubleSide,
+    });
+    var geometry = new THREE.BoxGeometry( width, height, 1 );
+    var mesh = new THREE.Mesh( geometry, material );
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    obj.lightShadowMesh = mesh
+    obj.add( mesh );
+
+    return obj
+}
