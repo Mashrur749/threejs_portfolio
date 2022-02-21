@@ -134,6 +134,9 @@ class MeshItem {
 }
 
 class ImageMappedShader extends MeshItem{
+    constructor(element, scene){
+        super(element, scene);
+    }
     createMesh() {
         this.geometry = new THREE.PlaneBufferGeometry(1, 1, 100, 100);
         this.imageTexture = new THREE.TextureLoader().load(this.element.src);
