@@ -36,6 +36,8 @@ class Environment {
     this.images = [...imageElements];
     this.meshItems = []; // Used to store all meshes we will be creating.
     this.setupCamera();
+    this.createHeaderText();
+    // this.createJobExperience();
     this.createMeshItems();
     this.render();
   }
@@ -86,10 +88,14 @@ class Environment {
     this.renderer.setSize(this.viewport.width, this.viewport.height);
   }
 
+  createHeaderText(){
+
+  }
+
   createMeshItems() {
     // Loop thorugh all images and create new MeshItem instances. Push these instances to the meshItems array.
     this.images.forEach((image) => {
-      let meshItem = new MeshItem(image, this.scene);
+      let meshItem = new ImageMappedShader(image, this.scene);
       this.meshItems.push(meshItem);
     });
   }
@@ -124,50 +130,56 @@ class MeshItem {
     );
   }
 
-  createMesh() {
-    this.geometry = new THREE.PlaneBufferGeometry(1, 1, 100, 100);
-    this.imageTexture = new THREE.TextureLoader().load(this.element.src);
-    this.uniforms = {
-      uTexture: {
-        //texture data
-        value: this.imageTexture,
-      },
-      uOffset: {
-        //distortion strength
-        value: new THREE.Vector2(0.0, 0.0),
-      },
-      uAlpha: {
-        //opacity
-        value: 1.0,
-      },
-    };
-    this.material = new THREE.ShaderMaterial({
-      uniforms: this.uniforms,
-      vertexShader: vertexShader,
-      fragmentShader: fragmentShader,
-      transparent: true,
-      // wireframe: true,
-      side: THREE.DoubleSide,
-    });
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.setDimensions(); // set offset and sizes for placement on the scene
-    // this.mesh.position.set(0, this.offset.y, 0);
-    this.mesh.scale.set(this.sizes.x, this.sizes.y, 1);
 
-    this.scene.add(this.mesh);
-  }
-
-  render() {
-    // this function is repeatidly called for each instance in the aboce
-    this.setDimensions();
-    this.mesh.position.set(this.offset.x, this.offset.y, 0);
-    this.mesh.scale.set(this.sizes.x, this.sizes.y, 1);
-    this.uniforms.uOffset.value.set(
-      this.offset.x * 0.0,
-      -(target - current) * 0.0003
-    );
-  }
 }
+
+class ImageMappedShader extends MeshItem{
+    createMesh() {
+        this.geometry = new THREE.PlaneBufferGeometry(1, 1, 100, 100);
+        this.imageTexture = new THREE.TextureLoader().load(this.element.src);
+        this.uniforms = {
+          uTexture: {
+            //texture data
+            value: this.imageTexture,
+          },
+          uOffset: {
+            //distortion strength
+            value: new THREE.Vector2(0.0, 0.0),
+          },
+          uAlpha: {
+            //opacity
+            value: 1.0,
+          },
+        };
+        this.material = new THREE.ShaderMaterial({
+          uniforms: this.uniforms,
+          vertexShader: vertexShader,
+          fragmentShader: fragmentShader,
+          transparent: true,
+          // wireframe: true,
+          side: THREE.DoubleSide,
+        });
+        this.mesh = new THREE.Mesh(this.geometry, this.material);
+        this.setDimensions(); // set offset and sizes for placement on the scene
+        // this.mesh.position.set(0, this.offset.y, 0);
+        this.mesh.scale.set(this.sizes.x, this.sizes.y, 1);
+    
+        this.scene.add(this.mesh);
+      }
+    
+      render() {
+        // this function is repeatidly called for each instance in the aboce
+        this.setDimensions();
+        this.mesh.position.set(this.offset.x, this.offset.y, 0);
+        this.mesh.scale.set(this.sizes.x, this.sizes.y, 1);
+        this.uniforms.uOffset.value.set(
+          this.offset.x * 0.0,
+          -(target - current) * 0.0003
+        );
+      }
+}
+
+
 
 init();
 new Environment();
