@@ -30,7 +30,7 @@ function smoothScroll() {
   scrollable.style.transform = `translateY(${-current}px)`;
 }
 
-class EffectCanvas {
+class Environment {
   constructor() {
     this.container = document.querySelector("main");
     this.images = [...imageElements];
@@ -170,7 +170,7 @@ class MeshItem {
 }
 
 init();
-new EffectCanvas();
+new Environment();
 
 
 
