@@ -15,23 +15,21 @@ const timeline = gsap.timeline({
   },
 });
 
+function removeLoader() {
+  const element = document.querySelector("#loader");
+  element.parentNode.removeChild(element);
+}
+
 timeline
-  .to("#loader", {
-    opacity: 0,
-    duration: 3,
-  })
   .from("nav", {
     y: -100,
     opacity: 0,
+    delay: 2,
   })
-  .from(
-    "#headshot",
-    {
-      y: -100,
-      opacity: 0,
-    },
-    "<.5"
-  )
+  .from("#headshot", {
+    y: -100,
+    opacity: 0,
+  })
   .from(
     "#site-header",
     {
