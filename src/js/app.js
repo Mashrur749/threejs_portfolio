@@ -3,10 +3,43 @@ import * as THREE from "three";
 import vertexShader from "./shaders/vertexShader.glsl";
 import fragmentShader from "./shaders/fragmentShader.glsl";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
+import gsap from "gsap";
 
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 
 import { CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer.js";
+
+const timeline = gsap.timeline({
+  defaults: {
+    duration: 1,
+  },
+});
+
+timeline
+  .from("nav", {
+    y: -100,
+    opacity: 0,
+  })
+  .from(
+    "#headshot",
+    {
+      y: -100,
+      opacity: 0,
+    },
+    "<.5"
+  )
+  .from(
+    "#site-header",
+    {
+      y: 100,
+      opacity: 0,
+    },
+    "<"
+  )
+  .from(".section-headers", {
+    y: -100,
+    opacity: 0,
+  });
 
 let scrollable = document.querySelector(".scrollable");
 const imageElements = document.querySelectorAll(".bit-map-images");
