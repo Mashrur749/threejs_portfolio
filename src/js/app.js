@@ -1,56 +1,13 @@
 import "../style.css";
+import "./animation";
 import * as THREE from "three";
 import vertexShader from "./shaders/vertexShader.glsl";
 import fragmentShader from "./shaders/fragmentShader.glsl";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
-import gsap from "gsap";
 
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 
 import { CSS3DObject } from "three/examples/jsm/renderers/CSS3DRenderer.js";
-
-const timeline = gsap.timeline({
-  defaults: {
-    duration: 1,
-  },
-});
-
-function removeLoader() {
-  const element = document.querySelector("#loader");
-  element.parentNode.removeChild(element);
-}
-
-timeline
-  .from("nav", {
-    y: -100,
-    opacity: 0,
-    delay: 2,
-  })
-  .from("#headshot", {
-    y: -100,
-    opacity: 0,
-  })
-  .from(
-    "#site-header",
-    {
-      y: 100,
-      opacity: 0,
-    },
-    "<"
-  )
-  .from("#arrow-icon", {
-    opacity: 0,
-  })
-  .from(
-    "#arrow-icon",
-    {
-      y: 20,
-      ease: "power3",
-      repeat: -1,
-      yoyo: true,
-    },
-    "<"
-  );
 
 let scrollable = document.querySelector(".scrollable");
 const imageElements = document.querySelectorAll(".bit-map-images");
