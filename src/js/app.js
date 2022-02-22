@@ -36,10 +36,19 @@ timeline
     },
     "<"
   )
-  .from(".section-headers", {
-    y: -100,
+  .from("#arrow-icon", {
     opacity: 0,
-  });
+  })
+  .from(
+    "#arrow-icon",
+    {
+      y: 20,
+      ease: "power3",
+      repeat: -1,
+      yoyo: true,
+    },
+    "<"
+  );
 
 let scrollable = document.querySelector(".scrollable");
 const imageElements = document.querySelectorAll(".bit-map-images");
@@ -65,7 +74,6 @@ function smoothScroll() {
   current = lerp(current, target, ease);
   scrollable.style.transform = `translateY(${-current}px)`;
 }
-
 class Environment {
   constructor() {
     this.container = document.querySelector("main");

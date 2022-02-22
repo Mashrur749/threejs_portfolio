@@ -9,9 +9,7 @@
     box-sizing: border-box;
     font-family: Harmond;
   }
-  canvas{
-    /* display: none; */
-  }
+
   #loader {
     position: fixed;
     height: 100vh;
@@ -31,7 +29,43 @@
     background-color: #000000;
     height: 100vh;
     width: 100%;
+    font-size: 1em;
   }
+
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  body, html {
+    font-size: .5em;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  body, html {
+    font-size: .7em;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  body, html {
+    font-size: .7em;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  body, html {
+    font-size: .7em;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  body, html {
+    font-size: .7em;
+  }
+}
 
   nav {
     background-color: rgba(0, 0, 0, 0);
@@ -45,13 +79,14 @@
     z-index: 10;
   }
   .social-icons{
-    height: 2.5em;
-    width: 2.5em;
     padding: 5px;
     background-color: rgba(3, 3, 3, 0);
     border-radius: 30%;
     opacity: .7;
     transition: transform .3s, opacity .3s;
+  }
+  .social-icons > img {
+    width: 2.5rem;
   }
 
   .social-icons:hover {
@@ -84,11 +119,6 @@
     margin: 50px 0;
   }
 
-  .container {
-    padding: 20px 0;
-  }
-
-
   
   .section-container {
     position: relative;
@@ -99,22 +129,32 @@
     justify-content: center;
   }
   #headshot{
-    margin-top: 100px;
-    width: 200px;
+    width: 15vw;
+    margin-bottom: 5vh;
+    margin-top: -250px;
     border-radius: 5%;
     opacity: .85;
   }
+  #arrow-icon{
+    position: absolute;
+    bottom: 5vh;
+    height: 5vw;
+    width: 5vw;
+    transform: rotateY(0deg) rotate(45deg);
+    border: #fffefe83 solid .2vw;
+    border-top: none;
+    border-left: none;
+  }
   .section-container.header{
-    height: 50vh;
+    height: 100vh;
     text-align: center;
     padding: 0 20%;
     display: flex;
     flex-direction: column;
   }
   #site-header{
-    font-size: 3em;
+    font-size: 3rem;
     color: antiquewhite;
-    
   }
   a {
     color: white;
@@ -123,6 +163,7 @@
 
   .section-headers{
     text-align: center;
+    font-size: 3rem;
     color: antiquewhite;
   }
 
@@ -151,7 +192,7 @@
   .description-container {
     position: relative;
     width: 40%;
-    font-size: .8em;
+    font-size: 1.5rem;
     top: 15%;
     left: 15%;
     padding: .8em;
@@ -161,7 +202,8 @@
     flex-direction: column;
   }
 
-  .description-container > h1 {
+  .description-container > h2 {
+    font-size: 2.5rem;
     color: antiquewhite;
   }
 
