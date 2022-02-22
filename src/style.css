@@ -179,6 +179,7 @@
   }
 
   .code {
+    font-size: 2rem;
     transition: color .3s;
     z-index: 100;
   }
