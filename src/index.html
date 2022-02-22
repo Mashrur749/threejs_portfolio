@@ -11,26 +11,32 @@
 
 <body>
   <nav class="">
-    <a class="nav-item" target="_blank" class="social-icons" href="https://www.linkedin.com/in/musaddiqur-rahman/">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(235, 235, 235, 0.747)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    <a target="_blank" class="social-icons" href="https://www.linkedin.com/in/musaddiqur-rahman/">
+      <img src="../static/icons/linkedIn.svg" alt="linkedIn">
     </a>
-    <a class="nav-item" class="social-icons" target="_blank" href="https://github.com/Mashrur749">
-      <svg xmlns="http://www.w3.org/2000/svg"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(235, 235, 235, 0.747)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>    </a>
+    <a class="social-icons" target="_blank" href="https://github.com/Mashrur749">
+      <img src="../static/icons/github.svg" alt="github">
+    </a>
   </nav>
   <main>
     <div class="scrollable">
       <div class="container">
         <section>
-          <div class="section-container">
+          <div class="section-container header">
+            <img id="headshot" src="../static/images/headshot.jpg" alt="">
             <h1 id="site-header">
-              Welcome text
-            </h1>
-            <h1>
-              Experience
+              Hi, I'm Mashrur, an aspiring creative developer, Thank you for taking the time to look around, hope you will enjoy the visit.
             </h1>
           </div>
         </section>
 
+        <section>
+          <div class="section-container">
+            <h1>
+              Hi, I'm Mashrur, an aspiring creative developer, Thank you for taking the time to look around, hope you will enjoy the visit.
+            </h1>
+          </div>
+        </section>
 
         <section>
           <h1 class="section-headers">Experiments/Projects</h1>
@@ -38,50 +44,64 @@
             <div class="section-container">
               <div class="description-container">
                 <h1>Animated Galaxy Generator</h1>
-                <p>Something</p>
+                <p>This project was created to practice shader programming in Three.js. Here we create the objects using
+                  point geoemtry and utilize elapsed time factor, along with bounded randomness to generate the galaxy.
+                </p>
               </div>
 
               <img class='bit-map-images' src="../static/images/galaxy.PNG" alt="" />
             </div>
           </a>
+          <div class="code-wrapper"> <a class="code" target="_blank" href="https://github.com/Mashrur749/animated-galaxy-shaders-threejs">&lt;/code&gt;</a></div>
 
-          <a href="https://raging-sea-shaders-practice.vercel.app/" target="_blank">
+          <a href="https://animated-galaxy-rho.vercel.app/" target="_blank">
             <div class="section-container">
               <div class="description-container">
                 <h1>Raging Sea</h1>
-                <p>Something</p>
+                <p>This project is created to learn time based trigonometric animation, where a plane is animated on its X and Z axis against time and 3d perlin noise, also sending the elivation values to fragment shader to calculate the colors based on height of the waves.</p>
               </div>
+
               <img class='bit-map-images' src="../static/images/raging_sea.PNG" alt="" />
             </div>
           </a>
+          <div class="code-wrapper"> <a class="code" target="_blank" href="https://github.com/Mashrur749/raging-sea-learning-shaders">&lt;/code&gt;</a></div>
+
           <a href="https://haunted-house-brown.vercel.app/" target="_blank">
             <div class="section-container">
               <div class="description-container">
                 <h1>Haunted House</h1>
-                <p>Something</p>
+                <p>A 3d stage where lights are animated based on simple sine waves, randomized boxes were used to simulate graves, lighting and fog was added to give the spooky feel.</p>
               </div>
               <img class='bit-map-images' src="../static/images/haunted_house.PNG" alt="" />
             </div>
           </a>
 
+          <div class="code-wrapper"> <a class="code" target="_blank" href="https://github.com/Mashrur749/HuntedHouseProject">&lt;/code&gt;</a> </div>
+
           <a href="https://3js-text-mashrur749.vercel.app/" target="_blank">
             <div class="section-container">
               <div class="description-container">
                 <h1>Appreciation Text</h1>
-                <p>Something</p>
+                <p>This project was created to learn about the font loaders and playing around with the text geoemetry class in Three.js</p>
               </div>
               <img class='bit-map-images' src="../static/images/text.PNG" alt="" />
             </div>
           </a>
+
+          <div class="code-wrapper"> <a class="code" target="_blank" href="https://github.com/Mashrur749/3dTextThreeJS">&lt;/code&gt;</a> </div>
+
+
           <a href="https://pedantic-sinoussi-460749.netlify.app/" target="_blank">
             <div class="section-container">
               <div class="description-container">
                 <h1>Previous Portfolio</h1>
-                <p>Something</p>
+                <p>The previous static portfolio was creating using Gatsby/React and Strapi backend.</p>
               </div>
               <img class='bit-map-images' src="../static/images/old_portfolio.PNG" alt="" />
             </div>
           </a>
+
+          <div class="code-wrapper"> <a class="code" target="_blank" href="https://github.com/Mashrur749/animated-galaxy-shaders-threejs">&lt;/code&gt;</a> </div>
         </section>
       </div>
     </div>

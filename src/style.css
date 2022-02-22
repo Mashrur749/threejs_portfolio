@@ -29,14 +29,24 @@
     gap: 15px;
     z-index: 10;
   }
-  .social-icons embed{
+  .social-icons{
     height: 2.5em;
     width: 2.5em;
     padding: 5px;
     background-color: rgba(3, 3, 3, 0);
     border-radius: 30%;
+    opacity: .7;
+    transition: transform .3s, opacity .3s;
   }
-  
+
+  .social-icons:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+
+
+
   main {
     position: fixed;
     width: 100%;
@@ -63,11 +73,7 @@
     padding: 20px 0;
   }
 
-   #site-header{
-     position: absolute;
-     top: 50px;
-     color: antiquewhite;
-   }
+
   
   .section-container {
     position: relative;
@@ -77,30 +83,27 @@
     align-items: center;
     justify-content: center;
   }
-
+  #headshot{
+    margin-top: 100px;
+    width: 200px;
+    border-radius: 5%;
+    opacity: .85;
+  }
+  .section-container.header{
+    height: 50vh;
+    text-align: center;
+    padding: 0 20%;
+    display: flex;
+    flex-direction: column;
+  }
+  #site-header{
+    font-size: 3em;
+    color: antiquewhite;
+    
+  }
   a {
-    color: #0060B6;
+    color: white;
     text-decoration: none;
-  }
-
-  a:hover {
-      color:#00A0C6; 
-      text-decoration:none; 
-      cursor:pointer;  
-  }
-
-  .description-container{
-    position: relative;
-    left: 0;
-    width: 50vw;
-    font-size: .8em;
-    top: 10%;
-    left: 50%;
-    z-index: 10;
-    padding: .5em;
-    color: #ffffff;
-    mix-blend-mode: difference;
-    background-color: rgb(31, 35, 58);
   }
 
   .section-headers{
@@ -108,12 +111,50 @@
     color: antiquewhite;
   }
 
-  p {
-    color: #ffffff;
+  a:hover {
+    color:rgb(144, 201, 255);
+      cursor:pointer;  
+  }
+
+  .code-wrapper{
+    width: 100%;
+    text-align: right;
+    padding-right: 10%;
+  }
+
+  .code {
+    transition: color .3s;
+    z-index: 100;
+  }
+
+  .code:hover{ 
+    color:rgb(144, 201, 255);
+  }
+
+
+
+  .description-container {
+    position: relative;
+    width: 40%;
+    font-size: .8em;
+    top: 15%;
+    left: 15%;
+    padding: .8em;
     mix-blend-mode: difference;
+    background-color: rgb(31, 35, 58);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .description-container > h1 {
+    color: antiquewhite;
+  }
+
+  .description-container > p {
+    color: #ffffff;
   }
   
-  img {
+  .bit-map-images {
     position: absolute;
     height: 60%;
     opacity: 0;
