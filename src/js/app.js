@@ -16,6 +16,10 @@ const timeline = gsap.timeline({
 });
 
 timeline
+  .to("#loader", {
+    opacity: 0,
+    duration: 3,
+  })
   .from("nav", {
     y: -100,
     opacity: 0,
