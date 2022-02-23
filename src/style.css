@@ -1,291 +1,250 @@
 @font-face {
-    font-family: "Harmond";
-    src: url("/static/fonts/Anton-Regular.ttf") format("opentype");
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Harmond;
-  }
+  font-family: "Harmond";
+  src: url("/static/fonts/Anton-Regular.ttf") format("opentype");
+}
 
-  #loader {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(0, 0, 0);
-    z-index: 100;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Harmond;
+}
 
+#loader {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0);
+  z-index: 100;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  
+body,
+html {
+  overscroll-behavior: none;
+  background-color: #000000;
+  height: 100vh;
+  width: 100%;
+  font-size: 1em;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
   body,
   html {
-    overscroll-behavior: none;
-    background-color: #000000;
-    height: 100vh;
-    width: 100%;
-    font-size: 1em;
-  }
-
-  /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  body, html {
-    font-size: .4em;
+    font-size: 0.4em;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  body, html {
-    font-size: .6em;
+  body,
+  html {
+    font-size: 0.6em;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  body, html {
-    font-size: .7em;
+  body,
+  html {
+    font-size: 0.7em;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  body, html {
-    font-size: .8em;
+  body,
+  html {
+    font-size: 0.8em;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  body, html {
-    font-size: .9em;
+  body,
+  html {
+    font-size: 0.9em;
   }
 }
 
-  nav {
-    background-color: rgba(0, 0, 0, 0);
-    position: fixed;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding: 15px 0;
-    gap: 15px;
-    z-index: 10;
-  }
-  .social-icons{
-    padding: 5px;
-    background-color: rgba(3, 3, 3, 0);
-    border-radius: 30%;
-    opacity: .7;
-    transition: transform .3s, opacity .3s;
-  }
-  .social-icons > img {
-    width: 2.7rem;
-  }
+nav {
+  background-color: rgba(0, 0, 0, 0);
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 15px 0;
+  gap: 15px;
+  z-index: 10;
+}
+.social-icons {
+  padding: 5px;
+  background-color: rgba(3, 3, 3, 0);
+  border-radius: 30%;
+  opacity: 0.7;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.social-icons > img {
+  width: 2.7rem;
+}
 
-  .social-icons:hover {
-    opacity: 1;
-    transform: scale(1.1);
-  }
+.social-icons:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
 
+main {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+}
 
+.scrollable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
 
+section {
+  margin: 50px 0;
+}
 
-  main {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-  }
+.section-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#headshot {
+  width: 30rem;
+  margin-bottom: 5rem;
+  border-radius: 5%;
+  opacity: 0.85;
+}
+#arrow-icon {
+  position: absolute;
+  bottom: 10vh;
+  height: 5rem;
+  width: 5rem;
+  transform: rotateY(0deg) rotate(45deg);
+  border: #fffefe83 solid 0.2vw;
+  border-top: none;
+  border-left: none;
+}
+.section-container.header {
+  height: 100vh;
+  text-align: center;
+  padding: 0 20%;
+  display: flex;
+  flex-direction: column;
+}
+#site-header {
+  font-size: 3rem;
+  color: antiquewhite;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
 
-  
-  .scrollable {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    will-change: transform;
-  }
+.section-headers {
+  text-align: center;
+  font-size: 3rem;
+  color: antiquewhite;
+}
 
-  section {
-    margin: 50px 0;
-  }
+a:hover {
+  color: rgb(144, 201, 255);
+  cursor: pointer;
+}
 
-  
-  .section-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #headshot{
-    width: 30rem;
-    margin-bottom: 5rem;
-    border-radius: 5%;
-    opacity: .85;
-  }
-  #arrow-icon{
-    position: absolute;
-    bottom: 10vh;
-    height: 5rem;
-    width: 5rem;
-    transform: rotateY(0deg) rotate(45deg);
-    border: #fffefe83 solid .2vw;
-    border-top: none;
-    border-left: none;
-  }
-  .section-container.header{
-    height: 100vh;
-    text-align: center;
-    padding: 0 20%;
-    display: flex;
-    flex-direction: column;
-  }
-  #site-header{
-    font-size: 3rem;
-    color: antiquewhite;
-  }
-  a {
-    color: white;
-    text-decoration: none;
-  }
+.code-wrapper {
+  width: 100%;
+  text-align: right;
+  padding-right: 10%;
+}
 
-  .section-headers{
-    text-align: center;
-    font-size: 3rem;
-    color: antiquewhite;
-  }
+.code {
+  font-size: 2rem;
+  transition: color 0.3s;
+  z-index: 100;
+}
 
-  a:hover {
-    color:rgb(144, 201, 255);
-      cursor:pointer;  
-  }
+.code:hover {
+  color: rgb(144, 201, 255);
+}
 
-  .code-wrapper{
-    width: 100%;
-    text-align: right;
-    padding-right: 10%;
-  }
+.description-container {
+  position: relative;
+  width: 40%;
+  font-size: 1.5rem;
+  top: 15%;
+  left: 15%;
+  padding: 0.8em;
+  mix-blend-mode: difference;
+  background-color: rgb(31, 35, 58);
+  display: flex;
+  flex-direction: column;
+}
 
-  .code {
-    font-size: 2rem;
-    transition: color .3s;
-    z-index: 100;
-  }
+.description-container > h2 {
+  font-size: 2.5rem;
+  color: antiquewhite;
+}
 
-  .code:hover{ 
-    color:rgb(144, 201, 255);
-  }
+.description-container > p {
+  color: #ffffff;
+}
 
+.bit-map-images {
+  position: absolute;
+  height: 60%;
+  opacity: 0;
+}
 
+canvas {
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  left: 0;
+}
 
-  .description-container {
-    position: relative;
-    width: 40%;
-    font-size: 1.5rem;
-    top: 15%;
-    left: 15%;
-    padding: .8em;
-    mix-blend-mode: difference;
-    background-color: rgb(31, 35, 58);
-    display: flex;
-    flex-direction: column;
-  }
+#info {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  display: block;
+}
 
-  .description-container > h2 {
-    font-size: 2.5rem;
-    color: antiquewhite;
-  }
+/* Loader */
 
-  .description-container > p {
-    color: #ffffff;
-  }
-  
-  .bit-map-images {
-    position: absolute;
-    height: 60%;
-    opacity: 0;
-  }
-  
-  canvas {
-    position: fixed;
-    z-index: -10;
-    top: 0;
-    left: 0;
-  }
+#loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
 
-
-  #info {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    text-align: center;
-    z-index: 100;
-    display:block;
-  }
-
-
-
-  /* Loader */
-
-  #loader{
-    position: fixed;
-    display: flex;
-    align-items: center;
-    transform: scale(5);
-    animation: hide-after-animation 4s cubic-bezier(0, 0.4, 0.8, 1) forwards;
-  }
-
-
-  .lds-ripple {
-    display: inline-block;
-    position: relative;
-    width: 100px;
-    height: 100px;
-  }
-  .lds-ripple div {
-    position: absolute;
-    border: 4px solid #fff;
-    opacity: 1;
-    border-radius: 50%;
-    animation: lds-ripple 2s cubic-bezier(0, 0.4, 0.8, 1) forwards;
-  }
-
-  @keyframes hide-after-animation {
-    0%{
-      visibility:visible;
-    }
-    100%{
-      visibility: "hidden";
-      z-index: -10;
-    }
-  }
-
-  @keyframes lds-ripple {
-    0% {
-      width: 0;
-      height: 0;
-      opacity: 1;
-    }
-    100% {
-      top: 0px;
-      left: 0px;
-      width: 72px;
-      height: 72px;
-      opacity: 0;
-      visibility: "hidden";
-      z-index: -10;
-    }
-  }
-  
+.ripple {
+  position: fixed;
+  border-radius: 50%;
+  transform: scale(5);
+  height: 25vw;
+  width: 25vw;
+  opacity: 0;
+  border: rgba(255, 255, 255, 0.616) 5px solid;
+  z-index: 10;
+}
