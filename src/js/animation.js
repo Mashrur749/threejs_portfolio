@@ -31,6 +31,7 @@ timeline
       opacity: 0,
       visibility: "hidder",
       duration: 2,
+      zIndex: -10,
     },
     "<"
   )
