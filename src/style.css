@@ -87,13 +87,13 @@ nav {
   background-color: rgba(3, 3, 3, 0);
   border-radius: 30%;
   opacity: 0.7;
-  transition: transform 0.3s, opacity 0.3s;
 }
 .social-icons > img {
   width: 2.7rem;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
-.social-icons:hover {
+.social-icons:hover > img {
   opacity: 1;
   transform: scale(1.1);
 }

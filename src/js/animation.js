@@ -10,6 +10,7 @@ timeline
   .from(".ripple", {
     x: -0,
     y: -120,
+    delay: 0.3,
   })
   .from(
     ".ripple",
