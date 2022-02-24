@@ -247,3 +247,17 @@ canvas {
   border: rgba(255, 255, 255, 0.616) 10px solid;
   z-index: 10;
 }
+
+#contact-form{
+  width: 5vw;
+  height: 10vh;
+  color:rgba(255, 255, 255, 0.616);
+  display: hidden;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+}
+
+.contact:hover  > #contact-form{
+  opacity: 1;
+  display: block;
+}

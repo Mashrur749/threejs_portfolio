@@ -24,15 +24,22 @@
     <a class="social-icons" title="Bandcamp" target="_blank" href="https://mashrur.bandcamp.com/">
       <img src="../static/icons/music.svg" alt="music">
     </a>
-    <a class="social-icons" title="Contact Me" target="#">
+    <a class="social-icons contact" title="Contact Me" target="#">
       <img src="../static/icons/message-circle.svg" alt="message">
+      <form action="https://formspree.io/f/xgeppjgp" id="contact-form" method="POST">
+        <label>
+          Your email:
+          <input type="email" name="email">
+        </label>
+        <label>
+          Your message:
+          <textarea name="message"></textarea>
+        </label>
+        <!-- your other form fields go here -->
+        <button type="submit">Send</button>
+      </form>
     </a>
   </nav>
-  <!-- <div id="loader">
-    <div>
-      Bla
-    </div>
-  </div> -->
   <main>
     <div class="scrollable">
       <div class="container">
@@ -40,7 +47,8 @@
           <div class="section-container header">
             <img id="headshot" src="../static/images/headshot.jpg" alt="">
             <h1 id="site-header">
-              Hi, I'm Mashrur, an aspiring creative developer, Thank you for taking the time to look around, hope you'll enjoy the visit.
+              Hi, I'm Mashrur, an aspiring creative developer, Thank you for taking the time to look around, hope you'll
+              enjoy the visit.
             </h1>
             <div id="arrow-icon"></div>
           </div>
