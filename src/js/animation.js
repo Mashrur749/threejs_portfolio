@@ -9,23 +9,22 @@ const timeline = gsap.timeline({
 timeline
   .from(".ripple", {
     x: -0,
-    y: -120,
+    y: -150,
     delay: 0.3,
+    border: 15,
+    opacity: 1,
   })
-  .from(
-    ".ripple",
-    {
-      opacity: 0,
-      height: 0,
-      width: 0,
-      opacity: 1,
-      ease: "Sine.easeOut",
-      duration: 3,
-      stagger: 0.15,
-      delay: 0.5,
-    },
-    "<.3"
-  )
+  .from(".ripple", {
+    opacity: 0,
+    height: 0,
+    width: 0,
+    border: 30,
+    opacity: 0.7,
+    ease: "Sine.easeOut",
+    duration: 3,
+    stagger: 0.15,
+    delay: 0.5,
+  })
   .to(
     "#loader",
     {

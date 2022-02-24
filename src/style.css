@@ -241,10 +241,9 @@ canvas {
 .ripple {
   position: fixed;
   border-radius: 50%;
-  transform: scale(5);
-  height: 25vw;
-  width: 25vw;
+  height: 200vw;
+  width: 200vw;
   opacity: 0;
-  border: rgba(255, 255, 255, 0.616) 5px solid;
+  border: rgba(255, 255, 255, 0.616) 10px solid;
   z-index: 10;
 }
