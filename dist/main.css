@@ -248,14 +248,72 @@ canvas {
   z-index: 10;
 }
 
-#contact-form{
-  width: 5vw;
-  height: 10vh;
-  color:rgba(255, 255, 255, 0.616);
-  display: hidden;
-  opacity: 0;
-  transition: opacity .5s ease-in-out;
+
+#form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  visibility: "hidden";
+  z-index: -10;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+
+#contact-form{
+  color:rgba(255, 255, 255, 0.616);
+  transition: opacity .5s ease-in-out;
+  padding: 2rem 2rem;
+  z-index: 10;
+  position: relative;
+  display: flex;
+  width: 60rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#close-form {
+  color:rgba(255, 255, 255, 0.616);
+  border-radius: 25%;
+  position: absolute;
+  opacity: .8;
+  right: 1.5rem;
+  top: 0;
+  margin-top: -1rem;
+  transition: opacity .5s;
+  font-size: 1.5rem;
+}
+
+#close-form:hover {
+  opacity: 1;
+}
+
+
+label, label > *{
+  width: 100%;
+}
+
+#contact-form > button {
+  width: 20vw;
+  height: 5vh;
+  cursor: pointer;
+  opacity: .8;
+}
+
+
+
+
+#contact-form > button:hover {
+  opacity: 1
+}
+
 
 .contact:hover  > #contact-form{
   opacity: 1;
