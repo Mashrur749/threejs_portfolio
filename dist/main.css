@@ -255,11 +255,11 @@ canvas {
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 1;
+  opacity: 0;
   visibility: "hidden";
   z-index: -10;
   background-color: black;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -289,6 +289,7 @@ canvas {
   margin-top: -1rem;
   transition: opacity .5s;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 #close-form:hover {

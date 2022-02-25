@@ -1,16 +1,14 @@
 import gsap from "gsap";
 
-const timeline = gsap.timeline({
-  defaults: {
-    duration: 1,
-  },
-});
-
 const formContainer = document.querySelector("#form-container");
 
 const hideForm = (e) => {
   if (e.target.classList.toString().includes("hide-form")) {
-    let t1 = gsap.timeline();
+    let t1 = gsap.timeline({
+      onComplete: () => {
+        formContainer.style.display = "none";
+      },
+    });
     t1.to(formContainer, {
       opacity: 0,
       duration: 0.5,
@@ -29,6 +27,7 @@ const showForm = (e) => {
     e.target.id.toLowerCase() === "nav-contact-btn" ||
     e.target.id === "nav-contact-icon"
   ) {
+    formContainer.style.display = "flex";
     let t1 = gsap.timeline();
     t1.to(formContainer, {
       opacity: 1,
@@ -48,6 +47,12 @@ document.querySelector(".contact").addEventListener("click", showForm);
 formContainer.addEventListener("click", hideForm);
 
 document.querySelector("#close-form").addEventListener("click", hideForm);
+
+const timeline = gsap.timeline({
+  defaults: {
+    duration: 1,
+  },
+});
 
 timeline
   .from(".ripple", {
