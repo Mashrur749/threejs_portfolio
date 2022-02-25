@@ -10,10 +10,10 @@
 </head>
 
 <body>
-  <div id="loader">
+  <!-- <div id="loader">
     <div class="ripple"></div>
     <div class="ripple"></div>
-  </div>
+  </div> -->
   <nav class="">
     <a target="_blank" title="LinkedIn" class="social-icons" href="https://www.linkedin.com/in/musaddiqur-rahman/">
       <img src="../static/icons/linkedIn.svg" alt="linkedIn">
@@ -24,22 +24,29 @@
     <a class="social-icons" title="Bandcamp" target="_blank" href="https://mashrur.bandcamp.com/">
       <img src="../static/icons/music.svg" alt="music">
     </a>
-    <a class="social-icons contact" title="Contact Me" target="#">
-      <img src="../static/icons/message-circle.svg" alt="message">
-      <form action="https://formspree.io/f/xgeppjgp" id="contact-form" method="POST">
+    <a class="social-icons contact" id="nav-contact-btn" title="Contact Me" target="#">
+      <img src="../static/icons/message-circle.svg" alt="message" id="nav-contact-icon">
+    </a>
+
+    <div id="form-container" class="hide-form">
+
+      <form action="https://formspree.io/f/xgeppjgp" id="contact-form" method="POST">     
+        <span id="close-form" class="hide-form"> X </span>
+ 
         <label>
-          Your email:
+          Your email: </br>
           <input type="email" name="email">
         </label>
         <label>
-          Your message:
+          Your message: </br>
           <textarea name="message"></textarea>
         </label>
         <!-- your other form fields go here -->
         <button type="submit">Send</button>
       </form>
-    </a>
-  </nav>
+    </div>
+
+      </nav>
   <main>
     <div class="scrollable">
       <div class="container">
