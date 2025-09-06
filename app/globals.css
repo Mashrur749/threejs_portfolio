@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* black */
+    --foreground: 0 0% 100%; /* white */
+    
+    --card: 0 0% 25%; /* zinc-700 */
+    --card-foreground: 0 0% 96%; /* zinc-100 */
+    
+    --popover: 0 0% 9%; /* zinc-900 */
+    --popover-foreground: 0 0% 96%; /* zinc-100 */
+    
+    --primary: 25 95% 53%; /* orange-500 */
+    --primary-foreground: 0 0% 100%; /* white */
+    
+    --secondary: 0 0% 16%; /* zinc-800 */
+    --secondary-foreground: 0 0% 96%; /* zinc-100 */
+    
+    --muted: 0 0% 16%; /* zinc-800 */
+    --muted-foreground: 0 0% 64%; /* zinc-400 */
+    
+    --accent: 25 95% 53%; /* orange-500 */
+    --accent-foreground: 0 0% 100%; /* white */
+    
+    --destructive: 0 84% 60%; /* red-500 */
+    --destructive-foreground: 0 0% 100%; /* white */
+    
+    --border: 0 0% 25%; /* zinc-700 */
+    --input: 0 0% 25%; /* zinc-700 */
+    --ring: 25 95% 53%; /* orange-500 */
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 96%;
+    
+    --card: 0 0% 25%;
+    --card-foreground: 0 0% 96%;
+    
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+    
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 96%;
+    
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 64%;
+    
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 96%;
+    
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 25 95% 53%;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  p {
+    line-height: 1.7;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-zinc-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-600;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent;
+  }
+
+  .glass-effect {
+    @apply bg-zinc-900/50 backdrop-blur-lg border border-zinc-800 rounded-2xl;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .glow-border {
+    @apply relative before:absolute before:inset-0 before:rounded-2xl before:p-[2px] before:bg-gradient-to-r before:from-brand-primary before:to-brand-primary-light before:-z-10 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300;
+  }
+
+  .btn-primary {
+    @apply px-8 py-4 bg-brand-primary text-white rounded-lg font-medium hover:bg-brand-primary-dark transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 glass-effect text-white rounded-lg font-medium hover:bg-zinc-800/80 transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
