@@ -6,39 +6,39 @@ import Image from 'next/image'
 
 const projects = [
   {
-    title: 'Next.js Enterprise Landing System (AT&T)',
-    description: 'Full-stack Next.js application with ISR, API routes, and edge middleware handling millions of monthly visits',
+    title: 'Offer Creation Engine (AT&T)',
+    description: 'Architected engine that reduced deployment time for landing page updates by 300x, serving millions of monthly visits',
     image: '/projects/landing-system.jpg',
-    tech: ['Next.js 14', 'API Routes', 'ISR', 'Edge Middleware', 'PostgreSQL'],
+    tech: ['React', 'Next.js', 'AWS', 'CMS', 'TypeScript'],
     metrics: {
-      performance: '99.9% uptime',
-      speed: '300x faster deploys',
-      scale: 'Millions of visits'
+      deployment: '300x faster',
+      scale: 'Millions of visits',
+      time: 'Hours vs Days'
     },
     link: '#',
     featured: true
   },
   {
-    title: 'Full-Stack QA Automation Platform',
-    description: 'Next.js dashboard with Node.js backend APIs for automated content validation, reducing QA time by 60%',
+    title: 'QA Automation Tool',
+    description: 'Initiated and led development of content validation tool, cutting QA time from 2 hours to 30 minutes',
     image: '/projects/qa-tool.jpg',
-    tech: ['Next.js', 'Node.js APIs', 'PostgreSQL', 'TypeScript', 'CI/CD'],
+    tech: ['JavaScript', 'Node.js', 'Automation', 'CI/CD'],
     metrics: {
-      timeSaved: '30 hrs/week',
-      accuracy: '100%',
-      adoption: '5 teams'
+      timeSaved: '25-30 hrs bi-weekly',
+      errorReduction: '80%',
+      detection: '5 min MTTR'
     },
     link: '#'
   },
   {
-    title: 'GraphQL + Next.js Integration',
-    description: 'Full-stack GraphQL implementation with Next.js, automatic type generation, and optimized data fetching',
+    title: 'GraphQL Codegen Implementation',
+    description: 'Built GraphQL codegen system automating TypeScript type generation, saving hours on every backend update',
     image: '/projects/graphql.jpg',
-    tech: ['Next.js', 'GraphQL', 'Apollo', 'TypeScript', 'Codegen'],
+    tech: ['GraphQL', 'TypeScript', 'Code Generation', 'Node.js'],
     metrics: {
       devTime: 'Hours saved daily',
-      errors: '80% reduction',
-      dx: 'Loved by team'
+      errors: '35% fewer review loops',
+      automation: 'Full type safety'
     },
     link: '#'
   },
@@ -91,7 +91,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`glass-effect overflow-hidden hover-lift transition-all duration-300 ${
+              className={`glass-effect overflow-hidden hover-lift hover:bg-zinc-800/60 transition-all duration-300 ${
                 project.featured ? 'md:col-span-2 lg:col-span-2' : ''
               }`}
             >

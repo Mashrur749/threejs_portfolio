@@ -137,11 +137,11 @@
   }
 
   .btn-primary {
-    @apply px-8 py-4 bg-brand-primary text-white rounded-lg font-medium hover:bg-brand-primary-dark transition-colors;
+    @apply px-8 py-4 bg-brand-primary text-white rounded-lg font-medium hover:bg-brand-primary-dark hover:text-white transition-all;
   }
 
   .btn-secondary {
-    @apply px-8 py-4 glass-effect text-white rounded-lg font-medium hover:bg-zinc-800/80 transition-colors;
+    @apply px-8 py-4 bg-zinc-900/50 backdrop-blur-lg border border-zinc-800 text-zinc-100 rounded-lg font-medium hover:bg-zinc-800 hover:border-zinc-700 hover:text-white transition-all;
   }
 }
 

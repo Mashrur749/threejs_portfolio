@@ -7,6 +7,7 @@ import Achievements from '@/components/Achievements'
 import Projects from '@/components/Projects'
 import Experience from '@/components/Experience'
 import TechStack from '@/components/TechStack'
+import WhyHireMe from '@/components/WhyHireMe'
 import Contact from '@/components/Contact'
 import Navigation from '@/components/Navigation'
 
@@ -34,6 +35,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <TechStack />
+        <WhyHireMe />
         <Contact />
       </main>
     </>

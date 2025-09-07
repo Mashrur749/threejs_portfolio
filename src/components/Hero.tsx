@@ -29,7 +29,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 mb-8"
           >
             <span className="w-2 h-2 bg-brand-primary rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-brand-primary">Senior Full-Stack Developer • Next.js Expert</span>
+            <span className="text-sm font-medium text-brand-primary">Senior Full-Stack Developer • React & Next.js</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -50,7 +50,7 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="text-2xl md:text-3xl mb-8 text-zinc-100 font-medium"
           >
-            Senior Next.js Developer • Full-Stack Engineer
+            Senior Developer • Full-Stack Engineer
           </motion.p>
 
           {/* Value Proposition */}
@@ -60,10 +60,10 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="text-lg md:text-xl text-zinc-300 mb-12 leading-relaxed"
           >
-            Currently shipping <span className="text-brand-primary font-bold">Next.js applications at scale</span> for AT&T at Critical Mass.
-            I&apos;ve reduced deployment times by 300x, automated 60% of QA processes, and 
-            architected full-stack solutions handling millions of visits. 
-            <span className="text-zinc-100 font-semibold">I&apos;m the senior developer who ships fast, scales reliably, and delivers measurable ROI.</span>
+            Currently building <span className="text-brand-primary font-bold">enterprise web applications</span> for AT&T at Critical Mass.
+            I&apos;ve reduced deployment times by 300x, cut QA validation time by 60%, and 
+            architected solutions handling millions of monthly visits. 
+            <span className="text-zinc-100 font-semibold">I&apos;m a senior developer who ships fast, scales reliably, and delivers measurable ROI.</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -77,7 +77,7 @@ export default function Hero() {
               href="#experience"
               className="btn-primary"
             >
-              See My Next.js Work
+              See My Work
             </a>
             <a
               href="#contact"
@@ -95,10 +95,10 @@ export default function Hero() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
           >
             {[
-              { label: 'Next.js Experience', value: '3+ Years' },
+              { label: 'Years Experience', value: '5+' },
               { label: 'Deployment Speed', value: '300x Faster' },
-              { label: 'Full-Stack APIs', value: '50+ Built' },
-              { label: 'Production Apps', value: 'Millions Served' },
+              { label: 'QA Time Saved', value: '60%' },
+              { label: 'Users Served', value: 'Millions' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl font-bold gradient-text">{stat.value}</div>

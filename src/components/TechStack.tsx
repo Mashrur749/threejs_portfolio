@@ -81,7 +81,7 @@ export default function TechStack() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="glass-effect p-6"
+              className="glass-effect p-6 hover:bg-zinc-800/60 transition-all"
             >
               <h3 className="text-xl font-bold mb-4 text-brand-primary">
                 {category.title}

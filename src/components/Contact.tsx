@@ -95,7 +95,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/musaddiqur-rahman/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-colors"
+                className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-zinc-800/70 transition-all"
               >
                 <span className="text-2xl">💼</span>
                 <div>
@@ -108,7 +108,7 @@ export default function Contact() {
                 href="https://github.com/Mashrur749"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-white/10 transition-colors"
+                className="flex items-center gap-4 p-4 glass-effect rounded-lg hover:bg-zinc-800/70 transition-all"
               >
                 <span className="text-2xl">🐙</span>
                 <div>
@@ -144,7 +144,7 @@ export default function Contact() {
                   required
                   value={formState.email}
                   onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg focus:outline-none focus:border-brand-primary focus:bg-zinc-900/80 transition-all text-zinc-100"
+                  className="w-full px-4 py-3 bg-zinc-900/50 border border-zinc-700 rounded-lg hover:bg-zinc-900/70 hover:border-zinc-600 focus:outline-none focus:border-brand-primary focus:bg-zinc-900/80 transition-all text-zinc-100 placeholder:text-zinc-500"
                   placeholder="you@company.com"
                 />
               </div>
@@ -167,7 +167,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={formState.sending}
-                className="w-full py-4 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-4 bg-brand-primary text-white rounded-lg font-medium hover:bg-brand-primary-dark hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {formState.sending ? 'Sending...' : 'Send Message'}
               </button>

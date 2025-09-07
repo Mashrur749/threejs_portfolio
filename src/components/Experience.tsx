@@ -6,16 +6,16 @@ import { useInView } from 'react-intersection-observer'
 const experiences = [
   {
     company: 'Critical Mass',
-    role: 'Senior Developer (Next.js & Full-Stack)',
+    role: 'Senior Developer',
     period: 'April 2022 - Present',
     highlights: [
-      'Lead Next.js development for AT&T enterprise landing pages serving millions monthly',
-      'Architected full-stack offer creation engine reducing deployment by 300x using Next.js ISR',
-      'Built 20+ Next.js API routes for real-time package availability and personalization',
-      'Implemented GraphQL codegen with Next.js, automating TypeScript types across stack',
-      'Reduced QA time by 60% through Next.js-based automation tools'
+      'Architected offer creation engine reducing deployment time by 300x for AT&T landing pages',
+      'Led client API integration efforts enabling real-time package availability checks',
+      'Implemented GraphQL codegen saving hours on every backend update',
+      'Initiated and led QA automation tool development, cutting validation time by 60%',
+      'Mentored junior developers and improved onboarding efficiency'
     ],
-    tech: ['Next.js 14', 'TypeScript', 'GraphQL', 'Node.js', 'AWS', 'PostgreSQL'],
+    tech: ['Next.js', 'React', 'TypeScript', 'GraphQL', 'Node.js', 'AWS'],
     type: 'Enterprise • Full-Stack'
   },
   {
@@ -77,7 +77,7 @@ export default function Experience() {
               initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-effect p-8"
+              className="glass-effect p-8 hover:bg-zinc-800/60 transition-all"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                 <div>
