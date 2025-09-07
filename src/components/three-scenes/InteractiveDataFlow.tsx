@@ -1,41 +1,43 @@
-'use client'
+"use client";
 
-import { useRef, useState, useMemo } from 'react'
-import { useFrame, useThree } from '@react-three/fiber'
-import { Text, Box, Sphere, Line } from '@react-three/drei'
-import * as THREE from 'three'
+import { useRef, useState, useMemo } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
+import { Text, Box, Sphere, Line } from "@react-three/drei";
+import * as THREE from "three";
+import React from "react";
+import { Line2, LineSegments2 } from "three/examples/jsm/Addons.js";
 
 interface DataPacket {
-  id: number
-  position: THREE.Vector3
-  target: THREE.Vector3
-  color: string
-  speed: number
-  active: boolean
+  id: number;
+  position: THREE.Vector3;
+  target: THREE.Vector3;
+  color: string;
+  speed: number;
+  active: boolean;
 }
 
-function DataNode({ 
-  position, 
-  label, 
+function DataNode({
+  position,
+  label,
   color = "#f97316",
-  onClick 
-}: { 
-  position: [number, number, number]
-  label: string
-  color?: string
-  onClick?: () => void
+  onClick,
+}: {
+  position: [number, number, number];
+  label: string;
+  color?: string;
+  onClick?: () => void;
 }) {
-  const meshRef = useRef<THREE.Mesh>(null)
-  const [hovered, setHovered] = useState(false)
-  
+  const meshRef = useRef<THREE.Mesh>(null);
+  const [hovered, setHovered] = useState(false);
+
   useFrame((state) => {
     if (meshRef.current) {
       meshRef.current.scale.setScalar(
         1 + Math.sin(state.clock.elapsedTime * 2) * 0.05 + (hovered ? 0.2 : 0)
-      )
+      );
     }
-  })
-  
+  });
+
   return (
     <group position={position}>
       <mesh
@@ -62,30 +64,30 @@ function DataNode({
         {label}
       </Text>
     </group>
-  )
+  );
 }
 
 function DataPacketMesh({ packet }: { packet: DataPacket }) {
-  const meshRef = useRef<THREE.Mesh>(null)
-  
+  const meshRef = useRef<THREE.Mesh>(null);
+
   useFrame(() => {
     if (meshRef.current && packet.active) {
       // Move packet towards target
-      const current = meshRef.current.position
-      const target = packet.target
-      
-      current.lerp(target, packet.speed)
-      
+      const current = meshRef.current.position;
+      const target = packet.target;
+
+      current.lerp(target, packet.speed);
+
       // Check if reached target
       if (current.distanceTo(target) < 0.1) {
         // Reset to start position
-        current.copy(packet.position)
+        current.copy(packet.position);
       }
     }
-  })
-  
-  if (!packet.active) return null
-  
+  });
+
+  if (!packet.active) return null;
+
   return (
     <mesh ref={meshRef} position={packet.position.toArray()}>
       <sphereGeometry args={[0.1, 16, 16]} />
@@ -95,27 +97,28 @@ function DataPacketMesh({ packet }: { packet: DataPacket }) {
         emissiveIntensity={1}
       />
     </mesh>
-  )
+  );
 }
 
-function NetworkConnection({ 
-  start, 
-  end, 
-  active = false 
-}: { 
-  start: [number, number, number]
-  end: [number, number, number]
-  active?: boolean
+function NetworkConnection({
+  start,
+  end,
+  active = false,
+}: {
+  start: [number, number, number];
+  end: [number, number, number];
+  active?: boolean;
 }) {
-  const lineRef = useRef<THREE.Line>(null)
-  
+  const lineRef = React.createRef<Line2 | LineSegments2>();
+
   useFrame((state) => {
     if (lineRef.current && active) {
-      const material = lineRef.current.material as THREE.LineBasicMaterial
-      material.opacity = 0.3 + Math.sin(state.clock.elapsedTime * 3) * 0.2
+      const material = lineRef.current
+        .material as unknown as THREE.LineBasicMaterial;
+      material.opacity = 0.3 + Math.sin(state.clock.elapsedTime * 3) * 0.2;
     }
-  })
-  
+  });
+
   return (
     <Line
       ref={lineRef}
@@ -125,77 +128,102 @@ function NetworkConnection({
       opacity={active ? 0.5 : 0.2}
       transparent
     />
-  )
+  );
 }
 
 export function InteractiveDataFlow() {
-  const [activeConnections, setActiveConnections] = useState<Set<string>>(new Set())
-  const [packets, setPackets] = useState<DataPacket[]>([])
-  const nextPacketId = useRef(0)
-  
+  const [activeConnections, setActiveConnections] = useState<Set<string>>(
+    new Set()
+  );
+  const [packets, setPackets] = useState<DataPacket[]>([]);
+  const nextPacketId = useRef(0);
+
   // Node positions
   const nodes = [
-    { pos: [0, 3, 0] as [number, number, number], label: 'Client', color: '#00dfd8' },
-    { pos: [-3, 1, 0] as [number, number, number], label: 'CDN', color: '#f97316' },
-    { pos: [3, 1, 0] as [number, number, number], label: 'API', color: '#f97316' },
-    { pos: [-2, -1, 0] as [number, number, number], label: 'Cache', color: '#fb923c' },
-    { pos: [2, -1, 0] as [number, number, number], label: 'Database', color: '#fb923c' },
-    { pos: [0, -3, 0] as [number, number, number], label: 'Server', color: '#00dfd8' },
-  ]
-  
+    {
+      pos: [0, 3, 0] as [number, number, number],
+      label: "Client",
+      color: "#00dfd8",
+    },
+    {
+      pos: [-3, 1, 0] as [number, number, number],
+      label: "CDN",
+      color: "#f97316",
+    },
+    {
+      pos: [3, 1, 0] as [number, number, number],
+      label: "API",
+      color: "#f97316",
+    },
+    {
+      pos: [-2, -1, 0] as [number, number, number],
+      label: "Cache",
+      color: "#fb923c",
+    },
+    {
+      pos: [2, -1, 0] as [number, number, number],
+      label: "Database",
+      color: "#fb923c",
+    },
+    {
+      pos: [0, -3, 0] as [number, number, number],
+      label: "Server",
+      color: "#00dfd8",
+    },
+  ];
+
   const connections = [
-    { start: nodes[0].pos, end: nodes[1].pos, id: '0-1' },
-    { start: nodes[0].pos, end: nodes[2].pos, id: '0-2' },
-    { start: nodes[1].pos, end: nodes[3].pos, id: '1-3' },
-    { start: nodes[2].pos, end: nodes[4].pos, id: '2-4' },
-    { start: nodes[3].pos, end: nodes[5].pos, id: '3-5' },
-    { start: nodes[4].pos, end: nodes[5].pos, id: '4-5' },
-    { start: nodes[1].pos, end: nodes[5].pos, id: '1-5' },
-    { start: nodes[2].pos, end: nodes[5].pos, id: '2-5' },
-  ]
-  
+    { start: nodes[0].pos, end: nodes[1].pos, id: "0-1" },
+    { start: nodes[0].pos, end: nodes[2].pos, id: "0-2" },
+    { start: nodes[1].pos, end: nodes[3].pos, id: "1-3" },
+    { start: nodes[2].pos, end: nodes[4].pos, id: "2-4" },
+    { start: nodes[3].pos, end: nodes[5].pos, id: "3-5" },
+    { start: nodes[4].pos, end: nodes[5].pos, id: "4-5" },
+    { start: nodes[1].pos, end: nodes[5].pos, id: "1-5" },
+    { start: nodes[2].pos, end: nodes[5].pos, id: "2-5" },
+  ];
+
   const handleNodeClick = (nodeIndex: number) => {
     // Create data packets from this node
-    const node = nodes[nodeIndex]
+    const node = nodes[nodeIndex];
     const targetNodes = connections
-      .filter(c => 
-        (c.start === node.pos || c.end === node.pos)
-      )
-      .map(c => c.start === node.pos ? c.end : c.start)
-    
-    const newPackets: DataPacket[] = targetNodes.map(target => ({
+      .filter((c) => c.start === node.pos || c.end === node.pos)
+      .map((c) => (c.start === node.pos ? c.end : c.start));
+
+    const newPackets: DataPacket[] = targetNodes.map((target) => ({
       id: nextPacketId.current++,
       position: new THREE.Vector3(...node.pos),
       target: new THREE.Vector3(...target),
       color: node.color,
       speed: 0.02 + Math.random() * 0.02,
-      active: true
-    }))
-    
-    setPackets(prev => [...prev.slice(-20), ...newPackets]) // Keep only last 20 packets
-    
+      active: true,
+    }));
+
+    setPackets((prev) => [...prev.slice(-20), ...newPackets]); // Keep only last 20 packets
+
     // Activate connections
-    const newActive = new Set(activeConnections)
+    const newActive = new Set(activeConnections);
     connections
-      .filter(c => c.start === node.pos || c.end === node.pos)
-      .forEach(c => newActive.add(c.id))
-    
-    setActiveConnections(newActive)
-    
+      .filter((c) => c.start === node.pos || c.end === node.pos)
+      .forEach((c) => newActive.add(c.id));
+
+    setActiveConnections(newActive);
+
     // Deactivate after animation
     setTimeout(() => {
-      setActiveConnections(new Set())
-    }, 2000)
-  }
-  
+      setActiveConnections(new Set());
+    }, 2000);
+  };
+
   // Auto-trigger random flows
   useFrame((state) => {
-    if (Math.random() < 0.005) { // 0.5% chance per frame
-      const randomNode = Math.floor(Math.random() * nodes.length)
-      handleNodeClick(randomNode)
+    if (Math.random() < 0.005) {
+      // 0.5% chance per frame
+      const randomNode = Math.floor(Math.random() * nodes.length);
+      handleNodeClick(randomNode);
     }
-  })
-  
+  });
+
   return (
     <group>
       {/* Nodes */}
@@ -208,7 +236,7 @@ export function InteractiveDataFlow() {
           onClick={() => handleNodeClick(i)}
         />
       ))}
-      
+
       {/* Connections */}
       {connections.map((conn) => (
         <NetworkConnection
@@ -218,12 +246,12 @@ export function InteractiveDataFlow() {
           active={activeConnections.has(conn.id)}
         />
       ))}
-      
+
       {/* Data Packets */}
-      {packets.map(packet => (
+      {packets.map((packet) => (
         <DataPacketMesh key={packet.id} packet={packet} />
       ))}
-      
+
       {/* Central monitoring sphere */}
       <group>
         <mesh position={[0, 0, -1]}>
@@ -238,30 +266,26 @@ export function InteractiveDataFlow() {
           />
         </mesh>
       </group>
-      
+
       {/* Floating metrics */}
       <FloatingMetrics />
     </group>
-  )
+  );
 }
 
 function FloatingMetrics() {
   const metrics = [
-    { label: 'Requests/sec', value: '10K' },
-    { label: 'Latency', value: '12ms' },
-    { label: 'Cache Hit', value: '95%' },
-    { label: 'Uptime', value: '99.9%' }
-  ]
-  
+    { label: "Requests/sec", value: "10K" },
+    { label: "Latency", value: "12ms" },
+    { label: "Cache Hit", value: "95%" },
+    { label: "Uptime", value: "99.9%" },
+  ];
+
   return (
     <group position={[0, -4, 0]}>
       {metrics.map((metric, i) => (
         <group key={i} position={[(i - 1.5) * 2, 0, 0]}>
-          <Text
-            fontSize={0.15}
-            color="#f97316"
-            anchorX="center"
-          >
+          <Text fontSize={0.15} color="#f97316" anchorX="center">
             {metric.value}
           </Text>
           <Text
@@ -275,5 +299,5 @@ function FloatingMetrics() {
         </group>
       ))}
     </group>
-  )
+  );
 }
