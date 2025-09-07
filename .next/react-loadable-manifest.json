@@ -1,16 +1,8 @@
 {
-  "app/page.tsx -> @/components/ThreeScene": {
-    "id": "app/page.tsx -> @/components/ThreeScene",
+  "app/page.tsx -> @/components/InteractiveSkillsGraph": {
+    "id": "app/page.tsx -> @/components/InteractiveSkillsGraph",
     "files": [
-      "static/chunks/_app-pages-browser_src_components_ThreeScene_tsx.js"
+      "static/chunks/_app-pages-browser_src_components_InteractiveSkillsGraph_tsx.js"
     ]
-  },
-  "node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
-    "id": "node_modules/@react-three/drei/core/VideoTexture.js -> hls.js",
-    "files": []
-  },
-  "node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
-    "id": "node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision",
-    "files": []
   }
 }

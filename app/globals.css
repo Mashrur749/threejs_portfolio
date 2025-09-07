@@ -72,11 +72,13 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-zinc-950;
+    color: white;
     font-feature-settings: "rlig" 1, "calt" 1;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -95,6 +97,10 @@
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  section {
+    @apply relative z-10;
   }
 
   /* Custom scrollbar */
@@ -117,7 +123,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10;
   }
 
   .gradient-text {

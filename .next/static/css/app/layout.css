@@ -641,12 +641,14 @@ video {
   }
 
   body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  --tw-bg-opacity: 1;
+  background-color: rgb(9 9 11 / var(--tw-bg-opacity, 1));
+    color: white;
     font-feature-settings: "rlig" 1, "calt" 1;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
 }
   
   h1, h2, h3, h4, h5, h6 {
@@ -672,6 +674,11 @@ video {
   html {
     scroll-behavior: smooth;
   }
+
+  section {
+  position: relative;
+  z-index: 10;
+}
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
@@ -707,6 +714,8 @@ video {
   }
 }
 .section-container {
+  position: relative;
+  z-index: 10;
   margin-left: auto;
   margin-right: auto;
   max-width: 80rem;
@@ -803,6 +812,12 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
+.\!visible {
+  visibility: visible !important;
+}
+.visible {
+  visibility: visible;
+}
 .invisible {
   visibility: hidden;
 }
@@ -836,6 +851,9 @@ video {
 .-z-10 {
   z-index: -10;
 }
+.z-10 {
+  z-index: 10;
+}
 .z-50 {
   z-index: 50;
 }
@@ -863,6 +881,9 @@ video {
 }
 .mb-8 {
   margin-bottom: 2rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -917,15 +938,6 @@ video {
 }
 .h-48 {
   height: 12rem;
-}
-.h-full {
-  height: 100%;
-}
-.h-screen {
-  height: 100vh;
-}
-.min-h-screen {
-  min-height: 100vh;
 }
 .w-1 {
   width: 0.25rem;
@@ -1311,6 +1323,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(161 161 170 / var(--tw-text-opacity, 1));
 }
+.text-zinc-500 {
+  --tw-text-opacity: 1;
+  color: rgb(113 113 122 / var(--tw-text-opacity, 1));
+}
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1320,6 +1336,10 @@ video {
 }
 .opacity-20 {
   opacity: 0.2;
+}
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1454,6 +1474,10 @@ video {
 }
 
 @media (min-width: 640px) {
+
+  .sm\:inline {
+    display: inline;
+  }
 
   .sm\:flex-row {
     flex-direction: row;

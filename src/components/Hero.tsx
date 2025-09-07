@@ -4,19 +4,26 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    setIsClient(true)
   }, [])
 
-  if (!mounted) return null
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4">
-      <div className="section-container">
+    <section style={{ 
+      position: 'relative',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '1rem',
+      zIndex: 10,
+      background: 'rgba(0, 0, 0, 0.5)'
+    }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1rem', position: 'relative', zIndex: 10 }}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={isClient ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center max-w-4xl mx-auto"
@@ -38,9 +45,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="text-5xl md:text-7xl font-bold mb-6"
+            style={{ color: 'white' }}
           >
             Hi, I&apos;m{' '}
-            <span className="gradient-text">Mashrur Rahman</span>
+            <span style={{ 
+              background: 'linear-gradient(90deg, #f97316, #fb923c)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>Mashrur Rahman</span>
           </motion.h1>
 
           {/* Title */}
@@ -49,6 +62,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="text-2xl md:text-3xl mb-8 text-zinc-100 font-medium"
+            style={{ color: '#e4e4e7' }}
           >
             Senior Developer • Full-Stack Engineer
           </motion.p>
@@ -59,6 +73,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
             className="text-lg md:text-xl text-zinc-300 mb-12 leading-relaxed"
+            style={{ color: '#d4d4d8' }}
           >
             Currently building <span className="text-brand-primary font-bold">enterprise web applications</span> for AT&T at Critical Mass.
             I&apos;ve reduced deployment times by 300x, cut QA validation time by 60%, and 

@@ -41,7 +41,7 @@ export default function Achievements() {
   })
 
   return (
-    <section id="achievements" className="relative py-24 px-4">
+    <section id="achievements" className="relative py-24 px-4 z-10">
       <div className="section-container">
         <motion.div
           ref={ref}

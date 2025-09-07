@@ -2,41 +2,40 @@
 
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import Hero from '@/components/Hero'
-import Achievements from '@/components/Achievements'
-import Projects from '@/components/Projects'
-import Experience from '@/components/Experience'
-import TechStack from '@/components/TechStack'
-import WhyHireMe from '@/components/WhyHireMe'
-import Contact from '@/components/Contact'
+import HeroSimple from '@/components/HeroSimple'
+import AllSections from '@/components/AllSections'
 import Navigation from '@/components/Navigation'
 
-// Dynamically import Three.js scene for better performance
-const ThreeScene = dynamic(() => import('@/components/ThreeScene'), {
+// Dynamically import Three.js scene for better performance  
+const InteractiveSkillsGraph = dynamic(() => import('@/components/InteractiveSkillsGraph'), {
   ssr: false,
-  loading: () => <div className="w-full h-screen bg-dark" />
+  loading: () => <div style={{ position: 'fixed', inset: 0, background: '#09090b', zIndex: -1 }} />
 })
 
 export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="relative">
-        {/* Three.js Background */}
-        <div className="fixed inset-0 -z-10">
-          <Suspense fallback={<div className="w-full h-full bg-dark" />}>
-            <ThreeScene />
-          </Suspense>
-        </div>
+      
+      {/* Interactive 3D Skills Visualization */}
+      <Suspense fallback={
+        <div style={{ 
+          position: 'fixed', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          background: '#09090b',
+          zIndex: -1 
+        }} />
+      }>
+        <InteractiveSkillsGraph />
+      </Suspense>
 
+      <main className="relative" style={{ paddingTop: '64px' }}>
         {/* Content Sections */}
-        <Hero />
-        <Achievements />
-        <Experience />
-        <Projects />
-        <TechStack />
-        <WhyHireMe />
-        <Contact />
+        <HeroSimple />
+        <AllSections />
       </main>
     </>
   )
