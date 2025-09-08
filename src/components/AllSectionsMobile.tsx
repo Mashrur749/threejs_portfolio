@@ -54,19 +54,19 @@ export default function AllSectionsMobile() {
           >
             {[
               {
-                title: "Deployment Revolution",
+                title: "Campaign Launches",
                 metric: "300x Faster",
-                desc: "Architected offer creation engine reducing deployment from days to hours",
+                desc: "Offer creation engine reduces content deployment from 2-3 days to 2-5 hours",
               },
               {
                 title: "QA Automation",
                 metric: "60% Time Saved",
-                desc: "Built content comparison tool cutting validation from 2 hours to 30 minutes",
+                desc: "Content comparison tool saves 25-30 hours bi-weekly with 100% precision",
               },
               {
-                title: "Performance at Scale",
-                metric: "12s from 6min",
-                desc: "Optimized development refresh times across the team",
+                title: "Dev Experience",
+                metric: "30x Faster",
+                desc: "Refresh times from 6 minutes to 12 seconds for entire dev team",
               },
               {
                 title: "Edge Personalization",
@@ -134,11 +134,11 @@ export default function AllSectionsMobile() {
               {
                 role: "Senior Developer",
                 company: "Critical Mass",
-                period: "2021 - Present",
+                period: "2022 - Present",
                 highlights: [
-                  "Leading Next.js initiatives for enterprise clients",
-                  "Reduced deployment time by 300x",
-                  "Mentoring team on React best practices",
+                  "Lead segmentation-based content refactoring foundation for 2+ years",
+                  "Reduced campaign launch time by 300x with offer creation engine",
+                  "Established mentorship program and coaching developers",
                 ],
               },
               {
@@ -146,9 +146,9 @@ export default function AllSectionsMobile() {
                 company: "Previous Roles",
                 period: "2019 - 2021",
                 highlights: [
-                  "Built scalable React applications",
-                  "Implemented CI/CD pipelines",
-                  "Delivered 15+ production projects",
+                  "Built React.js/D3.js resource visualization tools at Meta",
+                  "Implemented GraphQL codegen saving hours per backend update",
+                  "Pre-commit hooks reduced review loops by 35%",
                 ],
               },
             ].map((job, i) => (
@@ -247,29 +247,29 @@ export default function AllSectionsMobile() {
               {
                 title: "Offer Creation Engine",
                 subtitle: "Enterprise",
-                desc: "Architected engine that reduced deployment time by 300x",
+                desc: "Architected engine reducing content deployment from 2-3 days to 2-5 hours",
                 metrics: {
                   deployment: "300x faster",
-                  scale: "Millions of visits",
+                  scale: "Foundation for 2+ years",
                 },
                 tech: ["React", "Next.js", "AWS", "TypeScript"],
               },
               {
-                title: "QA Automation Tool",
-                subtitle: "",
-                desc: "Cut QA time from 2 hours to 30 minutes",
+                title: "Content Comparison Tool",
+                subtitle: "QA Automation",
+                desc: "Programmatic content validation with 100% launch confidence",
                 metrics: {
                   timeSaved: "25-30 hrs bi-weekly",
-                  errors: "80% reduction",
+                  accuracy: "100% precision",
                 },
                 tech: ["JavaScript", "Node.js", "Automation"],
               },
               {
                 title: "GraphQL Codegen",
                 subtitle: "Implementation",
-                desc: "Automated TypeScript type generation",
+                desc: "Automated type generation from database schema",
                 metrics: {
-                  devTime: "Hours saved daily",
+                  devTime: "Hours saved per update",
                   reviews: "35% fewer loops",
                 },
                 tech: ["GraphQL", "TypeScript", "Node.js"],

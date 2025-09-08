@@ -13,19 +13,19 @@ const reasons = [
   {
     title: "Proven Enterprise Scale",
     description:
-      "Currently working on AT&T landing pages serving millions of monthly visitors",
+      "Led segmentation-based content refactoring, now foundation for 2+ years of projects",
     icon: "📈",
   },
   {
     title: "Ships Fast, Scales Smart",
     description:
-      "300x faster deployments while maintaining code quality through automated testing",
+      "Content deployment from 2-3 days to 2-5 hours, component dev from 6 hours to 5 minutes",
     icon: "⚡",
   },
   {
     title: "ROI-Focused Development",
     description:
-      "Every feature tied to business metrics - 60% QA time saved, 80% error reduction",
+      "60% QA time saved (25-30 hours bi-weekly), 35% fewer review loops, 100% launch confidence",
     icon: "💰",
   },
   {

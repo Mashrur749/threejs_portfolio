@@ -93,7 +93,7 @@ export default function HeroValueProp() {
               textTransform: 'uppercase',
               letterSpacing: '0.05em'
             }}>
-              Faster Deployments
+              Faster Launches
             </div>
           </div>
           
@@ -109,7 +109,7 @@ export default function HeroValueProp() {
               color: '#00dfd8',
               marginBottom: '4px'
             }}>
-              $100K+
+              60%
             </div>
             <div style={{ 
               fontSize: isMobile ? '0.75rem' : '0.85rem', 
@@ -117,7 +117,7 @@ export default function HeroValueProp() {
               textTransform: 'uppercase',
               letterSpacing: '0.05em'
             }}>
-              Saved Annually
+              QA Time Saved
             </div>
           </div>
           
@@ -133,7 +133,7 @@ export default function HeroValueProp() {
               color: '#fbbf24',
               marginBottom: '4px'
             }}>
-              Millions
+              30x
             </div>
             <div style={{ 
               fontSize: isMobile ? '0.75rem' : '0.85rem', 
@@ -141,7 +141,7 @@ export default function HeroValueProp() {
               textTransform: 'uppercase',
               letterSpacing: '0.05em'
             }}>
-              Users Served
+              Dev Speed Boost
             </div>
           </div>
         </div>
@@ -219,19 +219,19 @@ export default function HeroValueProp() {
               }}>
                 <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#f97316', marginRight: '8px' }}>✓</span>
-                  <span><strong>Reduced Costs:</strong> Cut deployment time from days to hours, saving $100K+ annually in operational costs</span>
+                  <span><strong>Reduced Costs:</strong> Cut content deployment from 2-3 days to 2-5 hours, saving 25-30 hours bi-weekly</span>
                 </li>
                 <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#f97316', marginRight: '8px' }}>✓</span>
-                  <span><strong>Faster Time-to-Market:</strong> Launch campaigns 300x faster with automated workflows</span>
+                  <span><strong>Faster Time-to-Market:</strong> Launch campaigns 300x faster with offer creation engine</span>
                 </li>
                 <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#f97316', marginRight: '8px' }}>✓</span>
-                  <span><strong>Zero Downtime:</strong> Enterprise-grade solutions that scale to millions without breaking</span>
+                  <span><strong>100% Launch Confidence:</strong> Content comparison tool ensures programmatic precision</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#f97316', marginRight: '8px' }}>✓</span>
-                  <span><strong>Improved Conversions:</strong> Eliminate UI flicker, boost user experience, increase revenue</span>
+                  <span><strong>Zero UI Flicker:</strong> Edge personalization strategy for seamless user experience</span>
                 </li>
               </ul>
             </div>
@@ -253,19 +253,19 @@ export default function HeroValueProp() {
               }}>
                 <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#00dfd8', marginRight: '8px' }}>→</span>
-                  <span><strong>Next.js Expert:</strong> ISR, SSG, SSR, Edge Runtime - architected for performance at scale</span>
+                  <span><strong>Next.js Expert:</strong> Edge personalization, ISR, SSG - serving enterprise clients at scale</span>
                 </li>
                 <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#00dfd8', marginRight: '8px' }}>→</span>
-                  <span><strong>Full-Stack Proficiency:</strong> React, TypeScript, Node.js, GraphQL, PostgreSQL, AWS</span>
+                  <span><strong>Full-Stack Proficiency:</strong> React, TypeScript, GraphQL codegen, AWS API Gateway, CMS integration</span>
                 </li>
                 <li style={{ marginBottom: '12px', display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#00dfd8', marginRight: '8px' }}>→</span>
-                  <span><strong>Performance Optimization:</strong> From 6-minute builds to 12 seconds</span>
+                  <span><strong>Performance Optimization:</strong> Dev refresh from 6 minutes to 12 seconds (30x faster)</span>
                 </li>
                 <li style={{ display: 'flex', alignItems: 'flex-start' }}>
                   <span style={{ color: '#00dfd8', marginRight: '8px' }}>→</span>
-                  <span><strong>CI/CD & Automation:</strong> GitLab pipelines, Docker, automated testing, 60% QA time reduction</span>
+                  <span><strong>CI/CD & Automation:</strong> Pre-commit hooks catch errors in 10s, review loops reduced by 35%</span>
                 </li>
               </ul>
             </div>
