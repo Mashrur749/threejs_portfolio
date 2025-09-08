@@ -61,7 +61,7 @@ export default function HeroValueProp() {
           fontWeight: '500',
           lineHeight: 1.4
         }}>
-          Senior Full-Stack Developer • 5+ Years • Critical Mass
+          Senior Full-Stack Developer • Calgary, AB • 5+ Years • Critical Mass
         </p>
 
         {/* Key Business Metrics - Always Visible */}

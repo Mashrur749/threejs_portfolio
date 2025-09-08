@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import StructuredData from '@/components/StructuredData'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -13,29 +14,37 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://mashrur.dev'),
   title: {
-    default: 'Mashrur Rahman | Senior Next.js Developer',
-    template: '%s | Mashrur Rahman'
+    default: 'Mashrur Rahman | Senior Next.js Developer Calgary | Full-Stack Engineer',
+    template: '%s | Mashrur Rahman - Calgary Developer'
   },
-  description: 'Senior Full-Stack Developer specializing in Next.js, React, and high-performance web applications. Ex-Meta, currently architecting enterprise solutions at Critical Mass.',
+  description: 'Senior Full-Stack Developer in Calgary, Alberta specializing in Next.js, React, TypeScript. Available for remote positions. Ex-Meta engineer, currently at Critical Mass. Serving Calgary, Toronto & remote teams.',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   keywords: [
-    'Next.js Developer',
-    'React Developer',
-    'Full Stack Developer',
-    'TypeScript',
-    'Three.js',
-    'Web Performance',
-    'Toronto Developer'
+    'Next.js Developer Calgary',
+    'React Developer Calgary',
+    'Full Stack Developer Calgary',
+    'Calgary Software Engineer',
+    'Alberta Web Developer',
+    'Remote Next.js Developer',
+    'Toronto Remote Developer',
+    'Senior Developer Calgary',
+    'TypeScript Developer Calgary',
+    'React Calgary',
+    'JavaScript Developer Alberta',
+    'Web Developer Calgary',
+    'Software Engineer Alberta',
+    'Remote Full Stack Developer Canada',
+    'Critical Mass Developer'
   ],
   authors: [{ name: 'Mashrur Rahman' }],
   creator: 'Mashrur Rahman',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_CA',
     url: 'https://mashrur.dev',
-    title: 'Mashrur Rahman | Senior Next.js Developer',
-    description: 'Senior Full-Stack Developer with 5+ years building scalable web applications',
-    siteName: 'Mashrur Rahman Portfolio',
+    title: 'Mashrur Rahman | Senior Next.js Developer Calgary, Alberta',
+    description: 'Senior Full-Stack Developer in Calgary specializing in Next.js, React, TypeScript. Available for remote work. 5+ years experience, ex-Meta, Critical Mass.',
+    siteName: 'Mashrur Rahman - Calgary Developer Portfolio',
     images: [{
       url: '/og-image.png',
       width: 1200,
@@ -81,7 +90,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="en-CA" className={`${inter.variable} dark`}>
+      <head>
+        <StructuredData />
+      </head>
       <body className="bg-background text-foreground antialiased">
         {children}
         <Analytics />

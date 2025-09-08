@@ -514,8 +514,8 @@ export default function AllSectionsMobile() {
                 lineHeight: 1.6
               }}
             >
-              Ready to bring your next project to life? Let's discuss how I can
-              help transform your ideas into reality.
+              Calgary-based developer available for local and remote opportunities.
+              Let's discuss how I can help transform your ideas into reality.
             </p>
             <form
               action="https://formspree.io/f/xgeppjgp"

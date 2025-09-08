@@ -1,0 +1,44 @@
+# Robots.txt for mashrur.dev
+# Senior Full-Stack Developer Portfolio - Calgary, Alberta
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Optimize crawl rate
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://mashrur.dev/sitemap.xml
+
+# Allow search engines to index all content
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

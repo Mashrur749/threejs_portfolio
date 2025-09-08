@@ -70,7 +70,7 @@ export default function Contact() {
             Let&apos;s <span className="gradient-text">Connect</span>
           </h2>
           <p className="text-xl text-zinc-300 font-medium">
-            Ready to build something amazing with Next.js
+            Based in Calgary, Alberta • Available for Remote Opportunities
           </p>
         </motion.div>
 
