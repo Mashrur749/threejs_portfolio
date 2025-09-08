@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     template: '%s | Mashrur Rahman'
   },
   description: 'Senior Full-Stack Developer specializing in Next.js, React, and high-performance web applications. Ex-Meta, currently architecting enterprise solutions at Critical Mass.',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   keywords: [
     'Next.js Developer',
     'React Developer',

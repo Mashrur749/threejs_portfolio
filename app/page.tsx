@@ -1,42 +1,36 @@
-'use client'
+"use client";
 
-import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
-import HeroSimple from '@/components/HeroSimple'
-import AllSections from '@/components/AllSections'
-import Navigation from '@/components/Navigation'
+import dynamic from "next/dynamic";
+import HeroMobile from "@/components/HeroMobile";
+import AllSectionsMobile from "@/components/AllSectionsMobile";
+import NavigationMobile from "@/components/NavigationMobile";
+import ConnectedNavigation from "@/components/ConnectedNavigation";
 
-// Dynamically import Three.js scene for better performance  
-const TechIconsScene = dynamic(() => import('@/components/TechIconsScene'), {
-  ssr: false,
-  loading: () => <div style={{ position: 'fixed', inset: 0, background: '#09090b', zIndex: -1 }} />
-})
+// Dynamically import the 3D particle scene
+const InterconnectedParticles = dynamic(
+  () => import("@/components/InterconnectedParticles"),
+  {
+    ssr: false,
+    loading: () => null, // No loading state needed - transparent background
+  }
+);
 
 export default function Home() {
   return (
     <>
-      <Navigation />
+      <NavigationMobile />
       
-      {/* Interactive 3D Tech Icons Visualization */}
-      <Suspense fallback={
-        <div style={{ 
-          position: 'fixed', 
-          top: 0, 
-          left: 0, 
-          width: '100%', 
-          height: '100%', 
-          background: '#09090b',
-          zIndex: -1 
-        }} />
-      }>
-        <TechIconsScene />
-      </Suspense>
+      {/* Connected Navigation with Progress Bar */}
+      <ConnectedNavigation />
 
-      <main className="relative" style={{ paddingTop: '64px' }}>
+      {/* 3D Particle Background */}
+      <InterconnectedParticles />
+
+      <main className="relative" style={{ paddingTop: "56px" }}>
         {/* Content Sections */}
-        <HeroSimple />
-        <AllSections />
+        <HeroMobile />
+        <AllSectionsMobile />
       </main>
     </>
-  )
+  );
 }

@@ -170,4 +170,23 @@
       transform: translateY(0);
     }
   }
+  
+  /* Responsive utilities for navigation */
+  @media (max-width: 767px) {
+    .md\:hidden {
+      display: block !important;
+    }
+    .md\:flex {
+      display: none !important;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .md\:flex {
+      display: flex !important;
+    }
+    .md\:hidden {
+      display: none !important;
+    }
+  }
 }
