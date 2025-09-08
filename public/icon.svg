@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <!-- Background with rounded corners -->
+  <rect width="180" height="180" rx="36" fill="#09090b"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fb923c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00dfd8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#67e8f1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Large M logo -->
+  <path d="M 40 140 L 40 40 L 90 110 L 140 40 L 140 140" 
+        stroke="url(#primaryGradient)" 
+        stroke-width="14" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+  
+  <!-- Accent elements -->
+  <circle cx="135" cy="45" r="10" fill="url(#accentGradient)"/>
+  
+  <!-- Tech brackets -->
+  <path d="M 10 70 L 10 110 M 170 70 L 170 110" 
+        stroke="#3f3f46" 
+        stroke-width="6" 
+        stroke-linecap="round" 
+        opacity="0.3"/>
+</svg>

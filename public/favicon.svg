@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="#09090b"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fb923c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cyanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00dfd8;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#67e8f1;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Letter M (for Mashrur) with modern, geometric design -->
+  <path d="M 7 24 L 7 8 L 16 20 L 25 8 L 25 24" 
+        stroke="url(#orangeGradient)" 
+        stroke-width="3" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+  
+  <!-- Accent dot/circle representing innovation -->
+  <circle cx="24" cy="8" r="2" fill="url(#cyanGradient)"/>
+  
+  <!-- Subtle tech element - small brackets -->
+  <path d="M 2 14 L 2 18 M 30 14 L 30 18" 
+        stroke="#3f3f46" 
+        stroke-width="1.5" 
+        stroke-linecap="round" 
+        opacity="0.5"/>
+</svg>

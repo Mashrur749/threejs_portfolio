@@ -60,6 +60,19 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'mask-icon',
+      url: '/safari-pinned-tab.svg',
+    },
+  },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({
