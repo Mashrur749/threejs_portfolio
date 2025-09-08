@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"app/page.tsx -> @/components/InteractiveSkillsGraph\":{\"id\":\"app/page.tsx -> @/components/InteractiveSkillsGraph\",\"files\":[\"static/chunks/_app-pages-browser_src_components_InteractiveSkillsGraph_tsx.js\"]}}"

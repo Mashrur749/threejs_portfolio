@@ -7,7 +7,7 @@ import AllSections from '@/components/AllSections'
 import Navigation from '@/components/Navigation'
 
 // Dynamically import Three.js scene for better performance  
-const InteractiveSkillsGraph = dynamic(() => import('@/components/InteractiveSkillsGraph'), {
+const TechIconsScene = dynamic(() => import('@/components/TechIconsScene'), {
   ssr: false,
   loading: () => <div style={{ position: 'fixed', inset: 0, background: '#09090b', zIndex: -1 }} />
 })
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Navigation />
       
-      {/* Interactive 3D Skills Visualization */}
+      {/* Interactive 3D Tech Icons Visualization */}
       <Suspense fallback={
         <div style={{ 
           position: 'fixed', 
@@ -29,7 +29,7 @@ export default function Home() {
           zIndex: -1 
         }} />
       }>
-        <InteractiveSkillsGraph />
+        <TechIconsScene />
       </Suspense>
 
       <main className="relative" style={{ paddingTop: '64px' }}>

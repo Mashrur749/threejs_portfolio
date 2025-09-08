@@ -85,7 +85,7 @@ function ProgressBar({
       
       {/* Progress bar */}
       <mesh ref={barRef} position={[-1.5 + (progress * 1.5), 0, 0.05]} scale={[progress, 1, 1]}>
-        <roundedBoxGeometry args={[3, 0.3, 0.1]} />
+        <boxGeometry args={[3, 0.3, 0.1]} />
         <meshStandardMaterial color="#f97316" emissive="#f97316" emissiveIntensity={0.3} />
       </mesh>
       
