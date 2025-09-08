@@ -8,7 +8,7 @@ const achievements = [
     title: 'Deployment Revolution',
     metric: '300x Faster',
     description: 'Architected offer creation engine reducing deployment from days to hours',
-    impact: 'Enabled rapid campaign launches for AT&T landing pages',
+    impact: 'Enabled rapid campaign launches for enterprise landing pages',
     tech: ['Next.js patterns', 'CMS Federation', 'Edge Computing']
   },
   {

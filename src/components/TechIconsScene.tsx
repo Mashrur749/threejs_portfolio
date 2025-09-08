@@ -21,7 +21,7 @@ const technologies: Tech[] = [
     category: 'frontend',
     level: 5,
     description: 'Production experience with ISR, SSG, SSR patterns',
-    projects: ['AT&T Landing Pages', 'Offer Creation Engine'],
+    projects: ['Enterprise Landing Pages', 'Offer Creation Engine'],
     color: '#ffffff'
   },
   {

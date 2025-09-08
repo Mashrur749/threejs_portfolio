@@ -218,7 +218,7 @@ export default function DynamicParticleScene() {
 
       // Update particle colors
       if (particlesRef.current) {
-        particlesRef.current.material.color.setHex(
+        (particlesRef.current.material as THREE.PointsMaterial).color.setHex(
           currentColors.current.primary
         );
         particlesRef.current.rotation.y = elapsedTime * 0.05;
@@ -229,7 +229,7 @@ export default function DynamicParticleScene() {
       }
 
       if (accentParticlesRef.current) {
-        accentParticlesRef.current.material.color.setHex(
+        (accentParticlesRef.current.material as THREE.PointsMaterial).color.setHex(
           currentColors.current.secondary
         );
         accentParticlesRef.current.rotation.y = -elapsedTime * 0.03;

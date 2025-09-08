@@ -20,7 +20,7 @@ const skills: Skill[] = [
     level: 5,
     connections: ['React', 'TypeScript', 'Node.js', 'Vercel'],
     description: 'Production experience with ISR, SSG, SSR patterns',
-    projects: ['AT&T Landing Pages', 'Offer Creation Engine'],
+    projects: ['Enterprise Landing Pages', 'Offer Creation Engine'],
     color: 0xffffff
   },
   {

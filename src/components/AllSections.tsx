@@ -114,7 +114,7 @@ export default function AllSections() {
                 company: "Critical Mass",
                 period: "April 2022 - Present",
                 points: [
-                  "Architected offer creation engine reducing deployment time by 300x for AT&T landing pages",
+                  "Architected offer creation engine reducing deployment time by 300x for enterprise landing pages",
                   "Led client API integration efforts enabling real-time package availability checks",
                   "Implemented GraphQL codegen saving hours on every backend update",
                   "Initiated and led QA automation tool development, cutting validation time by 60%",
@@ -200,7 +200,7 @@ export default function AllSections() {
           >
             {[
               {
-                title: "Offer Creation Engine (AT&T)",
+                title: "Offer Creation Engine",
                 desc: "Architected engine that reduced deployment time by 300x",
                 metrics: {
                   deployment: "300x faster",

@@ -56,7 +56,7 @@ export default function HeroSimple() {
           margin: '0 auto 3rem',
           lineHeight: '1.6'
         }}>
-          Currently building <span style={{ color: '#f97316', fontWeight: 'bold' }}>enterprise web applications</span> for AT&T at Critical Mass.
+          Currently building <span style={{ color: '#f97316', fontWeight: 'bold' }}>enterprise web applications</span> at Critical Mass.
           I've reduced deployment times by 300x, cut QA validation time by 60%, and 
           architected solutions handling millions of monthly visits.{' '}
           <span style={{ color: '#fafafa', fontWeight: '600' }}>I'm a senior developer who ships fast, scales reliably, and delivers measurable ROI.</span>

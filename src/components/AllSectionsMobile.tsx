@@ -136,7 +136,7 @@ export default function AllSectionsMobile() {
                 company: "Critical Mass",
                 period: "2021 - Present",
                 highlights: [
-                  "Leading Next.js initiatives for AT&T",
+                  "Leading Next.js initiatives for enterprise clients",
                   "Reduced deployment time by 300x",
                   "Mentoring team on React best practices",
                 ],
@@ -246,7 +246,7 @@ export default function AllSectionsMobile() {
             {[
               {
                 title: "Offer Creation Engine",
-                subtitle: "AT&T",
+                subtitle: "Enterprise",
                 desc: "Architected engine that reduced deployment time by 300x",
                 metrics: {
                   deployment: "300x faster",
