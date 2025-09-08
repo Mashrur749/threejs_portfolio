@@ -141,8 +141,8 @@ export default function SereneParticles() {
       currentColor.current = currentColorObj.getHex()
       
       // Update particle colors
-      if (particlesRef.current) {
-        particlesRef.current.material.color.setHex(currentColor.current)
+      if (particlesRef.current && !Array.isArray(particlesRef.current.material)) {
+        (particlesRef.current.material as THREE.PointsMaterial).color.setHex(currentColor.current)
         
         // Very slow, gentle rotation
         particlesRef.current.rotation.y = elapsedTime * 0.01

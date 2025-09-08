@@ -227,7 +227,9 @@ export default function ScrollParticleScene() {
       // Rotate flow lines based on scroll
       flowLines.current.forEach((line, index) => {
         line.rotation.y = scrollProgress * Math.PI * 2 * (index + 1) * 0.5
-        line.material.opacity = 0.1 + Math.sin(scrollProgress * Math.PI) * 0.05
+        if (line.material && !Array.isArray(line.material)) {
+          (line.material as THREE.MeshBasicMaterial).opacity = 0.1 + Math.sin(scrollProgress * Math.PI) * 0.05
+        }
       })
     }
     

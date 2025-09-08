@@ -8,26 +8,27 @@ import dynamic from 'next/dynamic'
 
 // Dynamic imports for performance
 const ThreeSceneEnhanced = dynamic(() => import('./ThreeSceneEnhanced'), { ssr: false })
-const PerformanceVisualization = dynamic(() => 
-  import('./three-scenes/PerformanceVisualization').then(mod => ({ default: mod.PerformanceVisualization })), 
-  { ssr: false }
-)
-const CodeDNAHelix = dynamic(() => 
-  import('./three-scenes/CodeDNAHelix').then(mod => ({ default: mod.CodeDNAHelix })), 
-  { ssr: false }
-)
-const InteractiveDataFlow = dynamic(() => 
-  import('./three-scenes/InteractiveDataFlow').then(mod => ({ default: mod.InteractiveDataFlow })), 
-  { ssr: false }
-)
-const BuildingBlocks = dynamic(() => 
-  import('./three-scenes/BuildingBlocks').then(mod => ({ default: mod.BuildingBlocks })), 
-  { ssr: false }
-)
-const MorphingParticles = dynamic(() => 
-  import('./three-scenes/MorphingParticles').then(mod => ({ default: mod.MorphingParticles })), 
-  { ssr: false }
-)
+// The following components are commented out as their files don't exist
+// const PerformanceVisualization = dynamic(() => 
+//   import('./three-scenes/PerformanceVisualization').then(mod => ({ default: mod.PerformanceVisualization })), 
+//   { ssr: false }
+// )
+// const CodeDNAHelix = dynamic(() => 
+//   import('./three-scenes/CodeDNAHelix').then(mod => ({ default: mod.CodeDNAHelix })), 
+//   { ssr: false }
+// )
+// const InteractiveDataFlow = dynamic(() => 
+//   import('./three-scenes/InteractiveDataFlow').then(mod => ({ default: mod.InteractiveDataFlow })), 
+//   { ssr: false }
+// )
+// const BuildingBlocks = dynamic(() => 
+//   import('./three-scenes/BuildingBlocks').then(mod => ({ default: mod.BuildingBlocks })), 
+//   { ssr: false }
+// )
+// const MorphingParticles = dynamic(() => 
+//   import('./three-scenes/MorphingParticles').then(mod => ({ default: mod.MorphingParticles })), 
+//   { ssr: false }
+// )
 
 type SceneType = 'particles' | 'morphing' | 'performance' | 'dna' | 'dataflow' | 'blocks'
 
@@ -48,21 +49,25 @@ const scenes: SceneOption[] = [
 ]
 
 function SceneContent({ scene, scrollProgress }: { scene: SceneType; scrollProgress: number }) {
-  switch (scene) {
-    case 'morphing':
-      return <MorphingParticles scrollProgress={scrollProgress} />
-    case 'performance':
-      return <PerformanceVisualization scrollProgress={scrollProgress} />
-    case 'dna':
-      return <CodeDNAHelix />
-    case 'dataflow':
-      return <InteractiveDataFlow />
-    case 'blocks':
-      return <BuildingBlocks />
-    case 'particles':
-    default:
-      return <ThreeSceneEnhanced />
-  }
+  // Only returning the component that exists
+  // Other scenes are commented out until their components are created
+  return <ThreeSceneEnhanced />
+  
+  // switch (scene) {
+  //   case 'morphing':
+  //     return <MorphingParticles scrollProgress={scrollProgress} />
+  //   case 'performance':
+  //     return <PerformanceVisualization scrollProgress={scrollProgress} />
+  //   case 'dna':
+  //     return <CodeDNAHelix />
+  //   case 'dataflow':
+  //     return <InteractiveDataFlow />
+  //   case 'blocks':
+  //     return <BuildingBlocks />
+  //   case 'particles':
+  //   default:
+  //     return <ThreeSceneEnhanced />
+  // }
 }
 
 function AdaptiveLighting({ scene }: { scene: SceneType }) {

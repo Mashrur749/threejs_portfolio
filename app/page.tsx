@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import HeroMobile from "@/components/HeroMobile";
+import HeroValueProp from "@/components/HeroValueProp";
 import AllSectionsMobile from "@/components/AllSectionsMobile";
 import NavigationMobile from "@/components/NavigationMobile";
 import ConnectedNavigation from "@/components/ConnectedNavigation";
@@ -28,7 +28,7 @@ export default function Home() {
 
       <main className="relative" style={{ paddingTop: "56px" }}>
         {/* Content Sections */}
-        <HeroMobile />
+        <HeroValueProp />
         <AllSectionsMobile />
       </main>
     </>
