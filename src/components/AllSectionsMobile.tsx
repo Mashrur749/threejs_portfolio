@@ -254,9 +254,7 @@ export default function AllSectionsMobile() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: isMobile
-                ? "1fr"
-                : "repeat(auto-fit, minmax(300px, 1fr))",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
               gap: isMobile ? "1rem" : "2rem",
             }}
           >
@@ -296,7 +294,7 @@ export default function AllSectionsMobile() {
                 solution:
                   "Built automated offer creation engine with smart templating",
                 outcome: "Enabled rapid market response and campaign launches",
-                tech: ["React", "Next.js", "AWS", "TypeScript"],
+                tech: ["Next.js", "AEM", "TypeScript"],
               },
               {
                 title: "GraphQL Implementation",
@@ -320,12 +318,16 @@ export default function AllSectionsMobile() {
                 style={{
                   background: "rgba(39, 39, 42, 0.5)",
                   backdropFilter: "blur(12px)",
-                  border: "1px solid rgba(63, 63, 70, 0.5)",
+                  border:
+                    i === 0
+                      ? "2px solid rgba(249, 115, 22, 0.3)"
+                      : "1px solid rgba(63, 63, 70, 0.5)",
                   borderRadius: "1rem",
                   overflow: "hidden",
                   display: "flex",
                   flexDirection: "column",
                   position: "relative",
+                  gridColumn: i === 0 && !isMobile ? "1 / -1" : "auto",
                 }}
               >
                 {/* Social proof badges at top of card */}
@@ -381,177 +383,198 @@ export default function AllSectionsMobile() {
 
                 <div
                   style={{
-                    padding: isMobile ? "1.5rem 1rem" : "2rem 1.5rem 1.5rem",
+                    padding:
+                      i === 0
+                        ? isMobile
+                          ? "1.5rem 1rem"
+                          : "2.5rem 2rem 2rem"
+                        : isMobile
+                        ? "1.5rem 1rem"
+                        : "2rem 1.5rem 1.5rem",
                     flex: 1,
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: i === 0 && !isMobile ? "row" : "column",
+                    gap: i === 0 && !isMobile ? "2rem" : 0,
                   }}
                 >
-                  <h3
-                    style={{
-                      fontSize: isMobile ? "1.1rem" : "1.5rem",
-                      marginBottom: "0.25rem",
-                      color: "#fafafa",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {project.title}
-                    {project.subtitle && (
-                      <span
-                        style={{
-                          color: "#f97316",
-                          fontSize: isMobile ? "0.9rem" : "1rem",
-                          marginLeft: "0.5rem",
-                        }}
-                      >
-                        {project.subtitle}
-                      </span>
-                    )}
-                  </h3>
-                  <p
-                    style={{
-                      color: "#d4d4d8",
-                      marginBottom: "1rem",
-                      fontSize: isMobile ? "0.85rem" : "0.95rem",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {project.desc}
-                  </p>
-
-                  {/* Problem-Solution-Outcome narrative for conversion */}
-                  {project.problem && (
-                    <div
-                      style={{
-                        background: "rgba(249, 115, 22, 0.1)",
-                        border: "1px solid rgba(249, 115, 22, 0.2)",
-                        borderRadius: "0.5rem",
-                        padding: isMobile ? "0.75rem" : "1rem",
-                        marginBottom: "1rem",
-                        fontSize: isMobile ? "0.8rem" : "0.9rem",
-                      }}
-                    >
-                      <div style={{ marginBottom: "0.5rem" }}>
-                        <strong style={{ color: "#f97316" }}>Challenge:</strong>
-                        <span
-                          style={{ color: "#fafafa", marginLeft: "0.5rem" }}
-                        >
-                          {project.problem}
-                        </span>
-                      </div>
-                      <div style={{ marginBottom: "0.5rem" }}>
-                        <strong style={{ color: "#f97316" }}>Solution:</strong>
-                        <span
-                          style={{ color: "#fafafa", marginLeft: "0.5rem" }}
-                        >
-                          {project.solution}
-                        </span>
-                      </div>
-                      <div>
-                        <strong style={{ color: "#f97316" }}>Result:</strong>
-                        <span
-                          style={{ color: "#fafafa", marginLeft: "0.5rem" }}
-                        >
-                          {project.outcome}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-
-                  {project.metrics && (
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(2, 1fr)",
-                        gap: isMobile ? "0.5rem" : "1rem",
-                        marginBottom: "1rem",
-                      }}
-                    >
-                      {Object.entries(project.metrics).map(([key, value]) => (
-                        <div
-                          key={key}
-                          style={{
-                            fontSize: isMobile ? "0.75rem" : "0.875rem",
-                          }}
-                        >
-                          <strong
-                            style={{
-                              color: "#f97316",
-                              display: "block",
-                              fontSize: isMobile ? "0.9rem" : "1rem",
-                            }}
-                          >
-                            {value}
-                          </strong>
-                          <div
-                            style={{
-                              color: "#a1a1aa",
-                              fontSize: isMobile ? "0.7rem" : "0.75rem",
-                              marginTop: "2px",
-                            }}
-                          >
-                            {key}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                   <div
                     style={{
+                      flex: i === 0 && !isMobile ? "1" : "auto",
                       display: "flex",
-                      gap: "0.5rem",
-                      flexWrap: "wrap",
-                      marginTop: "auto",
+                      flexDirection: "column",
                     }}
                   >
-                    {project.tech.map((tech, j) => (
-                      <span
-                        key={j}
+                    <h3
+                      style={{
+                        fontSize: isMobile ? "1.1rem" : "1.5rem",
+                        marginBottom: "0.25rem",
+                        color: "#fafafa",
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {project.title}
+                      {project.subtitle && (
+                        <span
+                          style={{
+                            color: "#f97316",
+                            fontSize: isMobile ? "0.9rem" : "1rem",
+                            marginLeft: "0.5rem",
+                          }}
+                        >
+                          {project.subtitle}
+                        </span>
+                      )}
+                    </h3>
+                    <p
+                      style={{
+                        color: "#d4d4d8",
+                        marginBottom: "1rem",
+                        fontSize: isMobile ? "0.85rem" : "0.95rem",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {project.desc}
+                    </p>
+
+                    {/* Problem-Solution-Outcome narrative for conversion */}
+                    {project.problem && (
+                      <div
                         style={{
-                          padding: isMobile
-                            ? "0.2rem 0.5rem"
-                            : "0.25rem 0.75rem",
-                          background: "rgba(63, 63, 70, 0.5)",
-                          border: "1px solid rgba(113, 113, 122, 0.3)",
-                          borderRadius: "0.25rem",
-                          fontSize: isMobile ? "0.7rem" : "0.75rem",
-                          color: "#d4d4d8",
+                          background: "rgba(249, 115, 22, 0.1)",
+                          border: "1px solid rgba(249, 115, 22, 0.2)",
+                          borderRadius: "0.5rem",
+                          padding: isMobile ? "0.75rem" : "1rem",
+                          marginBottom: "1rem",
+                          fontSize: isMobile ? "0.8rem" : "0.9rem",
                         }}
                       >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                        <div style={{ marginBottom: "0.5rem" }}>
+                          <strong style={{ color: "#f97316" }}>
+                            Challenge:
+                          </strong>
+                          <span
+                            style={{ color: "#fafafa", marginLeft: "0.5rem" }}
+                          >
+                            {project.problem}
+                          </span>
+                        </div>
+                        <div style={{ marginBottom: "0.5rem" }}>
+                          <strong style={{ color: "#f97316" }}>
+                            Solution:
+                          </strong>
+                          <span
+                            style={{ color: "#fafafa", marginLeft: "0.5rem" }}
+                          >
+                            {project.solution}
+                          </span>
+                        </div>
+                        <div>
+                          <strong style={{ color: "#f97316" }}>Result:</strong>
+                          <span
+                            style={{ color: "#fafafa", marginLeft: "0.5rem" }}
+                          >
+                            {project.outcome}
+                          </span>
+                        </div>
+                      </div>
+                    )}
 
-                  {/* Call to Action for case studies */}
-                  {project.caseStudy && (
-                    <button
+                    {project.metrics && (
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(2, 1fr)",
+                          gap: isMobile ? "0.5rem" : "1rem",
+                          marginBottom: "1rem",
+                        }}
+                      >
+                        {Object.entries(project.metrics).map(([key, value]) => (
+                          <div
+                            key={key}
+                            style={{
+                              fontSize: isMobile ? "0.75rem" : "0.875rem",
+                            }}
+                          >
+                            <strong
+                              style={{
+                                color: "#f97316",
+                                display: "block",
+                                fontSize: isMobile ? "0.9rem" : "1rem",
+                              }}
+                            >
+                              {value}
+                            </strong>
+                            <div
+                              style={{
+                                color: "#a1a1aa",
+                                fontSize: isMobile ? "0.7rem" : "0.75rem",
+                                marginTop: "2px",
+                              }}
+                            >
+                              {key}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <div
                       style={{
-                        marginTop: "1rem",
-                        padding: isMobile ? "0.5rem 1rem" : "0.75rem 1.5rem",
-                        background: "linear-gradient(135deg, #f97316, #fb923c)",
-                        border: "none",
-                        borderRadius: "0.5rem",
-                        color: "white",
-                        fontSize: isMobile ? "0.85rem" : "0.95rem",
-                        fontWeight: "bold",
-                        cursor: "pointer",
-                        transition: "transform 0.2s, box-shadow 0.2s",
+                        display: "flex",
+                        gap: "0.5rem",
+                        flexWrap: "wrap",
+                        marginTop: "auto",
                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = "translateY(-2px)";
-                        e.currentTarget.style.boxShadow =
-                          "0 10px 20px rgba(249, 115, 22, 0.3)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = "translateY(0)";
-                        e.currentTarget.style.boxShadow = "none";
-                      }}
-                      onClick={() => window.open("/case-study", "_blank")}
                     >
-                      View Full Case Study →
-                    </button>
-                  )}
+                      {project.tech.map((tech, j) => (
+                        <span
+                          key={j}
+                          style={{
+                            padding: isMobile
+                              ? "0.2rem 0.5rem"
+                              : "0.25rem 0.75rem",
+                            background: "rgba(63, 63, 70, 0.5)",
+                            border: "1px solid rgba(113, 113, 122, 0.3)",
+                            borderRadius: "0.25rem",
+                            fontSize: isMobile ? "0.7rem" : "0.75rem",
+                            color: "#d4d4d8",
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Call to Action for case studies */}
+                    {project.caseStudy && (
+                      <button
+                        style={{
+                          marginTop: "1rem",
+                          padding: isMobile ? "0.5rem 1rem" : "0.75rem 1.5rem",
+                          background:
+                            "linear-gradient(135deg, #f97316, #fb923c)",
+                          border: "none",
+                          borderRadius: "0.5rem",
+                          color: "white",
+                          fontSize: isMobile ? "0.85rem" : "0.95rem",
+                          fontWeight: "bold",
+                          cursor: "pointer",
+                          transition: "transform 0.2s, box-shadow 0.2s",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.transform = "translateY(-2px)";
+                          e.currentTarget.style.boxShadow =
+                            "0 10px 20px rgba(249, 115, 22, 0.3)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.transform = "translateY(0)";
+                          e.currentTarget.style.boxShadow = "none";
+                        }}
+                        onClick={() => window.open("/case-study", "_blank")}
+                      >
+                        View Full Case Study →
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
