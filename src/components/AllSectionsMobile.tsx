@@ -386,11 +386,11 @@ export default function AllSectionsMobile() {
                     padding:
                       i === 0
                         ? isMobile
-                          ? "1.5rem 1rem"
-                          : "2.5rem 2rem 2rem"
+                          ? "3rem 1rem 1.5rem"
+                          : "3.5rem 2rem 2rem"
                         : isMobile
-                        ? "1.5rem 1rem"
-                        : "2rem 1.5rem 1.5rem",
+                        ? (project.testimonials || project.presentedTo ? "3rem 1rem 1.5rem" : "1.5rem 1rem")
+                        : (project.testimonials || project.presentedTo ? "3rem 1.5rem 1.5rem" : "2rem 1.5rem 1.5rem"),
                     flex: 1,
                     display: "flex",
                     flexDirection: i === 0 && !isMobile ? "row" : "column",
