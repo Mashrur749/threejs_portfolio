@@ -263,10 +263,10 @@ export default function AllSectionsMobile() {
             {[
               {
                 title: "Content Sync Validator",
-                subtitle: "100% Error Elimination",
+                subtitle: "60% Error Elimination",
                 desc: "Transformed a broken manual process causing team panic into an automated validation system that restored confidence",
                 metrics: {
-                  impact: "100% error reduction",
+                  impact: "60% error reduction",
                   timeSaved: "30 hrs/release",
                   roi: "2hr build → 30hr savings",
                   adoption: "3 teams integrated",
@@ -325,66 +325,63 @@ export default function AllSectionsMobile() {
                   overflow: "hidden",
                   display: "flex",
                   flexDirection: "column",
+                  position: "relative",
                 }}
               >
+                {/* Social proof badges at top of card */}
+                {(project.testimonials || project.presentedTo) && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "0.75rem",
+                      zIndex: 1,
+                    }}
+                  >
+                    {project.testimonials && (
+                      <div
+                        style={{
+                          background: "rgba(249, 115, 22, 0.9)",
+                          color: "white",
+                          padding: "0.25rem 0.5rem",
+                          borderRadius: "1rem",
+                          fontSize: isMobile ? "0.7rem" : "0.75rem",
+                          fontWeight: "bold",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "0.25rem",
+                        }}
+                      >
+                        ⭐ {project.testimonials} Testimonials
+                      </div>
+                    )}
+                    {project.presentedTo && (
+                      <div
+                        style={{
+                          background: "rgba(16, 185, 129, 0.9)",
+                          color: "white",
+                          padding: "0.25rem 0.5rem",
+                          borderRadius: "1rem",
+                          fontSize: isMobile ? "0.7rem" : "0.75rem",
+                          fontWeight: "bold",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "0.25rem",
+                        }}
+                      >
+                        🎤 {project.presentedTo}
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 <div
                   style={{
-                    height: isMobile ? "100px" : "150px",
-                    background:
-                      "linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(251, 146, 60, 0.2))",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: isMobile ? "2rem" : "3rem",
-                    opacity: 0.5,
-                    position: "relative",
-                  }}
-                >
-                  💼
-                  {project.testimonials && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "10px",
-                        right: "10px",
-                        background: "rgba(249, 115, 22, 0.9)",
-                        color: "white",
-                        padding: "0.25rem 0.5rem",
-                        borderRadius: "1rem",
-                        fontSize: isMobile ? "0.7rem" : "0.75rem",
-                        fontWeight: "bold",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.25rem",
-                      }}
-                    >
-                      ⭐ {project.testimonials} Testimonials
-                    </div>
-                  )}
-                  {project.presentedTo && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "10px",
-                        left: "10px",
-                        background: "rgba(16, 185, 129, 0.9)",
-                        color: "white",
-                        padding: "0.25rem 0.5rem",
-                        borderRadius: "1rem",
-                        fontSize: isMobile ? "0.7rem" : "0.75rem",
-                        fontWeight: "bold",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.25rem",
-                      }}
-                    >
-                      🎤 {project.presentedTo}
-                    </div>
-                  )}
-                </div>
-                <div
-                  style={{
-                    padding: isMobile ? "1rem" : "1.5rem",
+                    padding: isMobile ? "1.5rem 1rem" : "2rem 1.5rem 1.5rem",
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
