@@ -1,8 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function CaseStudy() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div
       style={{
@@ -426,200 +438,104 @@ export default function CaseStudy() {
           >
             Measurable Business Impact
           </h3>
+
+          {/* Compact Impact Grid */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
               gap: "1rem",
               marginBottom: "2rem",
             }}
           >
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-              }}
-            >
+            {[
+              {
+                title: "Production Quality",
+                before: "3-5 errors per release",
+                after: "Zero errors",
+                metric: "60% reduction",
+                color: "#f97316",
+              },
+              {
+                title: "QA Efficiency",
+                before: "30 hours overhead",
+                after: "< 1 hour",
+                metric: "96% faster",
+                color: "#10b981",
+              },
+              {
+                title: "Disclaimer Validation",
+                before: "2 hours manual",
+                after: "15 minutes automated",
+                metric: "87% faster",
+                color: "#10b981",
+              },
+              {
+                title: "Error Detection",
+                before: "2-3 days lag",
+                after: "Real-time",
+                metric: "Instant feedback",
+                color: "#f97316",
+              },
+            ].map((item, index) => (
               <div
+                key={index}
                 style={{
-                  color: "#a1a1aa",
-                  fontSize: "0.875rem",
-                  marginBottom: "0.5rem",
+                  background: "rgba(39, 39, 42, 0.5)",
+                  border: "1px solid rgba(63, 63, 70, 0.5)",
+                  borderRadius: "0.75rem",
+                  padding: isMobile ? "1rem" : "1.25rem",
                 }}
               >
-                Production Errors
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
+                <div style={{ 
+                  fontWeight: "bold", 
+                  color: "#fafafa",
+                  fontSize: isMobile ? "0.9rem" : "1rem",
+                  marginBottom: "0.75rem"
+                }}>
+                  {item.title}
+                </div>
+                
+                <div style={{ 
+                  display: "flex", 
+                  alignItems: "center", 
                   gap: "0.5rem",
-                }}
-              >
-                <span
+                  marginBottom: "0.5rem"
+                }}>
+                  <span style={{ 
+                    color: "#ef4444", 
+                    fontSize: isMobile ? "0.75rem" : "0.85rem",
+                    textDecoration: "line-through",
+                    opacity: 0.8
+                  }}>
+                    {item.before}
+                  </span>
+                  <span style={{ color: "#a1a1aa" }}>→</span>
+                  <span style={{ 
+                    color: "#10b981", 
+                    fontSize: isMobile ? "0.75rem" : "0.85rem",
+                    fontWeight: "600"
+                  }}>
+                    {item.after}
+                  </span>
+                </div>
+                
+                <div
                   style={{
-                    fontSize: "1.5rem",
+                    display: "inline-block",
+                    background: `${item.color}20`,
+                    border: `1px solid ${item.color}50`,
+                    borderRadius: "1rem",
+                    padding: "0.25rem 0.75rem",
+                    fontSize: isMobile ? "0.75rem" : "0.8rem",
+                    color: item.color,
                     fontWeight: "bold",
-                    color: "#ef4444",
                   }}
                 >
-                  3-5
-                </span>
-                <span style={{ color: "#a1a1aa" }}>→</span>
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    color: "#10b981",
-                  }}
-                >
-                  0
-                </span>
-                <span style={{ color: "#a1a1aa", fontSize: "0.875rem" }}>
-                  per release
-                </span>
+                  {item.metric}
+                </div>
               </div>
-            </div>
-
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-              }}
-            >
-              <div
-                style={{
-                  color: "#a1a1aa",
-                  fontSize: "0.875rem",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Cross-Discipline Productivity Gains
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  gap: "0.5rem",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    color: "#ef4444",
-                  }}
-                >
-                  30 hrs
-                </span>
-                <span style={{ color: "#a1a1aa" }}>→</span>
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    color: "#10b981",
-                  }}
-                >
-                  &lt;1 hr
-                </span>
-              </div>
-            </div>
-
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-              }}
-            >
-              <div
-                style={{
-                  color: "#a1a1aa",
-                  fontSize: "0.875rem",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Disclaimer Validation
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  gap: "0.5rem",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    color: "#ef4444",
-                  }}
-                >
-                  2 hrs
-                </span>
-                <span style={{ color: "#a1a1aa" }}>→</span>
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    color: "#10b981",
-                  }}
-                >
-                  15 min
-                </span>
-              </div>
-            </div>
-
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-              }}
-            >
-              <div
-                style={{
-                  color: "#a1a1aa",
-                  fontSize: "0.875rem",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Error Detection Time
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  gap: "0.5rem",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    color: "#ef4444",
-                  }}
-                >
-                  2-3 days
-                </span>
-                <span style={{ color: "#a1a1aa" }}>→</span>
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "bold",
-                    color: "#10b981",
-                  }}
-                >
-                  Instant
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
 
           <h3 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>
