@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
@@ -12,6 +12,12 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://mashrur.dev"),
   title: {
@@ -21,7 +27,6 @@ export const metadata: Metadata = {
   },
   description:
     "Senior Full-Stack Developer in Calgary, Alberta specializing in Next.js, React, TypeScript. Available for remote positions. Ex-Meta engineer, currently at Critical Mass. Serving Calgary, Toronto & remote teams.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   keywords: [
     "Next.js Developer Calgary",
     "React Developer Calgary",

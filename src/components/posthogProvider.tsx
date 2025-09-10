@@ -1,15 +1,35 @@
 // PostHog Analytics Provider
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export function PostHogProvider({ children }: { children: React.ReactNode }) {
+function PostHogPageViewTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  // Track route changes
+  useEffect(() => {
+    if (pathname && typeof posthog !== "undefined") {
+      let url = window.origin + pathname;
+      if (searchParams && searchParams.toString()) {
+        url += `?${searchParams.toString()}`;
+      }
+      
+      // Capture page view with additional context
+      posthog.capture("$pageview", {
+        $current_url: url,
+        $pathname: pathname,
+      });
+    }
+  }, [pathname, searchParams]);
+
+  return null;
+}
+
+export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Only initialize if we have the key and are in browser
     if (process.env.NEXT_PUBLIC_POSTHOG_KEY && typeof window !== "undefined") {
@@ -48,31 +68,26 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // Track route changes
-  useEffect(() => {
-    if (pathname && typeof posthog !== "undefined") {
-      let url = window.origin + pathname;
-      if (searchParams && searchParams.toString()) {
-        url += `?${searchParams.toString()}`;
-      }
-      
-      // Capture page view with additional context
-      posthog.capture("$pageview", {
-        $current_url: url,
-        $pathname: pathname,
-      });
-    }
-  }, [pathname, searchParams]);
-
   // Don't render PostHog provider if no key provided
   if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
     if (process.env.NODE_ENV === "development") {
       console.warn("PostHog: No API key provided. Analytics disabled.");
     }
-    return <>{children}</>;
+    return (
+      <>
+        {children}
+      </>
+    );
   }
 
-  return <PHProvider client={posthog}>{children}</PHProvider>;
+  return (
+    <PHProvider client={posthog}>
+      <Suspense fallback={null}>
+        <PostHogPageViewTracker />
+      </Suspense>
+      {children}
+    </PHProvider>
+  );
 }
 
 // Export posthog for use in other components
