@@ -62,18 +62,18 @@ export default function AllSectionsMobile() {
               },
               {
                 title: "QA Automation",
-                metric: "60% Time Saved",
-                desc: "Content comparison tool saves 25-30 hours bi-weekly with 100% precision",
+                metric: "Up to 80% Error Reduction",
+                desc: "QA automation tool cuts validation from 2 hours to 30 minutes with precision",
               },
               {
                 title: "Dev Experience",
-                metric: "30x Faster",
-                desc: "Refresh times from 6 minutes to 12 seconds for entire dev team",
+                metric: "Faster Code Reviews",
+                desc: "Automated testing hooks and type checks preventing production bugs",
               },
               {
-                title: "Edge Personalization",
-                metric: "Zero Flicker",
-                desc: "Pioneered edge strategy eliminating render flicker in A/B tests",
+                title: "API Integration",
+                metric: "Increased Conversions",
+                desc: "Led client API integrations enabling real-time package verification",
               },
             ].map((item, i) => (
               <div
@@ -138,23 +138,33 @@ export default function AllSectionsMobile() {
           >
             {[
               {
-                role: "Senior Developer",
-                company: "Critical Mass",
-                period: "2022 - Present",
+                role: "Senior Developer + Career Developer",
+                company: "Critical Mass Inc.",
+                period: "April 2022 - Present",
                 highlights: [
-                  "Lead segmentation-based content refactoring foundation for 2+ years",
-                  "Reduced campaign launch time by 300x with offer creation engine",
-                  "Established mentorship program and coaching developers",
+                  "Architected offer creation engine reducing deployment 300x (days to hours)",
+                  "Led QA automation saving 25-30 hours bi-weekly with up to 80% error reduction",
+                  "Mentored junior developers and improved onboarding efficiency",
                 ],
               },
               {
-                role: "Full Stack Developer",
-                company: "Previous Roles",
-                period: "2019 - 2021",
+                role: "Senior Software Engineer",
+                company: "Capgemini@Meta",
+                period: "June 2021 - April 2022",
                 highlights: [
-                  "Built React.js/D3.js resource visualization tools at Meta",
-                  "Implemented GraphQL codegen saving hours per backend update",
-                  "Pre-commit hooks reduced review loops by 35%",
+                  "Built React.js dashboard visualizing CPU/GPU resources for hardware allocation",
+                  "Developed logging framework tracking performance and feature adoption",
+                  "Improved internal libraries with comprehensive documentation",
+                ],
+              },
+              {
+                role: "Web Application Developer",
+                company: "Storius Limited & Rich Media",
+                period: "2020 - 2021",
+                highlights: [
+                  "Integrated mapping tools supporting investor decisions during funding rounds",
+                  "Migrated legacy datasets improving data accuracy and scalability",
+                  "Built financial tools for banking/insurance with Docker optimization",
                 ],
               },
             ].map((job, i) => (
@@ -261,16 +271,16 @@ export default function AllSectionsMobile() {
             {[
               {
                 title: "Content Sync Validator",
-                subtitle: "60% Error Elimination",
+                subtitle: "Up to 80% Error Reduction",
                 desc: "Transformed a broken manual process causing team panic into an automated validation system that restored confidence",
                 metrics: {
-                  impact: "60% error reduction",
+                  impact: "Up to 80% fewer errors",
                   timeSaved: "30 hrs/release",
                   roi: "2hr build → 30hr savings",
                   adoption: "3 teams integrated",
                 },
                 problem:
-                  "Production errors after every content release, team anxiety, 25-30 hour delays",
+                  "Production errors after every release causing team panic and 25-30 hour delays",
                 solution:
                   "Built automated content validation tool comparing staging vs production environments",
                 outcome:
@@ -302,7 +312,7 @@ export default function AllSectionsMobile() {
                 desc: "Automated type generation eliminating runtime errors and reducing review cycles",
                 metrics: {
                   devTime: "Hours saved daily",
-                  reviews: "35% fewer loops",
+                  reviews: "Faster review cycles",
                   errors: "Near-zero runtime issues",
                 },
                 problem:
@@ -599,33 +609,33 @@ export default function AllSectionsMobile() {
           >
             {[
               {
-                category: "Frontend Excellence",
+                category: "Frontend Development",
                 skills: [
-                  "Next.js 14",
-                  "React 18",
+                  "Three.js/D3.js",
+                  "React.js/Next.js",
                   "TypeScript",
-                  "Three.js/WebGL",
-                  "Tailwind CSS",
+                  "Responsive UI",
+                  "WCAG Compliance",
                 ],
               },
               {
-                category: "Backend & Infrastructure",
+                category: "Backend & Database",
                 skills: [
                   "Node.js",
-                  "GraphQL",
-                  "PostgreSQL",
-                  "AWS Services",
-                  "Edge Functions",
+                  "AWS/NGINX",
+                  "GraphQL/REST API",
+                  "PostgreSQL/SQL",
+                  "Query Optimization",
                 ],
               },
               {
-                category: "Performance & Tools",
+                category: "Testing & DevOps",
                 skills: [
-                  "Webpack/Vite",
-                  "CI/CD Pipelines",
+                  "Cypress/Jest",
+                  "CI/CD Automation",
                   "Docker",
                   "Git Workflows",
-                  "Testing (Jest/Cypress)",
+                  "Webpack",
                 ],
               },
             ].map((category, i) => (
