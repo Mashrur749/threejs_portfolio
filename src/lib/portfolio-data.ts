@@ -122,21 +122,21 @@ export const projects: Project[] = [
     badgeVariant: "accent",
   },
   {
-    title: "Enterprise Web Platform Engineering",
-    cover: "/covers/enterprise-platform.png",
-    subtitle: "High-traffic experiences across product, design & marketing",
-    kind: "Client delivery · Meta engagement + agency",
-    desc: "Consolidated senior delivery work building React/Next.js applications for enterprise clients — CMS-driven component systems, accessibility, browser performance, release coordination, and code-review leadership. Source and private metrics are confidential; the evidence below is sanitized.",
+    title: "Resource & Telemetry Dashboard",
+    cover: "/covers/resource-dashboard.png",
+    subtitle: "Internal visualization & observability at Meta",
+    kind: "Meta engagement (via Capgemini)",
+    desc: "A React dashboard visualizing CPU and GPU resource usage to inform hardware-allocation decisions across teams, paired with a logging framework tracking application performance, reliability, and feature adoption. Also improved internal library code and documentation to streamline cross-team adoption.",
     challenge:
-      "Balancing campaign deadlines with platform quality across design, content, QA, analytics, and accounts teams under enterprise confidentiality.",
+      "Engineering leaders lacked visibility into resource utilization and feature adoption across teams, hindering hardware-allocation decisions.",
     result:
-      "Shipped, maintained, and improved high-traffic enterprise experiences with reusable UI architecture and regression prevention.",
+      "Actionable optimization insights and clearer decision-making for hardware allocation, plus broader adoption of improved internal libraries.",
     metrics: [
-      { value: "React/Next.js", label: "App architecture" },
-      { value: "WCAG", label: "Accessibility" },
-      { value: "Cross-functional", label: "Delivery ownership" },
+      { value: "React", label: "Visualization layer" },
+      { value: "Logging", label: "Perf & adoption signals" },
+      { value: "Cross-team", label: "Library adoption" },
     ],
-    tech: ["React", "Next.js", "CMS", "CI/CD", "Performance"],
+    tech: ["React", "Observability", "Internal Tooling", "Documentation"],
   },
   {
     title: "Three.js Creative Coding",
