@@ -3,1053 +3,339 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const ACCENT = "#f97316";
+
+const testimonials = [
+  {
+    role: "QA Engineer",
+    quote:
+      "Confidence has increased for sure, now I can trust that what I did is all correct. Speed has increased at least by 70-80%. The Disclaimer comparison tool increased speed 60% — from 1-2 hours to 15-30 minutes. That's a huge difference. 80% reduction of errors in low volume releases.",
+  },
+  {
+    role: "Project Manager",
+    quote:
+      "Significant increase in productivity during QA phase. The tool has put us in a more favorable position when handing over value to the client. Testing phase is now more agile and reliable, allowing us to deliver earlier. Reduced bug tickets, less human error, less back and forth between teams.",
+  },
+  {
+    role: "Content Author",
+    quote:
+      "Increased confidence in logging paths — we now verify paths before logging them. The Diff Tool saves us 25 minutes on path verification. Enhanced release success — we can track missing paths in less than 5 minutes versus 30 minutes previously.",
+  },
+  {
+    role: "Tech Lead / Release Manager",
+    quote:
+      "Operation time saving especially for QAs. Delivered content quality improvement — teams can spot problems easily. Workflow simplification makes conversations easier. Future potential to integrate other disciplines' workflows.",
+  },
+  {
+    role: "Client Stakeholder",
+    quote:
+      "Increased speed to market and ability to respond to emergent business needs. Reduced liability on legal compliance. Increased throughput for more return on investment — we can work faster and get more done in the same amount of time with the same amount of people.",
+  },
+];
+
 export default function CaseStudy() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(to bottom, #0f0f10, #1a1a1d)",
-        color: "#fafafa",
-        padding: "2rem",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "800px",
-          margin: "0 auto",
-          paddingTop: "2rem",
-        }}
-      >
-        <Link
-          href={"/"}
-          onClick={() => window.history.back()}
-          style={{
-            marginBottom: "2rem",
-            padding: "0.5rem 1rem",
-            background: "rgba(249, 115, 22, 0.1)",
-            border: "1px solid rgba(249, 115, 22, 0.3)",
-            borderRadius: "0.5rem",
-            color: "#f97316",
-            cursor: "pointer",
-            fontSize: "0.9rem",
-            transition: "all 0.2s",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "rgba(249, 115, 22, 0.2)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "rgba(249, 115, 22, 0.1)";
-          }}
-        >
-          ← Back to Portfolio
-        </Link>
+    <div style={pageStyle(isMobile)}>
+      <div style={{ maxWidth: "800px", margin: "0 auto", paddingTop: "2rem" }}>
+        <BackLink />
+        <Eyebrow>Enterprise production · Critical Mass</Eyebrow>
+        <h1 style={h1Style}>Content Sync Validator</h1>
+        <p style={ledeStyle}>
+          An automated content-validation tool that compares staging vs.
+          production content and surfaces discrepancies before release —
+          replacing an error-prone manual process and restoring team confidence.
+        </p>
 
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: "bold",
-            marginBottom: "0.5rem",
-            lineHeight: 1.2,
-          }}
-        >
-          Content Sync Validator
-        </h1>
-
-        <h2
-          style={{
-            fontSize: "1.25rem",
-            color: "#f97316",
-            marginBottom: "2rem",
-          }}
-        >
-          Eliminating Production Errors Through Automated Content Validation
-        </h2>
-
-        <div
-          style={{
-            background: "rgba(249, 115, 22, 0.1)",
-            border: "1px solid rgba(249, 115, 22, 0.2)",
-            borderRadius: "0.75rem",
-            padding: "1.5rem",
-            marginBottom: "2rem",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "1.1rem",
-              lineHeight: 1.6,
-              margin: 0,
-            }}
-          >
-            Developed an automated content validation tool that{" "}
-            <strong style={{ color: "#f97316" }}>
-              eliminated 60% of production errors
-            </strong>
-            , saved{" "}
-            <strong style={{ color: "#f97316" }}>
-              25-30 hours per release
-            </strong>
-            , and restored team confidence by replacing error-prone manual
-            processes with intelligent automation.
+        {/* Executive summary */}
+        <Section title="Executive summary" accent>
+          <p style={pStyle}>
+            An enterprise team hit recurring production errors after content
+            approval in an AEM multi-environment setup — content authored in
+            staging frequently mismatched production, costing 25–30 hours per
+            release and eroding launch confidence. I initiated and led an
+            automated validation tool that compares staging vs. production
+            content, surfaces discrepancies with their content paths, and was
+            adopted into the formal QA workflow across three teams — reducing
+            human errors by up to 80%.
           </p>
-        </div>
+        </Section>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-            gap: "1rem",
-            marginBottom: "3rem",
-          }}
-        >
-          {[
-            { metric: "60%", label: "Error Elimination" },
-            { metric: "80%", label: "Speed Increase" },
-            { metric: "30hrs", label: "Saved per Release" },
-            { metric: "200+", label: "Leaders Inspired" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "2rem",
-                  fontWeight: "bold",
-                  color: "#f97316",
-                }}
-              >
-                {item.metric}
-              </div>
-              <div
-                style={{
-                  fontSize: "0.875rem",
-                  color: "#a1a1aa",
-                  marginTop: "0.25rem",
-                }}
-              >
-                {item.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            The Challenge
-          </h2>
-          <p style={{ lineHeight: 1.8, marginBottom: "1rem" }}>
-            Our team was experiencing recurring production errors after content
-            approval in our AEM (Adobe Experience Manager) multi-environment
-            setup. Content authored in staging would frequently have
-            discrepancies when pulled to production.
+        <Section title="My role">
+          <p style={pStyle}>
+            Initiated and led the project end to end: problem discovery,
+            stakeholder research, solution design, implementation, and iteration
+            with users. A shipped production tool integrated into the team&apos;s
+            formal QA process — not a prototype.
           </p>
-          <ul style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-            <li>
-              <strong>Team Impact:</strong> Constant panic, nervousness, and
-              lack of confidence during launches
-            </li>
-            <li>
-              <strong>Time Cost:</strong> 25-30 hours lost per release in
-              detection and resolution
-            </li>
-            <li>
-              <strong>Process Inefficiency:</strong> Multiple manual checkpoints
-              prone to human error
-            </li>
-            <li>
-              <strong>High MTTD:</strong> Significant delays between error
-              introduction and detection
-            </li>
+        </Section>
+
+        <Section title="Constraints">
+          <ul style={ulStyle}>
+            <li>AEM multi-environment setup with no programmatic validation between staging and production</li>
+            <li>Manual, multi-step release workflow spanning Content, Release Management, and QA</li>
+            <li>High mean-time-to-detection — errors surfaced days after introduction</li>
+            <li>QA performed bi-weekly manual regression across 31 pages</li>
+            <li>Each error triggered a cascade of tickets, reviews, and re-deployments</li>
           </ul>
-        </section>
+        </Section>
 
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            The Broken Workflow
-          </h2>
-          <ol style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-            <li>
-              Content authors update content while manually documenting fragment
-              paths in Jira
-            </li>
-            <li>
-              Release managers collect paths from multiple tickets for
-              production publishing
-            </li>
+        <Section title="The broken workflow">
+          <p style={pStyle}>The process I inherited:</p>
+          <ol style={ulStyle}>
+            <li>Content authors update content while manually documenting fragment paths in Jira</li>
+            <li>Release managers collect paths from multiple tickets for production publishing</li>
             <li>QA performs word-by-word comparison to catch discrepancies</li>
-            <li>
-              Missing paths trigger multi-step resolution process with
-              additional QA cycles
-            </li>
+            <li>Missing paths trigger a multi-step resolution process with additional QA cycles</li>
           </ol>
-        </section>
+        </Section>
 
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Discovery & Research
-          </h2>
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              marginTop: "1.5rem",
-              marginBottom: "0.75rem",
-            }}
-          >
-            Research Methodology
-          </h3>
-          <p style={{ lineHeight: 1.8, marginBottom: "1rem" }}>
-            I conducted comprehensive stakeholder interviews following these
-            principles:
+        <Section title="Architecture">
+          <CodeBlock>
+{`Staging content  ┐
+                 ├→ Deep comparison engine (page variation data)
+Production content┘
+        ↓
+Visual diff table (staging vs. production discrepancies)
+        ↓
+Content-path extraction (for release management)
+        ↓
+Real-time validation + error reporting`}
+          </CodeBlock>
+          <p style={{ ...pStyle, marginTop: "1rem" }}>
+            The core is a deep comparison engine over AEM page-variation data,
+            producing a visual diff table and extracting the exact content paths
+            release managers need — eliminating manual field extraction from
+            fragment paths.
           </p>
-          <ul style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-            <li>
-              Focus on understanding their current workflows, frustrations, and
-              goals
-            </li>
-            <li>Ask about specific past incidents and current workarounds</li>
-            <li>Let stakeholders talk extensively without introducing bias</li>
-            <li>Map functional, emotional, and social jobs-to-be-done</li>
-          </ul>
+        </Section>
 
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              marginTop: "1.5rem",
-              marginBottom: "0.75rem",
-            }}
-          >
-            Key Findings
-          </h3>
-          <ul style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-            <li>
-              <strong>No programmatic validation</strong> existed between
-              environments
-            </li>
-            <li>
-              <strong>QA performed bi-weekly regression</strong> on 31 pages
-              manually
-            </li>
-            <li>
-              <strong>Each error triggered a cascade</strong> of tickets,
-              reviews, and re-deployments
-            </li>
-            <li>
-              <strong>The biggest constraint:</strong> No automated way to
-              compare staging vs production content
-            </li>
-          </ul>
-        </section>
+        <Section title="Key technical decisions">
+          <Decision
+            context="The biggest constraint was no automated way to compare staging vs. production."
+            decision="An MVP focused on immediate visibility into content differences plus content paths for quick resolution — built in roughly 2 hours using GitHub Copilot."
+            tradeoff="Deliberately minimal v1 to validate value fast, in exchange for features that arrived in later iterations."
+          />
+          <Decision
+            context="Authors and release managers still manually extracted fields from fragment paths."
+            decision="v2 added a unique content-path extraction button, removing manual field extraction."
+            tradeoff="More surface area, in exchange for eliminating a tedious, error-prone step."
+          />
+          <Decision
+            context="A new disclaimer-matrix validation need emerged, risking a from-scratch build."
+            decision="v3 reused the existing comparison engine for Excel-upload disclaimer validation, reusing logic for efficiency."
+            tradeoff="Slight coupling, in exchange for fast delivery and dramatically increased QA adoption."
+          />
+        </Section>
 
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Solution Design
-          </h2>
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              marginTop: "1.5rem",
-              marginBottom: "0.75rem",
-            }}
-          >
-            MVP Strategy
-          </h3>
-          <p style={{ lineHeight: 1.8, marginBottom: "1rem" }}>
-            Using RICE scoring and cost of delay analysis, I prioritized an MVP
-            that would:
+        <Section title="Iteration with users">
+          <p style={pStyle}>
+            Through observation and partnership with users, the tool grew across
+            three versions:
           </p>
-          <ul style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-            <li>Provide immediate visibility into content differences</li>
-            <li>Include content paths for quick resolution</li>
-            <li>Minimize implementation time (2 hours using GitHub Copilot)</li>
-            <li>Focus on reducing Mean Time to Resolution (MTTR)</li>
+          <ul style={ulStyle}>
+            <li><strong>v1 (MVP):</strong> deep comparison, visual diff, content-path extraction, real-time validation</li>
+            <li><strong>v2:</strong> path-extraction button for authors/release managers; in-tool diff highlighting for QA</li>
+            <li><strong>v3:</strong> disclaimer-matrix validation via Excel upload, reusing the comparison engine</li>
           </ul>
+        </Section>
 
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              marginTop: "1.5rem",
-              marginBottom: "0.75rem",
-            }}
-          >
-            Technical Implementation
-          </h3>
-          <div
-            style={{
-              background: "rgba(39, 39, 42, 0.5)",
-              border: "1px solid rgba(63, 63, 70, 0.5)",
-              borderRadius: "0.5rem",
-              padding: "1.5rem",
-              marginTop: "1rem",
-            }}
-          >
-            <p style={{ marginBottom: "0.5rem" }}>
-              <strong>Core Features:</strong>
-            </p>
-            <ul style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-              <li>Deep comparison engine for page variation data</li>
-              <li>
-                Visual diff table with clear staging/production discrepancies
-              </li>
-              <li>Content path extraction for release management</li>
-              <li>Real-time validation capability</li>
-            </ul>
-          </div>
-        </section>
+        <Section title="Reliability & quality">
+          <ul style={ulStyle}>
+            <li>Real-time validation replacing days-lag detection</li>
+            <li>In-tool diff highlighting — no external comparison tools or context-switching</li>
+            <li>Error and unsupported-field reporting with content paths for fast resolution</li>
+            <li>Reused, proven comparison logic as the stable core across new features</li>
+          </ul>
+        </Section>
 
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Iterative Improvements
-          </h2>
-
-          <div style={{ marginBottom: "2rem" }}>
-            <h3 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>
-              Version 2: Enhanced Usability
-            </h3>
-            <p style={{ lineHeight: 1.8, marginBottom: "1rem" }}>
-              Through observation and partnership with users, I added:
-            </p>
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-                marginBottom: "1rem",
-              }}
-            >
-              <p style={{ fontWeight: "bold", marginBottom: "0.5rem" }}>
-                For Content Authors & Release Managers:
-              </p>
-              <ul style={{ lineHeight: 1.6, paddingLeft: "1.5rem", margin: 0 }}>
-                <li>Unique content path extraction button</li>
-                <li>Eliminated manual field extraction from fragment paths</li>
-                <li>Streamlined content fragment list preparation</li>
-              </ul>
-            </div>
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-              }}
-            >
-              <p style={{ fontWeight: "bold", marginBottom: "0.5rem" }}>
-                For QA Team:
-              </p>
-              <ul style={{ lineHeight: 1.6, paddingLeft: "1.5rem", margin: 0 }}>
-                <li>In-tool diff highlighting</li>
-                <li>Eliminated need for external comparison tools</li>
-                <li>Reduced context switching</li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <h3 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>
-              Version 3: Expanded Capabilities
-            </h3>
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.5rem",
-                padding: "1rem",
-              }}
-            >
-              <p style={{ fontWeight: "bold", marginBottom: "0.5rem" }}>
-                Disclaimer Matrix Validation:
-              </p>
-              <ul style={{ lineHeight: 1.6, paddingLeft: "1.5rem", margin: 0 }}>
-                <li>Excel upload functionality</li>
-                <li>Automated comparison against staging content</li>
-                <li>Reused existing comparison logic for efficiency</li>
-                <li>Dramatically increased QA team adoption</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Impact & Results
-          </h2>
-
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              marginTop: "1.5rem",
-              marginBottom: "1rem",
-            }}
-          >
-            Measurable Business Impact
-          </h3>
-
-          {/* Compact Impact Grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-              gap: "1rem",
-              marginBottom: "2rem",
-            }}
-          >
+        <Section title="Results">
+          <p style={pStyle}>Measured before → after impact:</p>
+          <div style={gridStyle(isMobile)}>
             {[
-              {
-                title: "Production Quality",
-                before: "3-5 errors per release",
-                after: "Zero errors",
-                metric: "60% reduction",
-                color: "#f97316",
-              },
-              {
-                title: "QA Efficiency",
-                before: "30 hours overhead",
-                after: "< 1 hour",
-                metric: "96% faster",
-                color: "#10b981",
-              },
-              {
-                title: "Disclaimer Validation",
-                before: "2 hours manual",
-                after: "15 minutes automated",
-                metric: "87% faster",
-                color: "#10b981",
-              },
-              {
-                title: "Error Detection",
-                before: "2-3 days lag",
-                after: "Real-time",
-                metric: "Instant feedback",
-                color: "#f97316",
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  background: "rgba(39, 39, 42, 0.5)",
-                  border: "1px solid rgba(63, 63, 70, 0.5)",
-                  borderRadius: "0.75rem",
-                  padding: isMobile ? "1rem" : "1.25rem",
-                }}
-              >
-                <div style={{ 
-                  fontWeight: "bold", 
-                  color: "#fafafa",
-                  fontSize: isMobile ? "0.9rem" : "1rem",
-                  marginBottom: "0.75rem"
-                }}>
-                  {item.title}
-                </div>
-                
-                <div style={{ 
-                  display: "flex", 
-                  alignItems: "center", 
-                  gap: "0.5rem",
-                  marginBottom: "0.5rem"
-                }}>
-                  <span style={{ 
-                    color: "#ef4444", 
-                    fontSize: isMobile ? "0.75rem" : "0.85rem",
-                    textDecoration: "line-through",
-                    opacity: 0.8
-                  }}>
-                    {item.before}
-                  </span>
+              { title: "Production quality", before: "3–5 errors per release", after: "Zero errors", metric: "Up to 80% fewer errors", color: "#f97316" },
+              { title: "QA efficiency", before: "30 hours overhead", after: "< 1 hour", metric: "96% faster", color: "#10b981" },
+              { title: "Disclaimer validation", before: "2 hours manual", after: "15 minutes automated", metric: "87% faster", color: "#10b981" },
+              { title: "Error detection", before: "2–3 days lag", after: "Real-time", metric: "Instant feedback", color: "#f97316" },
+            ].map((item) => (
+              <div key={item.title} style={impactCardStyle}>
+                <div style={{ fontWeight: 700, color: "#fafafa", marginBottom: "0.6rem" }}>{item.title}</div>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem", flexWrap: "wrap" }}>
+                  <span style={{ color: "#ef4444", textDecoration: "line-through", opacity: 0.8, fontSize: "0.85rem" }}>{item.before}</span>
                   <span style={{ color: "#a1a1aa" }}>→</span>
-                  <span style={{ 
-                    color: "#10b981", 
-                    fontSize: isMobile ? "0.75rem" : "0.85rem",
-                    fontWeight: "600"
-                  }}>
-                    {item.after}
-                  </span>
+                  <span style={{ color: "#10b981", fontSize: "0.85rem", fontWeight: 600 }}>{item.after}</span>
                 </div>
-                
-                <div
-                  style={{
-                    display: "inline-block",
-                    background: `${item.color}20`,
-                    border: `1px solid ${item.color}50`,
-                    borderRadius: "1rem",
-                    padding: "0.25rem 0.75rem",
-                    fontSize: isMobile ? "0.75rem" : "0.8rem",
-                    color: item.color,
-                    fontWeight: "bold",
-                  }}
-                >
-                  {item.metric}
-                </div>
+                <span style={metricBadgeStyle(item.color)}>{item.metric}</span>
               </div>
             ))}
           </div>
+          <p style={{ ...pStyle, marginTop: "1rem" }}>Qualitatively: restored team confidence, formal QA-process integration, a cultural shift from reactive firefighting to proactive validation, and cross-team adoption beyond the initial user group.</p>
+        </Section>
 
-          <h3 style={{ fontSize: "1.25rem", marginBottom: "0.75rem" }}>
-            Qualitative Outcomes
-          </h3>
-          <ul style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-            <li>
-              <strong>Restored Team Confidence:</strong> Teams now launch
-              without anxiety
-            </li>
-            <li>
-              <strong>Process Integration:</strong> Tool adopted in formal QA
-              workflows
-            </li>
-            <li>
-              <strong>Cultural Shift:</strong> From reactive firefighting to
-              proactive validation
-            </li>
-            <li>
-              <strong>Cross-team Adoption:</strong> Expanded beyond initial user
-              group
-            </li>
-          </ul>
-        </section>
+        <Section title="Leadership & recognition">
+          <div style={speakerCardStyle}>
+            <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>🎤</div>
+            <h3 style={{ fontSize: "1.2rem", color: ACCENT, marginBottom: "0.5rem" }}>Invited speaker</h3>
+            <p style={{ ...pStyle, marginBottom: "0.5rem" }}>
+              Presented the problem-solving methodology and tool-development process to
+            </p>
+            <div style={{ fontSize: "1.5rem", fontWeight: 800, color: ACCENT, marginBottom: "0.25rem" }}>
+              ~200 members of the technology discipline
+            </div>
+            <p style={{ color: "#a1a1aa", fontStyle: "italic", fontSize: "0.9rem" }}>
+              Invited to share insights and inspire similar innovation initiatives across the organization.
+            </p>
+          </div>
+        </Section>
 
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Methodologies & Frameworks
-          </h2>
-          <p style={{ lineHeight: 1.8, marginBottom: "1rem" }}>
-            This project successfully applied multiple methodologies:
-          </p>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              gap: "1rem",
-            }}
-          >
+        <Section title="Methodologies applied">
+          <div style={methodGridStyle(isMobile)}>
             {[
-              {
-                name: "Design Thinking",
-                desc: "Empathize, Define, Ideate, Prototype, Test",
-              },
-              {
-                name: "The Mom Test",
-                desc: "Unbiased user research techniques",
-              },
-              {
-                name: "Systems Thinking",
-                desc: "Understanding causal loops and feedback",
-              },
-              {
-                name: "Jobs-to-be-Done",
-                desc: "Mapping functional, emotional, social needs",
-              },
-              {
-                name: "RICE Scoring",
-                desc: "Prioritizing by Reach, Impact, Confidence, Effort",
-              },
-              {
-                name: "Root Cause Analysis",
-                desc: "5 Whys to identify core problems",
-              },
-              {
-                name: "SCAMPER",
-                desc: "Creative problem-solving for feature ideation",
-              },
-              {
-                name: "MVP Approach",
-                desc: "Earliest Usable Lovable Product (EULP)",
-              },
-            ].map((method, i) => (
-              <div
-                key={i}
-                style={{
-                  background: "rgba(39, 39, 42, 0.5)",
-                  border: "1px solid rgba(63, 63, 70, 0.5)",
-                  borderRadius: "0.5rem",
-                  padding: "1rem",
-                }}
-              >
-                <div
-                  style={{
-                    fontWeight: "bold",
-                    color: "#f97316",
-                    marginBottom: "0.25rem",
-                  }}
-                >
-                  {method.name}
-                </div>
-                <div style={{ fontSize: "0.875rem", color: "#a1a1aa" }}>
-                  {method.desc}
-                </div>
+              { name: "Design Thinking", desc: "Empathize, Define, Ideate, Prototype, Test" },
+              { name: "The Mom Test", desc: "Unbiased user research techniques" },
+              { name: "Systems Thinking", desc: "Understanding causal loops and feedback" },
+              { name: "Jobs-to-be-Done", desc: "Functional, emotional, social needs" },
+              { name: "RICE Scoring", desc: "Reach, Impact, Confidence, Effort" },
+              { name: "Root Cause Analysis", desc: "5 Whys to identify core problems" },
+              { name: "SCAMPER", desc: "Creative problem-solving for ideation" },
+              { name: "MVP Approach", desc: "Earliest Usable Lovable Product" },
+            ].map((m) => (
+              <div key={m.name} style={methodCardStyle}>
+                <div style={{ fontWeight: 700, color: ACCENT, marginBottom: "0.15rem" }}>{m.name}</div>
+                <div style={{ fontSize: "0.82rem", color: "#a1a1aa" }}>{m.desc}</div>
               </div>
             ))}
           </div>
-        </section>
+        </Section>
 
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Key Learnings
-          </h2>
-          <ol style={{ lineHeight: 1.8, paddingLeft: "1.5rem" }}>
-            <li>
-              <strong>Partnership Drives Adoption:</strong> Working alongside
-              users during implementation inspired them to formally integrate
-              the tool
-            </li>
-            <li>
-              <strong>Observation Reveals Hidden Needs:</strong> Watching actual
-              usage uncovered opportunities for impactful improvements
-            </li>
-            <li>
-              <strong>Reusability Accelerates Development:</strong> Leveraging
-              existing code for new features (Excel comparison) maximized
-              efficiency
-            </li>
-            <li>
-              <strong>Small Tools, Big Impact:</strong> A 2-hour MVP solved a
-              problem costing 25-30 hours per release
-            </li>
+        <Section title="Retrospective">
+          <ol style={ulStyle}>
+            <li><strong>Partnership drives adoption:</strong> working alongside users during implementation inspired formal integration.</li>
+            <li><strong>Observation reveals hidden needs:</strong> watching actual usage uncovered impactful improvements.</li>
+            <li><strong>Reusability accelerates development:</strong> leveraging existing code for new features maximized efficiency.</li>
+            <li><strong>Small tools, big impact:</strong> a ~2-hour MVP solved a problem costing 25–30 hours per release.</li>
           </ol>
-        </section>
+        </Section>
 
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Stakeholder Testimonials
-          </h2>
-
-          <div
-            style={{
-              display: "grid",
-              gap: "1.5rem",
-            }}
-          >
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.75rem",
-                padding: "1.5rem",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-10px",
-                  left: "20px",
-                  background: "#0f0f10",
-                  padding: "0 10px",
-                  color: "#f97316",
-                  fontWeight: "bold",
-                  fontSize: "0.875rem",
-                }}
-              >
-                QA Engineer
-              </div>
-              <blockquote
-                style={{ margin: 0, fontStyle: "italic", lineHeight: 1.8 }}
-              >
-                "Confidence has increased for sure, now I can trust that what I
-                did is all correct. Speed has increased at least by{" "}
-                <strong style={{ color: "#f97316" }}>70-80%</strong>. The
-                Disclaimer comparison tool has increased speed{" "}
-                <strong style={{ color: "#f97316" }}>60%</strong> - from 1-2
-                hours to 15-30 minutes. That's a huge difference.
-                <strong style={{ color: "#f97316" }}>
-                  80% reduction of errors
-                </strong>{" "}
-                in low volume releases."
+        <Section title="Proof">
+          <div style={{ display: "grid", gap: "1rem" }}>
+            {testimonials.map((t) => (
+              <blockquote key={t.role} style={quoteStyle}>
+                <div style={quoteRoleStyle}>{t.role}</div>
+                <p style={{ margin: 0, fontStyle: "italic", lineHeight: 1.7, color: "#d4d4d8" }}>{t.quote}</p>
               </blockquote>
-            </div>
-
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.75rem",
-                padding: "1.5rem",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-10px",
-                  left: "20px",
-                  background: "#0f0f10",
-                  padding: "0 10px",
-                  color: "#f97316",
-                  fontWeight: "bold",
-                  fontSize: "0.875rem",
-                }}
-              >
-                Project Manager
-              </div>
-              <blockquote
-                style={{ margin: 0, fontStyle: "italic", lineHeight: 1.8 }}
-              >
-                "Significant increase in productivity during QA phase. The tool
-                has put us in a more favorable position when handing over value
-                to the client. Testing phase is now more agile and reliable,
-                allowing us to deliver earlier.{" "}
-                <strong style={{ color: "#f97316" }}>
-                  Reduced bug tickets, less human error, less back and forth
-                  between teams.
-                </strong>
-                "
-              </blockquote>
-            </div>
-
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.75rem",
-                padding: "1.5rem",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-10px",
-                  left: "20px",
-                  background: "#0f0f10",
-                  padding: "0 10px",
-                  color: "#f97316",
-                  fontWeight: "bold",
-                  fontSize: "0.875rem",
-                }}
-              >
-                Content Author
-              </div>
-              <blockquote
-                style={{ margin: 0, fontStyle: "italic", lineHeight: 1.8 }}
-              >
-                "Increased confidence in logging paths - we now verify paths
-                before logging them. The Diff Tool saves us{" "}
-                <strong style={{ color: "#f97316" }}>25 minutes</strong> on path
-                verification. Enhanced release success - we can track missing
-                paths in
-                <strong style={{ color: "#f97316" }}>
-                  {" "}
-                  less than 5 minutes
-                </strong>{" "}
-                versus 30 minutes previously."
-              </blockquote>
-            </div>
-
-            <div
-              style={{
-                background: "rgba(39, 39, 42, 0.5)",
-                border: "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "0.75rem",
-                padding: "1.5rem",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-10px",
-                  left: "20px",
-                  background: "#0f0f10",
-                  padding: "0 10px",
-                  color: "#f97316",
-                  fontWeight: "bold",
-                  fontSize: "0.875rem",
-                }}
-              >
-                Tech Lead / Release Manager
-              </div>
-              <blockquote
-                style={{ margin: 0, fontStyle: "italic", lineHeight: 1.8 }}
-              >
-                "Operation time saving especially for QAs. Delivered content
-                quality improvement - teams can spot problems easily.{" "}
-                <strong style={{ color: "#f97316" }}>
-                  Workflow simplification
-                </strong>
-                makes conversations easier. Future potential to integrate other
-                disciplines' workflows."
-              </blockquote>
-            </div>
-
-            <div
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(251, 146, 60, 0.1))",
-                border: "2px solid rgba(249, 115, 22, 0.3)",
-                borderRadius: "0.75rem",
-                padding: "1.5rem",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-10px",
-                  left: "20px",
-                  background: "#0f0f10",
-                  padding: "0 10px",
-                  color: "#f97316",
-                  fontWeight: "bold",
-                  fontSize: "0.875rem",
-                }}
-              >
-                Client Stakeholder
-              </div>
-              <blockquote
-                style={{ margin: 0, fontStyle: "italic", lineHeight: 1.8 }}
-              >
-                "
-                <strong style={{ color: "#f97316" }}>
-                  Increased speed to market
-                </strong>{" "}
-                and ability to respond to emergent business needs.
-                <strong style={{ color: "#f97316" }}>
-                  Reduced liability on legal compliance.
-                </strong>
-                Increased throughput for more return on investment - we can work
-                faster and get more done in the same amount of time with the
-                same amount of people."
-              </blockquote>
-            </div>
-          </div>
-        </section>
-
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Leadership & Recognition
-          </h2>
-          <div
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(249, 115, 22, 0.05), rgba(251, 146, 60, 0.05))",
-              border: "2px solid rgba(249, 115, 22, 0.2)",
-              borderRadius: "0.75rem",
-              padding: "2rem",
-              textAlign: "center",
-            }}
-          >
-            <div
-              style={{
-                fontSize: "3rem",
-                marginBottom: "1rem",
-              }}
-            >
-              🎤
-            </div>
-            <h3
-              style={{
-                fontSize: "1.5rem",
-                marginBottom: "0.75rem",
-                color: "#f97316",
-              }}
-            >
-              Invited Speaker
-            </h3>
-            <p
-              style={{
-                fontSize: "1.125rem",
-                lineHeight: 1.8,
-                marginBottom: "1rem",
-              }}
-            >
-              Presented the problem-solving methodology and tool development
-              process to
-            </p>
-            <div
-              style={{
-                fontSize: "2rem",
-                fontWeight: "bold",
-                color: "#f97316",
-                marginBottom: "0.5rem",
-              }}
-            >
-              ~200 Members of Technology Discipline
-            </div>
-            <p
-              style={{
-                color: "#a1a1aa",
-                fontStyle: "italic",
-              }}
-            >
-              Invited to share insights at the technology discipline meeting to
-              inspire similar innovation initiatives across the organization
-            </p>
-          </div>
-        </section>
-
-        <section style={{ marginBottom: "3rem" }}>
-          <h2
-            style={{
-              fontSize: "1.75rem",
-              marginBottom: "1rem",
-              color: "#f97316",
-            }}
-          >
-            Technologies Used
-          </h2>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.75rem",
-            }}
-          >
-            {[
-              "AEM (Adobe Experience Manager)",
-              "GitHub Copilot",
-              "Next.js",
-              "Node.js",
-              "REST APIs",
-            ].map((tech, i) => (
-              <span
-                key={i}
-                style={{
-                  padding: "0.5rem 1rem",
-                  background: "rgba(249, 115, 22, 0.1)",
-                  border: "1px solid rgba(249, 115, 22, 0.3)",
-                  borderRadius: "2rem",
-                  fontSize: "0.875rem",
-                }}
-              >
-                {tech}
-              </span>
             ))}
           </div>
-        </section>
-
-        <div
-          style={{
-            marginTop: "4rem",
-            padding: "2rem",
-            background:
-              "linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(251, 146, 60, 0.1))",
-            border: "1px solid rgba(249, 115, 22, 0.3)",
-            borderRadius: "0.75rem",
-            textAlign: "center",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "1.5rem",
-              marginBottom: "0.5rem",
-            }}
-          >
-            Let's Discuss This Project
-          </h3>
-          <p
-            style={{
-              color: "#a1a1aa",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Interested in learning more about my approach to solving complex
-            problems?
+          <p style={{ ...pStyle, marginTop: "1rem", color: "#a1a1aa", fontSize: "0.9rem" }}>
+            Plus: invited presentation to ~200 technology-discipline members, and adoption into the formal QA workflow across three teams.
           </p>
-          <a
-            href="mailto:rmashrur749@gmail.com?subject=Reaching out to Sync on an Opportunity"
-            style={{
-              display: "inline-block",
-              padding: "0.75rem 2rem",
-              background: "linear-gradient(135deg, #f97316, #fb923c)",
-              border: "none",
-              borderRadius: "0.5rem",
-              color: "white",
-              fontSize: "1rem",
-              fontWeight: "bold",
-              textDecoration: "none",
-              transition: "transform 0.2s, box-shadow 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow =
-                "0 10px 30px rgba(249, 115, 22, 0.4)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
-            }}
-          >
-            Get in Touch
-          </a>
-        </div>
+        </Section>
+
+        <CTA />
       </div>
     </div>
   );
+}
+
+/* ---------- shared components ---------- */
+
+function BackLink() {
+  return (
+    <Link
+      href="/"
+      style={{
+        display: "inline-block",
+        marginBottom: "1.5rem",
+        padding: "0.4rem 0.9rem",
+        background: "rgba(249, 115, 22, 0.1)",
+        border: "1px solid rgba(249, 115, 22, 0.3)",
+        borderRadius: "0.5rem",
+        color: ACCENT,
+        fontSize: "0.85rem",
+        textDecoration: "none",
+      }}
+    >
+      ← Back to portfolio
+    </Link>
+  );
+}
+
+function Eyebrow({ children }: { children: React.ReactNode }) {
+  return (
+    <p style={{ fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase", color: ACCENT, fontWeight: 600, marginBottom: "0.5rem" }}>
+      {children}
+    </p>
+  );
+}
+
+function Section({ title, children, accent }: { title: string; children: React.ReactNode; accent?: boolean }) {
+  return (
+    <section style={{ marginBottom: "2.5rem" }}>
+      <h2 style={{ fontSize: "1.4rem", marginBottom: "0.75rem", color: accent ? ACCENT : "#fafafa" }}>{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+function Decision({ context, decision, tradeoff }: { context: string; decision: string; tradeoff: string }) {
+  return (
+    <div style={{ background: "rgba(39, 39, 42, 0.5)", border: "1px solid rgba(63, 63, 70, 0.5)", borderRadius: "0.6rem", padding: "1rem", marginBottom: "0.75rem" }}>
+      <p style={{ ...pStyle, margin: 0, marginBottom: "0.4rem" }}><strong style={{ color: "#a1a1aa" }}>Context: </strong>{context}</p>
+      <p style={{ ...pStyle, margin: 0, marginBottom: "0.4rem" }}><strong style={{ color: ACCENT }}>Decision: </strong>{decision}</p>
+      <p style={{ ...pStyle, margin: 0 }}><strong style={{ color: "#a1a1aa" }}>Tradeoff: </strong>{tradeoff}</p>
+    </div>
+  );
+}
+
+function CodeBlock({ children }: { children: React.ReactNode }) {
+  return (
+    <pre style={{ background: "rgba(0, 0, 0, 0.4)", border: "1px solid rgba(63, 63, 70, 0.5)", borderRadius: "0.5rem", padding: "1rem", color: "#d4d4d8", fontSize: "0.8rem", lineHeight: 1.6, overflowX: "auto", margin: 0 }}>
+      {children}
+    </pre>
+  );
+}
+
+function CTA() {
+  return (
+    <div style={{ marginTop: "3rem", padding: "1.75rem", background: "rgba(249, 115, 22, 0.08)", border: "1px solid rgba(249, 115, 22, 0.3)", borderRadius: "0.75rem", textAlign: "center" }}>
+      <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>Want to talk automation &amp; quality engineering?</h3>
+      <p style={{ color: "#a1a1aa", marginBottom: "1.25rem" }}>I&apos;m open to senior product-engineering and technical-lead roles.</p>
+      <a href="mailto:rmashrur.w749@gmail.com?subject=Reaching out — Content Sync Validator" style={{ display: "inline-block", padding: "0.7rem 1.75rem", background: "#ea580c", border: "none", borderRadius: "0.5rem", color: "white", fontSize: "0.95rem", fontWeight: 600, textDecoration: "none" }}>
+        Get in touch
+      </a>
+    </div>
+  );
+}
+
+/* ---------- styles ---------- */
+
+const pStyle: React.CSSProperties = { lineHeight: 1.8, marginBottom: "0.75rem", color: "#d4d4d8" };
+const ulStyle: React.CSSProperties = { lineHeight: 1.8, paddingLeft: "1.25rem", color: "#d4d4d8", margin: 0 };
+const h1Style: React.CSSProperties = { fontSize: "2.5rem", fontWeight: 800, marginBottom: "0.5rem", lineHeight: 1.1, letterSpacing: "-0.02em" };
+const ledeStyle: React.CSSProperties = { fontSize: "1.15rem", color: "#d4d4d8", lineHeight: 1.7, marginBottom: "1.5rem" };
+const impactCardStyle: React.CSSProperties = { background: "rgba(39, 39, 42, 0.5)", border: "1px solid rgba(63, 63, 70, 0.5)", borderRadius: "0.6rem", padding: "1rem" };
+const speakerCardStyle: React.CSSProperties = { background: "linear-gradient(135deg, rgba(249, 115, 22, 0.06), rgba(251, 146, 60, 0.04))", border: "1px solid rgba(249, 115, 22, 0.2)", borderRadius: "0.75rem", padding: "1.75rem", textAlign: "center" };
+const quoteStyle: React.CSSProperties = { background: "rgba(39, 39, 42, 0.5)", border: "1px solid rgba(63, 63, 70, 0.5)", borderRadius: "0.6rem", padding: "1.25rem", margin: 0, position: "relative" };
+const quoteRoleStyle: React.CSSProperties = { position: "absolute", top: "-10px", left: "16px", background: "#0f0f10", padding: "0 8px", color: ACCENT, fontWeight: 700, fontSize: "0.8rem" };
+const methodCardStyle: React.CSSProperties = { background: "rgba(39, 39, 42, 0.5)", border: "1px solid rgba(63, 63, 70, 0.5)", borderRadius: "0.5rem", padding: "0.85rem" };
+
+function pageStyle(isMobile: boolean): React.CSSProperties {
+  return { minHeight: "100vh", background: "linear-gradient(to bottom, #0f0f10, #1a1a1d)", color: "#fafafa", padding: isMobile ? "1.5rem" : "2rem" };
+}
+function gridStyle(isMobile: boolean): React.CSSProperties {
+  return { display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)", gap: "1rem", marginBottom: "0.5rem" };
+}
+function methodGridStyle(isMobile: boolean): React.CSSProperties {
+  return { display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.75rem" };
+}
+function metricBadgeStyle(color: string): React.CSSProperties {
+  return { display: "inline-block", background: `${color}20`, border: `1px solid ${color}50`, borderRadius: "1rem", padding: "0.2rem 0.65rem", fontSize: "0.78rem", color, fontWeight: 700 };
 }

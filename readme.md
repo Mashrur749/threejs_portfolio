@@ -73,10 +73,11 @@ vercel --prod
 
 ## 📫 Contact
 
-- **LinkedIn:** [Mashrur Rahman](https://www.linkedin.com/in/musaddiqur-rahman/)
+- **Portfolio:** [findmashur.dev](https://findmashur.dev)
+- **LinkedIn:** [linkedin.com/in/mashrurio](https://www.linkedin.com/in/mashrurio)
 - **GitHub:** [@Mashrur749](https://github.com/Mashrur749)
-- **Email:** rmashrur.w749@gmail.com
+- **Email:** [rmashrur.w749@gmail.com](mailto:rmashrur.w749@gmail.com)
 
 ## 📄 License
 
-© 2024 Mashrur Rahman. All rights reserved.
+© 2026 Mashrur Rahman. All rights reserved.

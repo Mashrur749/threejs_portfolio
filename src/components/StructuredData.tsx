@@ -1,46 +1,45 @@
 export default function StructuredData() {
+  const BASE = "https://findmashur.dev";
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://mashrur.dev/#person",
-        "name": "Mashrur Rahman",
-        "jobTitle": "Senior Full-Stack Developer",
-        "description": "Senior Next.js and React Developer with 5+ years of experience building enterprise web applications",
-        "url": "https://mashrur.dev",
-        "image": "https://mashrur.dev/profile-image.jpg",
-        "sameAs": [
+        "@id": `${BASE}/#person`,
+        name: "Mashrur Rahman",
+        jobTitle: "Senior Product Engineer & Technical Lead",
+        description:
+          "Senior full-stack engineer in Calgary, Alberta, with 6+ years building performant, accessible web applications with Next.js, React, and TypeScript.",
+        url: BASE,
+        image: `${BASE}/images/headshot.jpg`,
+        sameAs: [
           "https://www.linkedin.com/in/mashrurio",
-          "https://github.com/mashrurrahman"
+          "https://github.com/Mashrur749",
         ],
-        "email": "rmashrur.w749@gmail.com",
-        "telephone": "+1-calgary-contact",
-        "address": {
+        email: "rmashrur.w749@gmail.com",
+        telephone: "+1 403-703-7831",
+        address: {
           "@type": "PostalAddress",
-          "addressLocality": "Calgary",
-          "addressRegion": "Alberta",
-          "addressCountry": "Canada",
-          "postalCode": "T2X"
+          addressLocality: "Calgary",
+          addressRegion: "Alberta",
+          addressCountry: "Canada",
         },
-        "worksFor": {
+        worksFor: {
           "@type": "Organization",
-          "name": "Critical Mass",
-          "url": "https://www.criticalmass.com"
+          name: "Critical Mass",
+          url: "https://www.criticalmass.com",
         },
-        "alumniOf": [
-          {
-            "@type": "Organization",
-            "name": "Meta",
-            "url": "https://about.meta.com"
-          },
+        // Capgemini consultant on a Meta engagement — not a Meta alumnus.
+        // Listed honestly to avoid overstating the relationship.
+        alumniOf: [
           {
             "@type": "CollegeOrUniversity",
-            "name": "Seneca College",
-            "url": "https://www.senecacollege.ca"
-          }
+            name: "Seneca College",
+            url: "https://www.senecacollege.ca",
+          },
         ],
-        "knowsAbout": [
+        knowsAbout: [
           "Next.js Development",
           "React.js",
           "TypeScript",
@@ -51,126 +50,52 @@ export default function StructuredData() {
           "Enterprise Web Applications",
           "Performance Optimization",
           "CI/CD",
-          "Agile Development"
+          "Accessibility (WCAG)",
+          "Three.js",
         ],
-        "availableForWork": true,
-        "seekingEmployment": {
+        availableForWork: true,
+        seekingEmployment: {
           "@type": "JobPosting",
-          "description": "Seeking Senior Full-Stack Developer positions",
-          "employmentType": ["FULL_TIME", "CONTRACT"],
-          "jobLocation": [
+          description: "Seeking senior full-stack engineering positions",
+          employmentType: ["FULL_TIME", "CONTRACT"],
+          jobLocation: [
             {
               "@type": "Place",
-              "address": {
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Calgary",
-                "addressRegion": "Alberta",
-                "addressCountry": "Canada"
-              }
-            },
-            {
-              "@type": "Place",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Toronto",
-                "addressRegion": "Ontario",
-                "addressCountry": "Canada"
-              }
+                addressLocality: "Calgary",
+                addressRegion: "Alberta",
+                addressCountry: "Canada",
+              },
             },
             {
               "@type": "VirtualLocation",
-              "description": "Remote work available"
-            }
-          ]
-        }
+              description: "Remote work across Canada and beyond",
+            },
+          ],
+        },
       },
       {
         "@type": "WebSite",
-        "@id": "https://mashrur.dev/#website",
-        "url": "https://mashrur.dev",
-        "name": "Mashrur Rahman - Senior Developer Portfolio",
-        "description": "Portfolio of Mashrur Rahman, a Senior Full-Stack Developer in Calgary, Alberta specializing in Next.js, React, and TypeScript",
-        "publisher": {
-          "@id": "https://mashrur.dev/#person"
-        },
-        "inLanguage": "en-CA"
+        "@id": `${BASE}/#website`,
+        url: BASE,
+        name: "Mashrur Rahman — Senior Full-Stack Engineer",
+        description:
+          "Portfolio of Mashrur Rahman, a senior full-stack engineer in Calgary, Alberta specializing in Next.js, React, TypeScript, and Three.js.",
+        publisher: { "@id": `${BASE}/#person` },
+        inLanguage: "en-CA",
       },
       {
-        "@type": "WebPage",
-        "@id": "https://mashrur.dev/#webpage",
-        "url": "https://mashrur.dev",
-        "name": "Mashrur Rahman | Senior Next.js Developer Calgary | Full-Stack Engineer",
-        "description": "Senior Full-Stack Developer in Calgary, Alberta. Specializing in Next.js, React, TypeScript. Available for remote positions across Canada.",
-        "isPartOf": {
-          "@id": "https://mashrur.dev/#website"
-        },
-        "about": {
-          "@id": "https://mashrur.dev/#person"
-        },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://mashrur.dev"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Calgary Developer",
-              "item": "https://mashrur.dev#hero"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Projects",
-              "item": "https://mashrur.dev#projects"
-            }
-          ]
-        }
+        "@type": "ProfilePage",
+        "@id": `${BASE}/#webpage`,
+        url: BASE,
+        name: "Mashrur Rahman | Senior Full-Stack Engineer",
+        description:
+          "Senior full-stack engineer in Calgary, Alberta. Next.js, React, TypeScript, and Three.js. Open to new roles, remote-friendly.",
+        isPartOf: { "@id": `${BASE}/#website` },
+        about: { "@id": `${BASE}/#person` },
       },
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://mashrur.dev/#service",
-        "name": "Mashrur Rahman - Full-Stack Development Services",
-        "provider": {
-          "@id": "https://mashrur.dev/#person"
-        },
-        "areaServed": [
-          {
-            "@type": "City",
-            "name": "Calgary",
-            "containedInPlace": {
-              "@type": "State",
-              "name": "Alberta"
-            }
-          },
-          {
-            "@type": "City",
-            "name": "Toronto",
-            "containedInPlace": {
-              "@type": "State",
-              "name": "Ontario"
-            }
-          },
-          {
-            "@type": "Country",
-            "name": "Canada"
-          }
-        ],
-        "serviceType": [
-          "Next.js Development",
-          "React Development",
-          "Full-Stack Development",
-          "Web Application Development",
-          "Performance Optimization",
-          "Enterprise Solutions"
-        ],
-        "priceRange": "$$$$"
-      }
-    ]
+    ],
   };
 
   return (

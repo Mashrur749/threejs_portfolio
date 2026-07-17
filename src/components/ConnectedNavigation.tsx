@@ -4,10 +4,12 @@ import { useEffect, useState, useRef } from 'react'
 
 const sections = [
   { id: 'hero', name: 'Home', color: '#f97316' },
-  { id: 'achievements', name: 'Impact', color: '#fb923c' },
-  { id: 'experience', name: 'Journey', color: '#f59e0b' },
+  { id: 'about', name: 'About', color: '#fb923c' },
+  { id: 'leadership', name: 'Lead', color: '#f59e0b' },
   { id: 'projects', name: 'Work', color: '#fbbf24' },
-  { id: 'tech', name: 'Stack', color: '#fde68a' },
+  { id: 'experience', name: 'Journey', color: '#fde68a' },
+  { id: 'tech', name: 'Stack', color: '#fbbf24' },
+  { id: 'lab', name: 'Lab', color: '#fb923c' },
   { id: 'contact', name: 'Connect', color: '#f97316' },
 ]
 
@@ -79,7 +81,7 @@ export default function ConnectedNavigation() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        height: '280px',
+        height: '340px',
       }}>
         {/* Background line */}
         <div style={{
@@ -104,8 +106,8 @@ export default function ConnectedNavigation() {
             transform: 'translateX(-50%)',
             borderRadius: '1px',
             transition: 'height 0.3s ease, background 0.5s ease',
-            boxShadow: `0 0 10px ${sections[activeSection].color}40`,
-          }} 
+            boxShadow: `0 0 6px ${sections[activeSection].color}30`,
+          }}
         />
         
         {/* Section dots */}
@@ -166,7 +168,7 @@ export default function ConnectedNavigation() {
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     transform: isActive ? 'scale(1.5)' : 'scale(1)',
                     zIndex: 2,
-                    boxShadow: isPassed ? `0 0 10px ${section.color}60` : 'none',
+                    boxShadow: isPassed ? `0 0 6px ${section.color}40` : 'none',
                   }}
                   aria-label={`Navigate to ${section.name}`}
                 >

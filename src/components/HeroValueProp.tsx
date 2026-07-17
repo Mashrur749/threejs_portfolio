@@ -2,95 +2,68 @@
 
 import { useEffect, useState } from "react";
 
+const metrics = [
+  { value: "300×", label: "Faster content deployments" },
+  { value: "80%", label: "Fewer human errors in QA" },
+  { value: "35%", label: "Shorter code-review loops" },
+];
+
 export default function HeroValueProp() {
   const [isMobile, setIsMobile] = useState(false);
-  const [activeTab, setActiveTab] = useState<"business" | "technical">(
-    "business"
-  );
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const testimonials = [
-    {
-      quote:
-        "Confidence has increased, now I can trust that what I did is all correct. Speed increased at least 70-80%.",
-      author: "QA Team",
-      company: "Critical Mass",
-    },
-    {
-      quote:
-        "The tool has put us in a more favorable position, testing phase is now agile and reliable allowing us to deliver earlier.",
-      author: "Project Manager",
-      company: "Critical Mass",
-    },
-    {
-      quote:
-        "Workflow simplification and delivered content quality improvement. Operation time saving especially for QAs.",
-      author: "Tech Lead",
-      company: "Critical Mass",
-    },
-    {
-      quote:
-        "Disclaimer comparison increased speed 100%, from 1-2 hour frame to 15-30 mins. That's a huge difference!",
-      author: "QA Specialist",
-      company: "Critical Mass",
-    },
-    {
-      quote:
-        "Increased speed to market and ability to respond to emergent business needs. More return on investment.",
-      author: "Client",
-      company: "Enterprise",
-    },
-  ];
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <>
       <style jsx>{`
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 1;
-          }
-          50% {
-            opacity: 0.5;
-          }
-        }
-        @keyframes slideInFromTop {
+        @keyframes heroFadeUp {
           from {
-            transform: translateY(-100%);
             opacity: 0;
+            transform: translateY(16px);
           }
           to {
+            opacity: 1;
             transform: translateY(0);
-            opacity: 1;
           }
         }
-        @keyframes fadeInScale {
-          from {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
+        .hero-eyebrow,
+        .hero-title,
+        .hero-sub,
+        .hero-meta,
+        .hero-metrics,
+        .hero-cta,
+        .hero-portrait {
+          opacity: 0;
+          animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .hero-eyebrow {
+          animation-delay: 0.05s;
+        }
+        .hero-title {
+          animation-delay: 0.15s;
+        }
+        .hero-sub {
+          animation-delay: 0.28s;
+        }
+        .hero-meta {
+          animation-delay: 0.4s;
+        }
+        .hero-metrics {
+          animation-delay: 0.52s;
+        }
+        .hero-cta {
+          animation-delay: 0.64s;
+        }
+        .hero-portrait {
+          animation-delay: 0.2s;
         }
       `}</style>
+
       <section
         id="hero"
         style={{
@@ -99,745 +72,248 @@ export default function HeroValueProp() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: isMobile ? "20px" : "40px 20px",
+          padding: isMobile ? "2.5rem 20px" : "5rem 24px",
           zIndex: 10,
           color: "white",
-          backgroundColor: "rgba(9, 9, 11, 0.5)",
+          backgroundColor: "rgba(9, 9, 11, 0.55)",
         }}
       >
         <div
           style={{
-            maxWidth: "1280px",
+            maxWidth: "1120px",
             width: "100%",
             margin: "0 auto",
-            textAlign: "center",
-            position: "relative",
-            zIndex: 10,
-            animation: "fadeInScale 0.8s ease-out 0.3s both",
+            display: "flex",
+            flexDirection: isMobile ? "column" : "row",
+            alignItems: "center",
+            gap: isMobile ? "2rem" : "4rem",
           }}
         >
-          {/* Main Heading with Clear Value */}
-          <h1
-            style={{
-              fontSize: isMobile ? "1.75rem" : "clamp(2.5rem, 5vw, 3.5rem)",
-              fontWeight: "bold",
-              marginBottom: isMobile ? "0.5rem" : "1rem",
-              color: "white",
-              lineHeight: 1.2,
-            }}
-          >
-            Senior Full-Stack Developer
-            <span
-              style={{
-                background: "linear-gradient(90deg, #f97316, #fb923c)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                display: "block",
-                fontSize: isMobile ? "1.25rem" : "1.8rem",
-                marginTop: "0.5rem",
-              }}
-            >
-              Building Scalable Systems Since 2019
-            </span>
-          </h1>
-
-          {/* Clear Value Statement */}
-          <p
-            style={{
-              fontSize: isMobile ? "1rem" : "clamp(1.2rem, 2.5vw, 1.5rem)",
-              marginBottom: isMobile ? "1rem" : "1.5rem",
-              color: "#e4e4e7",
-              fontWeight: "500",
-              lineHeight: 1.4,
-            }}
-          >
-            Senior Developer • Critical Mass & Meta • 5+ Years • President's
-            Honor List
-          </p>
-
-          {/* Location and Availability */}
+          {/* Portrait */}
           <div
+            className="hero-portrait"
             style={{
+              flexShrink: 0,
               display: "flex",
-              gap: isMobile ? "12px" : "16px",
               justifyContent: "center",
-              alignItems: "center",
-              marginBottom: isMobile ? "1rem" : "1.5rem",
-              fontSize: isMobile ? "0.85rem" : "0.95rem",
-              color: "#a1a1aa",
-            }}
-          >
-            <span>Calgary, AB</span>
-            <span>•</span>
-            <span>Remote Available</span>
-            <span>•</span>
-            <span>January 2025</span>
-          </div>
-
-          {/* Key Business Metrics - Always Visible */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-              gap: isMobile ? "12px" : "20px",
-              maxWidth: "800px",
-              margin: "0 auto",
-              marginBottom: isMobile ? "1.5rem" : "2rem",
             }}
           >
             <div
               style={{
-                padding: isMobile ? "12px" : "16px",
-                background: "rgba(249, 115, 22, 0.1)",
-                border: "1px solid rgba(249, 115, 22, 0.3)",
-                borderRadius: "8px",
+                width: isMobile ? "140px" : "200px",
+                height: isMobile ? "140px" : "200px",
+                borderRadius: "50%",
+                padding: "3px",
+                background:
+                  "linear-gradient(135deg, rgba(249,115,22,0.7), rgba(251,146,60,0.4) 60%, rgba(249,115,22,0.08))",
+                boxShadow: "0 0 28px rgba(249, 115, 22, 0.12)",
               }}
             >
-              <div
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/headshot.jpg"
+                alt="Portrait of Mashrur Rahman"
                 style={{
-                  fontSize: isMobile ? "1.5rem" : "2rem",
-                  fontWeight: "bold",
-                  color: "#f97316",
-                  marginBottom: "4px",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                  display: "block",
                 }}
-              >
-                300x
-              </div>
-              <div
-                style={{
-                  fontSize: isMobile ? "0.75rem" : "0.85rem",
-                  color: "#a1a1aa",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Faster Deployment
-              </div>
-            </div>
-
-            <div
-              style={{
-                padding: isMobile ? "12px" : "16px",
-                background: "rgba(0, 223, 216, 0.1)",
-                border: "1px solid rgba(0, 223, 216, 0.3)",
-                borderRadius: "8px",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: isMobile ? "1.5rem" : "2rem",
-                  fontWeight: "bold",
-                  color: "#00dfd8",
-                  marginBottom: "4px",
-                }}
-              >
-                Up to 80%
-              </div>
-              <div
-                style={{
-                  fontSize: isMobile ? "0.75rem" : "0.85rem",
-                  color: "#a1a1aa",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Error Reduction
-              </div>
-            </div>
-
-            <div
-              style={{
-                padding: isMobile ? "12px" : "16px",
-                background: "rgba(251, 191, 36, 0.1)",
-                border: "1px solid rgba(251, 191, 36, 0.3)",
-                borderRadius: "8px",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: isMobile ? "1.5rem" : "2rem",
-                  fontWeight: "bold",
-                  color: "#fbbf24",
-                  marginBottom: "4px",
-                }}
-              >
-                10s
-              </div>
-              <div
-                style={{
-                  fontSize: isMobile ? "0.75rem" : "0.85rem",
-                  color: "#a1a1aa",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Error Detection
-              </div>
+              />
             </div>
           </div>
 
-          {/* Testimonial Carousel */}
+          {/* Copy */}
           <div
             style={{
-              marginBottom: isMobile ? "1.5rem" : "2rem",
-              padding: isMobile ? "16px" : "20px",
-              background: "rgba(249, 115, 22, 0.05)",
-              border: "1px solid rgba(249, 115, 22, 0.2)",
-              borderRadius: "12px",
-              minHeight: isMobile ? "100px" : "80px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              position: "relative",
-              overflow: "hidden",
+              flex: 1,
+              textAlign: isMobile ? "center" : "left",
+              maxWidth: isMobile ? "100%" : "640px",
             }}
           >
-            <div
+            <p
+              className="hero-eyebrow"
               style={{
-                fontSize: isMobile ? "0.75rem" : "0.85rem",
-                color: "#f97316",
-                marginBottom: "8px",
+                fontSize: isMobile ? "0.8rem" : "0.85rem",
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                fontWeight: "600",
+                color: "#f97316",
+                fontWeight: 600,
+                marginBottom: isMobile ? "0.75rem" : "1rem",
               }}
             >
-              Team Feedback
-            </div>
-            <div
+              Senior Product Engineer & Technical Lead · Calgary, Canada
+            </p>
+
+            <h1
+              className="hero-title"
               style={{
-                fontSize: isMobile ? "0.95rem" : "1.1rem",
-                color: "#fafafa",
-                fontStyle: "italic",
-                marginBottom: "8px",
+                fontSize: isMobile ? "2.25rem" : "clamp(2.75rem, 5vw, 3.75rem)",
+                fontWeight: 800,
+                lineHeight: 1.05,
+                marginBottom: isMobile ? "0.75rem" : "1rem",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Mashrur Rahman
+            </h1>
+
+            <p
+              className="hero-sub"
+              style={{
+                fontSize: isMobile ? "1.05rem" : "1.3rem",
+                color: "#d4d4d8",
                 lineHeight: 1.5,
-                transition: "opacity 0.5s ease",
-                opacity: 1,
+                marginBottom: isMobile ? "1.25rem" : "1.5rem",
+                maxWidth: "560px",
+                marginLeft: isMobile ? "auto" : 0,
+                marginRight: isMobile ? "auto" : 0,
               }}
             >
-              "{testimonials[currentTestimonial].quote}"
-            </div>
+              I build reliable web platforms, browser-native products, and
+              automation systems that remove operational bottlenecks — so
+              teams scale without proportional headcount.
+            </p>
+
+            {/* Status line */}
             <div
+              className="hero-meta"
               style={{
-                fontSize: isMobile ? "0.8rem" : "0.9rem",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: isMobile ? "8px" : "12px",
+                justifyContent: isMobile ? "center" : "flex-start",
+                alignItems: "center",
+                marginBottom: isMobile ? "1.5rem" : "2rem",
+                fontSize: "0.9rem",
                 color: "#a1a1aa",
               }}
             >
-              — {testimonials[currentTestimonial].author},{" "}
-              {testimonials[currentTestimonial].company}
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
+              >
+                <span
+                  style={{
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    background: "#10b981",
+                    boxShadow: "0 0 8px #10b981",
+                  }}
+                />
+                Open to new roles
+              </span>
+              <span style={{ opacity: 0.4 }}>•</span>
+              <span>Remote-friendly</span>
+              <span style={{ opacity: 0.4 }}>•</span>
+              <span>6+ years building for the web</span>
             </div>
+
+            {/* Signature metrics — real, from the résumé */}
             <div
+              className="hero-metrics"
               style={{
-                display: "flex",
-                gap: "4px",
-                textAlign: "center",
-                marginTop: "16px",
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: isMobile ? "10px" : "20px",
+                maxWidth: isMobile ? "100%" : "560px",
+                margin: isMobile
+                  ? "0 auto 1.5rem"
+                  : "0 0 2rem 0",
               }}
             >
-              {testimonials.map((_, index) => (
+              {metrics.map((m) => (
                 <div
-                  key={index}
+                  key={m.label}
                   style={{
-                    width: "6px",
-                    height: "6px",
-                    borderRadius: "50%",
-                    background:
-                      index === currentTestimonial
-                        ? "#f97316"
-                        : "rgba(161, 161, 170, 0.3)",
-                    transition: "background 0.3s ease",
-                    cursor: "pointer",
+                    padding: isMobile ? "10px 6px" : "14px 10px",
+                    background: "rgba(249, 115, 22, 0.08)",
+                    border: "1px solid rgba(249, 115, 22, 0.22)",
+                    borderRadius: "10px",
+                    textAlign: "center",
                   }}
-                  onClick={() => setCurrentTestimonial(index)}
-                />
+                >
+                  <div
+                    style={{
+                      fontSize: isMobile ? "1.25rem" : "1.6rem",
+                      fontWeight: 800,
+                      color: "#f97316",
+                      lineHeight: 1,
+                      marginBottom: "6px",
+                    }}
+                  >
+                    {m.value}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: isMobile ? "0.62rem" : "0.72rem",
+                      color: "#a1a1aa",
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {m.label}
+                  </div>
+                </div>
               ))}
             </div>
-          </div>
 
-          {/* Audience Toggle */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "8px",
-              marginBottom: isMobile ? "1.5rem" : "2rem",
-            }}
-          >
-            <button
-              onClick={() => setActiveTab("business")}
-              style={{
-                padding: isMobile ? "8px 16px" : "10px 20px",
-                background:
-                  activeTab === "business"
-                    ? "#f97316"
-                    : "rgba(39, 39, 42, 0.5)",
-                border:
-                  activeTab === "business"
-                    ? "none"
-                    : "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "6px",
-                color: "white",
-                fontSize: isMobile ? "0.85rem" : "0.9rem",
-                fontWeight: "500",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
-            >
-              Impact
-            </button>
-            <button
-              onClick={() => setActiveTab("technical")}
-              style={{
-                padding: isMobile ? "8px 16px" : "10px 20px",
-                background:
-                  activeTab === "technical"
-                    ? "#f97316"
-                    : "rgba(39, 39, 42, 0.5)",
-                border:
-                  activeTab === "technical"
-                    ? "none"
-                    : "1px solid rgba(63, 63, 70, 0.5)",
-                borderRadius: "6px",
-                color: "white",
-                fontSize: isMobile ? "0.85rem" : "0.9rem",
-                fontWeight: "500",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
-            >
-              Technical
-            </button>
-          </div>
-
-          {/* Value Proposition Content */}
-          <div
-            style={{
-              marginBottom: isMobile ? "2rem" : "3rem",
-              fontSize: isMobile ? "0.95rem" : "1.1rem",
-              color: "#d4d4d8",
-              lineHeight: 1.7,
-              maxWidth: "900px",
-              margin: "0 auto",
-              padding: isMobile ? "20px" : "30px",
-              background: "rgba(39, 39, 42, 0.3)",
-              borderRadius: "12px",
-              border: "1px solid rgba(63, 63, 70, 0.3)",
-              minHeight: isMobile ? "180px" : "150px",
-            }}
-          >
-            {activeTab === "business" ? (
-              <div>
-                <h3
-                  style={{
-                    fontSize: isMobile ? "1.1rem" : "1.3rem",
-                    marginBottom: "1rem",
-                    color: "#f97316",
-                  }}
-                >
-                  What I've Built
-                </h3>
-                <ul
-                  style={{
-                    textAlign: "left",
-                    margin: "0 auto",
-                    maxWidth: "700px",
-                    listStyle: "none",
-                    padding: 0,
-                  }}
-                >
-                  <li
-                    style={{
-                      marginBottom: "12px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span style={{ color: "#f97316", marginRight: "8px" }}>
-                      ✓
-                    </span>
-                    <span>
-                      <strong>Deployment automation:</strong> Reduced content
-                      deployment from 2-3 days to 2-5 hours through automated
-                      offer creation system
-                    </span>
-                  </li>
-                  <li
-                    style={{
-                      marginBottom: "12px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span style={{ color: "#f97316", marginRight: "8px" }}>
-                      ✓
-                    </span>
-                    <span>
-                      <strong>QA automation:</strong> Built validation tools that
-                      cut testing time from 2 hours to 30 minutes
-                    </span>
-                  </li>
-                  <li
-                    style={{
-                      marginBottom: "12px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span style={{ color: "#f97316", marginRight: "8px" }}>
-                      ✓
-                    </span>
-                    <span>
-                      <strong>Code quality:</strong> Implemented pre-commit hooks
-                      that catch errors in 10 seconds
-                    </span>
-                  </li>
-                  <li style={{ display: "flex", alignItems: "flex-start" }}>
-                    <span style={{ color: "#f97316", marginRight: "8px" }}>
-                      ✓
-                    </span>
-                    <span>
-                      <strong>API integrations:</strong> Connected client systems
-                      for real-time package verification
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <div>
-                <h3
-                  style={{
-                    fontSize: isMobile ? "1.1rem" : "1.3rem",
-                    marginBottom: "1rem",
-                    color: "#00dfd8",
-                  }}
-                >
-                  Technical Stack
-                </h3>
-                <ul
-                  style={{
-                    textAlign: "left",
-                    margin: "0 auto",
-                    maxWidth: "700px",
-                    listStyle: "none",
-                    padding: 0,
-                  }}
-                >
-                  <li
-                    style={{
-                      marginBottom: "12px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span style={{ color: "#00dfd8", marginRight: "8px" }}>
-                      →
-                    </span>
-                    <span>
-                      <strong>Frontend:</strong> React, Next.js, Three.js, D3.js
-                      for data visualization and interactive UIs
-                    </span>
-                  </li>
-                  <li
-                    style={{
-                      marginBottom: "12px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span style={{ color: "#00dfd8", marginRight: "8px" }}>
-                      →
-                    </span>
-                    <span>
-                      <strong>Backend:</strong> Node.js, PostgreSQL, GraphQL,
-                      AWS services, REST APIs
-                    </span>
-                  </li>
-                  <li
-                    style={{
-                      marginBottom: "12px",
-                      display: "flex",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <span style={{ color: "#00dfd8", marginRight: "8px" }}>
-                      →
-                    </span>
-                    <span>
-                      <strong>Performance:</strong> Optimized development build
-                      times from 6 minutes to 12 seconds
-                    </span>
-                  </li>
-                  <li style={{ display: "flex", alignItems: "flex-start" }}>
-                    <span style={{ color: "#00dfd8", marginRight: "8px" }}>
-                      →
-                    </span>
-                    <span>
-                      <strong>DevOps:</strong> Docker, CI/CD pipelines, Cypress
-                      and Jest for automated testing
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-
-          {/* Why Hire Me Section */}
-          <div
-            style={{
-              marginBottom: isMobile ? "2rem" : "3rem",
-              padding: isMobile ? "20px" : "30px",
-              background: "rgba(16, 185, 129, 0.05)",
-              borderRadius: "12px",
-              border: "1px solid rgba(16, 185, 129, 0.2)",
-              marginTop: "16px",
-            }}
-          >
-            <h3
-              style={{
-                fontSize: isMobile ? "1.1rem" : "1.3rem",
-                marginBottom: "1rem",
-                color: "#10b981",
-              }}
-            >
-              How I Work
-            </h3>
+            {/* CTAs */}
             <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "1fr" : "repeat(2, 1fr)",
-                gap: isMobile ? "12px" : "16px",
-                textAlign: "left",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                }}
-              >
-                <span style={{ color: "#10b981" }}>✅</span>
-                <span
-                  style={{
-                    color: "#d4d4d8",
-                    fontSize: isMobile ? "0.9rem" : "1rem",
-                  }}
-                >
-                  <strong>Fix existing issues</strong> before adding new features
-                </span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                }}
-              >
-                <span style={{ color: "#10b981" }}>✅</span>
-                <span
-                  style={{
-                    color: "#d4d4d8",
-                    fontSize: isMobile ? "0.9rem" : "1rem",
-                  }}
-                >
-                  <strong>Document thoroughly</strong> for team continuity
-                </span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                }}
-              >
-                <span style={{ color: "#10b981" }}>✅</span>
-                <span
-                  style={{
-                    color: "#d4d4d8",
-                    fontSize: isMobile ? "0.9rem" : "1rem",
-                  }}
-                >
-                  <strong>Share knowledge</strong> with team members
-                </span>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                }}
-              >
-                <span style={{ color: "#10b981" }}>✅</span>
-                <span
-                  style={{
-                    color: "#d4d4d8",
-                    fontSize: isMobile ? "0.9rem" : "1rem",
-                  }}
-                >
-                  <strong>Track metrics</strong> to validate improvements
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Red Flags I Solve */}
-          <div
-            style={{
-              marginBottom: isMobile ? "2rem" : "3rem",
-              padding: isMobile ? "20px" : "30px",
-              background: "rgba(239, 68, 68, 0.05)",
-              borderRadius: "12px",
-              border: "1px solid rgba(239, 68, 68, 0.2)",
-            }}
-          >
-            <h3
-              style={{
-                fontSize: isMobile ? "1.1rem" : "1.3rem",
-                marginBottom: "1rem",
-                color: "#ef4444",
-              }}
-            >
-              Common Problems I've Fixed
-            </h3>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-                gap: isMobile ? "16px" : "20px",
-                textAlign: "center",
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    fontSize: isMobile ? "0.85rem" : "0.9rem",
-                    color: "#ef4444",
-                    marginBottom: "4px",
-                  }}
-                >
-                  Slow deployments
-                </div>
-                <div
-                  style={{
-                    fontSize: isMobile ? "0.8rem" : "0.85rem",
-                    color: "#10b981",
-                  }}
-                >
-                  → Automated to hours
-                </div>
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontSize: isMobile ? "0.85rem" : "0.9rem",
-                    color: "#ef4444",
-                    marginBottom: "4px",
-                  }}
-                >
-                  Frequent production errors
-                </div>
-                <div
-                  style={{
-                    fontSize: isMobile ? "0.8rem" : "0.85rem",
-                    color: "#10b981",
-                  }}
-                >
-                  → Reduced by up to 80%
-                </div>
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontSize: isMobile ? "0.85rem" : "0.9rem",
-                    color: "#ef4444",
-                    marginBottom: "4px",
-                  }}
-                >
-                  Slow development cycles
-                </div>
-                <div
-                  style={{
-                    fontSize: isMobile ? "0.8rem" : "0.85rem",
-                    color: "#10b981",
-                  }}
-                >
-                  → 30x faster builds
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Clear Call to Action */}
-          <div>
-            <p
-              style={{
-                fontSize: isMobile ? "1rem" : "1.2rem",
-                marginBottom: "1.5rem",
-                color: "#fafafa",
-                fontWeight: "600",
-              }}
-            >
-              Interested in working together?
-            </p>
-
-            <div
+              className="hero-cta"
               style={{
                 display: "flex",
                 flexDirection: isMobile ? "column" : "row",
                 gap: isMobile ? "12px" : "16px",
-                justifyContent: "center",
+                justifyContent: isMobile ? "center" : "flex-start",
                 alignItems: "center",
               }}
             >
               <a
                 href="#projects"
                 style={{
-                  padding: isMobile ? "14px 32px" : "16px 40px",
-                  background: "linear-gradient(90deg, #f97316, #fb923c)",
+                  padding: isMobile ? "14px 28px" : "16px 32px",
+                  background: "#ea580c",
                   color: "white",
                   borderRadius: "8px",
                   textDecoration: "none",
-                  fontWeight: "600",
+                  fontWeight: 600,
                   fontSize: isMobile ? "15px" : "16px",
                   display: "inline-block",
-                  transition: "transform 0.2s, box-shadow 0.2s",
-                  width: isMobile ? "100%" : "auto",
+                  transition: "background 0.2s, transform 0.2s",
                   textAlign: "center",
-                  minHeight: "48px",
-                  lineHeight: isMobile ? "20px" : "normal",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 10px 30px rgba(249, 115, 22, 0.3)";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.background = "#c2410c";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.background = "#ea580c";
                 }}
               >
-                View Projects
+                View selected work
               </a>
-
               <a
-                href="#contact"
+                href="/Mashrur_Rahman_Resume.pdf"
+                download
                 style={{
-                  padding: isMobile ? "14px 32px" : "16px 40px",
+                  padding: isMobile ? "14px 28px" : "16px 32px",
                   background: "rgba(39, 39, 42, 0.5)",
                   backdropFilter: "blur(12px)",
-                  border: "1px solid rgba(63, 63, 70, 0.5)",
+                  border: "1px solid rgba(63, 63, 70, 0.6)",
                   color: "white",
                   borderRadius: "8px",
                   textDecoration: "none",
-                  fontWeight: "600",
+                  fontWeight: 600,
                   fontSize: isMobile ? "15px" : "16px",
                   display: "inline-block",
                   transition: "all 0.2s",
-                  width: isMobile ? "100%" : "auto",
                   textAlign: "center",
-                  minHeight: "48px",
-                  lineHeight: isMobile ? "20px" : "normal",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = "rgba(39, 39, 42, 0.8)";
@@ -848,113 +324,8 @@ export default function HeroValueProp() {
                   e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
-                Get in Touch
+                Download résumé
               </a>
-            </div>
-          </div>
-
-          {/* Company Logos */}
-          <div
-            style={{
-              marginTop: isMobile ? "2rem" : "3rem",
-              marginBottom: isMobile ? "1rem" : "1.5rem",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: isMobile ? "2rem" : "3rem",
-              opacity: 0.7,
-              filter: "grayscale(100%)",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.opacity = "1";
-              e.currentTarget.style.filter = "grayscale(0%)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = "0.7";
-              e.currentTarget.style.filter = "grayscale(100%)";
-            }}
-          >
-            <div
-              style={{
-                fontSize: isMobile ? "1rem" : "1.2rem",
-                fontWeight: "bold",
-                color: "#e4e4e7",
-              }}
-            >
-              Meta
-            </div>
-            <div
-              style={{
-                fontSize: isMobile ? "1rem" : "1.2rem",
-                fontWeight: "bold",
-                color: "#e4e4e7",
-              }}
-            >
-              Critical Mass
-            </div>
-            <div
-              style={{
-                fontSize: isMobile ? "1rem" : "1.2rem",
-                fontWeight: "bold",
-                color: "#e4e4e7",
-              }}
-            >
-              Capgemini
-            </div>
-            <div
-              style={{
-                fontSize: isMobile ? "1rem" : "1.2rem",
-                fontWeight: "bold",
-                color: "#e4e4e7",
-              }}
-            >
-              Storius
-            </div>
-          </div>
-
-          {/* Trust Indicators */}
-          <div
-            style={{
-              marginTop: isMobile ? "3rem" : "4rem",
-              padding: isMobile ? "1rem" : "1.5rem",
-              background: "rgba(39, 39, 42, 0.2)",
-              borderRadius: "8px",
-              display: "flex",
-              flexDirection: isMobile ? "column" : "row",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: isMobile ? "1rem" : "2rem",
-            }}
-          >
-            <div
-              style={{
-                fontSize: isMobile ? "0.85rem" : "0.9rem",
-                color: "#a1a1aa",
-              }}
-            >
-              <strong style={{ color: "#e4e4e7" }}>Critical Mass</strong> +
-              Meta Experience
-            </div>
-            <div
-              style={{
-                fontSize: isMobile ? "0.85rem" : "0.9rem",
-                color: "#a1a1aa",
-              }}
-            >
-              <strong style={{ color: "#e4e4e7" }}>200+ Tech Leaders</strong>{" "}
-              Presentation Experience
-            </div>
-            <div
-              style={{
-                fontSize: isMobile ? "0.85rem" : "0.9rem",
-                color: "#a1a1aa",
-              }}
-            >
-              <strong style={{ color: "#e4e4e7" }}>
-                2+ Years
-              </strong>{" "}
-              Production Systems
             </div>
           </div>
         </div>

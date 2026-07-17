@@ -19,14 +19,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mashrur.dev"),
+  metadataBase: new URL("https://findmashur.dev"),
   title: {
     default:
-      "Mashrur Rahman | Senior Next.js Developer Calgary | Full-Stack Engineer",
-    template: "%s | Mashrur Rahman - Calgary Developer",
+      "Mashrur Rahman | Senior Product Engineer & Technical Lead",
+    template: "%s | Mashrur Rahman",
   },
   description:
-    "Senior Full-Stack Developer in Calgary, Alberta specializing in Next.js, React, TypeScript. Available for remote positions. Ex-Meta engineer, currently at Critical Mass. Serving Calgary, Toronto & remote teams.",
+    "Mashrur Rahman is a senior product engineer and technical lead in Calgary, Alberta building reliable web platforms, browser-native products, and automation systems that remove operational bottlenecks. Next.js, React, TypeScript, Three.js. Open to new roles, remote-friendly.",
   keywords: [
     "Next.js Developer Calgary",
     "React Developer Calgary",
@@ -37,38 +37,38 @@ export const metadata: Metadata = {
     "Toronto Remote Developer",
     "Senior Developer Calgary",
     "TypeScript Developer Calgary",
-    "React Calgary",
-    "JavaScript Developer Alberta",
-    "Web Developer Calgary",
-    "Software Engineer Alberta",
+    "Three.js Developer",
     "Remote Full Stack Developer Canada",
     "Critical Mass Developer",
   ],
   authors: [{ name: "Mashrur Rahman" }],
   creator: "Mashrur Rahman",
+  alternates: {
+    canonical: "https://findmashur.dev",
+  },
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://mashrur.dev",
-    title: "Mashrur Rahman | Senior Next.js Developer Calgary, Alberta",
+    url: "https://findmashur.dev",
+    title: "Mashrur Rahman | Senior Product Engineer, Calgary",
     description:
-      "Senior Full-Stack Developer in Calgary specializing in Next.js, React, TypeScript. Available for remote work. 5+ years experience, ex-Meta, Critical Mass.",
-    siteName: "Mashrur Rahman - Calgary Developer Portfolio",
+      "Senior product engineer & technical lead building web platforms, browser-native products, and automation systems. Open to new roles, remote-friendly.",
+    siteName: "Mashrur Rahman — Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/headshot.jpg",
         width: 1200,
         height: 630,
-        alt: "Mashrur Rahman - Senior Next.js Developer",
+        alt: "Mashrur Rahman — Senior Full-Stack Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mashrur Rahman | Senior Next.js Developer",
+    title: "Mashrur Rahman | Senior Product Engineer & Technical Lead",
     description:
-      "Senior Full-Stack Developer specializing in Next.js and React",
-    images: ["/og-image.png"],
+      "Senior product engineer building web platforms, browser-native products, and automation systems. Open to new roles.",
+    images: ["/images/headshot.jpg"],
   },
   robots: {
     index: true,

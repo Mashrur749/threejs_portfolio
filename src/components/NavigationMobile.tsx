@@ -27,10 +27,12 @@ export default function NavigationMobile() {
   }, [])
 
   const navItems = [
-    { label: 'Achievements', href: '#achievements' },
+    { label: 'About', href: '#about' },
+    { label: 'Leadership', href: '#leadership' },
+    { label: 'Work', href: '#projects' },
     { label: 'Experience', href: '#experience' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Tech Stack', href: '#tech' },
+    { label: 'Stack', href: '#tech' },
+    { label: 'Lab', href: '#lab' },
     { label: 'Contact', href: '#contact' }
   ]
 

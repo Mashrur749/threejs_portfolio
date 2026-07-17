@@ -1,5 +1,5 @@
-# Robots.txt for mashrur.dev
-# Senior Full-Stack Developer Portfolio - Calgary, Alberta
+# Robots.txt for findmashur.dev
+# Senior Full-Stack Engineer Portfolio - Calgary, Alberta
 
 User-agent: *
 Allow: /
@@ -11,7 +11,7 @@ Disallow: /static/
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://mashrur.dev/sitemap.xml
+Sitemap: https://findmashur.dev/sitemap.xml
 
 # Allow search engines to index all content
 User-agent: Googlebot
