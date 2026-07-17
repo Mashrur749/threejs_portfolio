@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="60%" stop-color="#0f0f10"/>
+      <stop offset="100%" stop-color="#1a1a1d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.2" r="0.6">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- subtle grid of dots, signature motif -->
+  <g fill="#f97316" opacity="0.10">
+    <circle cx="80" cy="80" r="3"/><circle cx="140" cy="80" r="3"/><circle cx="200" cy="80" r="3"/>
+    <circle cx="80" cy="140" r="3"/><circle cx="140" cy="140" r="3"/>
+    <circle cx="80" cy="200" r="3"/>
+  </g>
+
+  <!-- brand mark (M) in rounded square -->
+  <g transform="translate(80,250)">
+    <rect width="96" height="96" rx="18" fill="#18181b" stroke="url(#accent)" stroke-width="2"/>
+    <path d="M 20 76 L 20 20 L 48 60 L 76 20 L 76 76" stroke="url(#accent)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="80" y="400" font-family="monospace" font-size="22" letter-spacing="4" fill="#fb923c" font-weight="600">SENIOR PRODUCT ENGINEER · TECHNICAL LEAD</text>
+
+  <!-- name -->
+  <text x="76" y="470" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="800" fill="#fafafa" letter-spacing="-2">Mashrur Rahman</text>
+
+  <!-- positioning -->
+  <text x="80" y="530" font-family="Inter, Arial, sans-serif" font-size="28" fill="#a1a1aa">Web platforms, browser-native products &amp; automation</text>
+  <text x="80" y="566" font-family="Inter, Arial, sans-serif" font-size="28" fill="#a1a1aa">that remove operational bottlenecks.</text>
+
+  <!-- domain tag -->
+  <text x="80" y="610" font-family="monospace" font-size="20" fill="#71717a">findmashur.dev</text>
+</svg>

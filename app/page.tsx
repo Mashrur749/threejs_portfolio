@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import HeroValueProp from "@/components/HeroValueProp";
-import AllSectionsMobile from "@/components/AllSectionsMobile";
+import { AllSections } from "@/components/AllSections";
 import NavigationMobile from "@/components/NavigationMobile";
 import ConnectedNavigation from "@/components/ConnectedNavigation";
 
@@ -29,7 +29,7 @@ export default function Home() {
       <main className="relative" style={{ paddingTop: "56px" }}>
         {/* Content Sections */}
         <HeroValueProp />
-        <AllSectionsMobile />
+        <AllSections />
       </main>
     </>
   );

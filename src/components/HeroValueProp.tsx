@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const metrics = [
@@ -109,10 +110,11 @@ export default function HeroValueProp() {
                 boxShadow: "0 0 28px rgba(249, 115, 22, 0.12)",
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/headshot.jpg"
                 alt="Portrait of Mashrur Rahman"
+                width={200}
+                height={200}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -135,6 +137,7 @@ export default function HeroValueProp() {
             <p
               className="hero-eyebrow"
               style={{
+                fontFamily: "var(--font-mono), monospace",
                 fontSize: isMobile ? "0.8rem" : "0.85rem",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
@@ -240,8 +243,9 @@ export default function HeroValueProp() {
                 >
                   <div
                     style={{
+                      fontFamily: "var(--font-mono), monospace",
                       fontSize: isMobile ? "1.25rem" : "1.6rem",
-                      fontWeight: 800,
+                      fontWeight: 700,
                       color: "#f97316",
                       lineHeight: 1,
                       marginBottom: "6px",

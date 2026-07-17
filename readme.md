@@ -1,16 +1,16 @@
-# Mashrur Rahman - Senior Next.js Developer Portfolio
+# Mashrur Rahman — Senior Product Engineer & Technical Lead
 
-A high-performance portfolio built with Next.js 14, showcasing enterprise-level development skills and creative capabilities.
+A portfolio built with Next.js 14, showcasing enterprise-level development skills and creative capabilities.
 
 ## 🚀 Tech Stack
 
 - **Framework:** Next.js 14 with App Router
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **3D Graphics:** Three.js with React Three Fiber
-- **Animations:** Framer Motion
+- **Styling:** Tailwind CSS + a shared design-token system (`src/lib/tokens.ts`)
+- **3D Graphics:** Three.js (raw, not React Three Fiber)
+- **Animations:** Framer Motion (reduced-motion-aware scroll reveals)
 - **Deployment:** Vercel
-- **Analytics:** Vercel Analytics & Speed Insights
+- **Analytics:** Vercel Analytics, Speed Insights & PostHog
 
 ## 💡 Key Features
 

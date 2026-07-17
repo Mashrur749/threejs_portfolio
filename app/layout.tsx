@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -10,6 +10,13 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
 });
 
 export const viewport: Viewport = {
@@ -56,10 +63,10 @@ export const metadata: Metadata = {
     siteName: "Mashrur Rahman — Portfolio",
     images: [
       {
-        url: "/images/headshot.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Mashrur Rahman — Senior Full-Stack Engineer",
+        alt: "Mashrur Rahman — Senior Product Engineer & Technical Lead",
       },
     ],
   },
@@ -68,7 +75,7 @@ export const metadata: Metadata = {
     title: "Mashrur Rahman | Senior Product Engineer & Technical Lead",
     description:
       "Senior product engineer building web platforms, browser-native products, and automation systems. Open to new roles.",
-    images: ["/images/headshot.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -102,7 +109,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-CA" className={`${inter.variable} dark`}>
+    <html lang="en-CA" className={`${inter.variable} ${mono.variable} dark`}>
       <head>
         <link rel="preconnect" href="https://us-assets.i.posthog.com" />
         <link rel="preconnect" href="https://us.i.posthog.com" />
