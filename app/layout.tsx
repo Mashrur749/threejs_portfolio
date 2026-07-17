@@ -115,7 +115,19 @@ export default function RootLayout({
         <link rel="preconnect" href="https://us.i.posthog.com" />
         <StructuredData />
       </head>
-      <body className="bg-background text-foreground antialiased">
+      <body
+        className="bg-background text-foreground antialiased"
+        style={{
+          // Inline so the dark + branded backdrop is present in the raw HTML
+          // before the linked CSS, fonts, or WebGL load — eliminates the
+          // white-flash and background "pop" on first paint.
+          backgroundColor: "#09090b",
+          backgroundImage:
+            "radial-gradient(60% 50% at 85% 18%, rgba(249,115,22,0.10), rgba(249,115,22,0) 70%), radial-gradient(50% 40% at 10% 90%, rgba(249,115,22,0.05), rgba(249,115,22,0) 70%)",
+          backgroundAttachment: "fixed",
+          color: "#fafafa",
+        }}
+      >
         <PostHogProvider>{children}</PostHogProvider>
         <Analytics />
         <SpeedInsights />

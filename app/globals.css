@@ -79,6 +79,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    /* Signature brand glow, present at first paint (SSR) so the background
+       doesn't "pop" when the WebGL canvas mounts after hydration. */
+    background-image:
+      radial-gradient(60% 50% at 85% 18%, rgba(249, 115, 22, 0.10), rgba(249, 115, 22, 0) 70%),
+      radial-gradient(50% 40% at 10% 90%, rgba(249, 115, 22, 0.05), rgba(249, 115, 22, 0) 70%);
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {

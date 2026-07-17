@@ -42,6 +42,10 @@ export default function InterconnectedParticles() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     mountRef.current.appendChild(renderer.domElement);
 
+    // Ease the canvas in so particles don't "snap" on after WebGL init.
+    renderer.domElement.style.opacity = "0";
+    renderer.domElement.style.transition = "opacity 1s ease";
+
     // Soft round point sprite (square particles read as cheap).
     const sprite = (() => {
       const c = document.createElement("canvas");
@@ -128,11 +132,20 @@ export default function InterconnectedParticles() {
       renderer.render(scene, camera);
     };
 
+    // Reveal the canvas after the first frame is drawn (smooth fade-in).
+    const reveal = () => {
+      requestAnimationFrame(() => {
+        renderer.domElement.style.opacity = "1";
+      });
+    };
+
     if (prefersReducedMotion) {
       // Static composition only — no animation loop.
       renderer.render(scene, camera);
+      reveal();
     } else {
       raf = requestAnimationFrame(animate);
+      reveal();
     }
 
     return () => {
@@ -162,9 +175,7 @@ export default function InterconnectedParticles() {
         height: "100%",
         zIndex: -1,
         pointerEvents: "none",
-        // Signature ambient glow — branded, matches the OG/cover motif. Cheap (CSS).
-        background:
-          "radial-gradient(60% 50% at 85% 18%, rgba(249,115,22,0.10), rgba(249,115,22,0) 70%), radial-gradient(50% 40% at 10% 90%, rgba(249,115,22,0.05), rgba(249,115,22,0) 70%)",
+        background: "transparent", // glow lives on <body> so it's present at first paint
       }}
     />
   );

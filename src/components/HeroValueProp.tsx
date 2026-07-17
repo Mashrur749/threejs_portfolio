@@ -116,6 +116,7 @@ export default function HeroValueProp() {
                 alt="Portrait of Mashrur Rahman"
                 width={200}
                 height={200}
+                priority
                 style={{
                   width: "100%",
                   height: "100%",
