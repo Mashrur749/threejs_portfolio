@@ -58,11 +58,19 @@ export default function InterconnectedParticles() {
     })();
 
     const positions = new Float32Array(COUNT * 3);
-    for (let i = 0; i < COUNT; i++) {
-      const i3 = i * 3;
-      positions[i3] = (Math.random() - 0.5) * 120;
-      positions[i3 + 1] = (Math.random() - 0.5) * 80;
-      positions[i3 + 2] = (Math.random() - 0.5) * 60;
+    // Jittered grid — structured and branded rather than a random scatter.
+    // Echoes the dot-grid motif from the OG image so the background reads as "ours".
+    const cols = 16;
+    const rows = Math.ceil(COUNT / cols);
+    let n = 0;
+    for (let r = 0; r < rows && n < COUNT; r++) {
+      for (let c = 0; c < cols && n < COUNT; c++) {
+        const i3 = n * 3;
+        positions[i3] = (c / (cols - 1) - 0.5) * 140 + (Math.random() - 0.5) * 4;
+        positions[i3 + 1] = (r / (rows - 1) - 0.5) * 90 + (Math.random() - 0.5) * 4;
+        positions[i3 + 2] = (Math.random() - 0.5) * 60;
+        n++;
+      }
     }
 
     const geometry = new THREE.BufferGeometry();
@@ -154,7 +162,9 @@ export default function InterconnectedParticles() {
         height: "100%",
         zIndex: -1,
         pointerEvents: "none",
-        background: "transparent",
+        // Signature ambient glow — branded, matches the OG/cover motif. Cheap (CSS).
+        background:
+          "radial-gradient(60% 50% at 85% 18%, rgba(249,115,22,0.10), rgba(249,115,22,0) 70%), radial-gradient(50% 40% at 10% 90%, rgba(249,115,22,0.05), rgba(249,115,22,0) 70%)",
       }}
     />
   );

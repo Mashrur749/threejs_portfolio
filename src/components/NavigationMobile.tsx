@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Logo } from '@/components/Logo'
 
 export default function NavigationMobile() {
   const [scrolled, setScrolled] = useState(false)
@@ -62,17 +63,7 @@ export default function NavigationMobile() {
           height: '56px'
         }}>
           {/* Logo */}
-          <a
-            href="/"
-            style={{
-              fontSize: '20px',
-              fontWeight: 'bold',
-              color: '#f97316',
-              textDecoration: 'none'
-            }}
-          >
-            MR
-          </a>
+          <Logo withWordmark href="/" size={26} />
 
           {/* Desktop Navigation */}
           {!isMobile && (

@@ -13,6 +13,7 @@ export type Project = {
   metrics: { value: string; label: string }[];
   tech: string[];
   image?: string;
+  cover?: string;
   caseStudy?: boolean;
   external?: { label: string; href: string };
   badge?: string;
@@ -23,6 +24,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "BrowseWell",
+    cover: "/covers/browsewell.png",
     subtitle: "A browser-native attention-management system",
     kind: "Independent product · shipped",
     desc: "Not a website blocker — a policy and intervention engine that operates across dynamic, SPA-driven sites: site, page, and element-level blocking, intention checks, timed access, and deliberate overrides, with privacy-preserving local processing. Live on the Chrome Web Store with its own product site.",
@@ -44,6 +46,7 @@ export const projects: Project[] = [
   },
   {
     title: "HikmahEdu",
+    cover: "/covers/hikmahedu.png",
     subtitle: "Education brand & platform, zero to launch",
     kind: "0-to-1 product · client (brand, design, build)",
     desc: "Led an education business from concept to a launch-ready digital product — brand strategy and identity, product and information architecture, UX and visual design, a reusable design system, and the web platform itself. End-to-end ownership across design and engineering.",
@@ -64,6 +67,7 @@ export const projects: Project[] = [
   },
   {
     title: "Content Sync Validator",
+    cover: "/covers/content-sync-validator.png",
     subtitle: "Automated content validation across environments",
     kind: "Enterprise production · Critical Mass",
     desc: "An automated validation tool that compares staging vs. production content and surfaces discrepancies before release — replacing a manual, error-prone process with confidence.",
@@ -84,6 +88,7 @@ export const projects: Project[] = [
   },
   {
     title: "Offer Creation Engine",
+    cover: "/covers/offer-engine.png",
     subtitle: "Campaign deployment at 300× the speed",
     kind: "Enterprise production · Critical Mass",
     desc: "An enterprise offer-creation engine with smart templating and reusable content schemas that became the foundation for over two years of landing-page operations.",
@@ -98,6 +103,7 @@ export const projects: Project[] = [
   },
   {
     title: "CRM → Marketing Sync Engine",
+    cover: "/covers/crm-sync.png",
     subtitle: "Idempotent customer-data synchronization",
     kind: "Built automation system",
     desc: "A synchronization framework that keeps CRM and marketing platforms consistent: identity resolution, source-of-truth ownership by field, tag union (not replacement), idempotent upserts, watermarks, retry/backoff, and dead-letter handling. Built with n8n as a platform-agnostic reference system — not 'an n8n workflow'.",
@@ -117,6 +123,7 @@ export const projects: Project[] = [
   },
   {
     title: "Enterprise Web Platform Engineering",
+    cover: "/covers/enterprise-platform.png",
     subtitle: "High-traffic experiences across product, design & marketing",
     kind: "Client delivery · Meta engagement + agency",
     desc: "Consolidated senior delivery work building React/Next.js applications for enterprise clients — CMS-driven component systems, accessibility, browser performance, release coordination, and code-review leadership. Source and private metrics are confidential; the evidence below is sanitized.",
@@ -133,6 +140,7 @@ export const projects: Project[] = [
   },
   {
     title: "Three.js Creative Coding",
+    cover: "/covers/threejs-craft.png",
     subtitle: "WebGL experiments & interactive scenes",
     kind: "Craft · powers this site",
     desc: "Real-time 3D scenes built with Three.js — exploring particles, shaders, and procedural geometry with performance and reduced-motion in mind. (This portfolio's background is one of them.)",

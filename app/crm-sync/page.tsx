@@ -5,6 +5,7 @@ export default function CrmSyncCaseStudy() {
     <CaseStudyLayout
       eyebrow="Built automation system"
       title="CRM → Marketing Sync Engine"
+      cover="/covers/crm-sync.png"
       lede="An idempotent customer-data synchronization framework that keeps CRM and marketing platforms consistent — built with n8n as a platform-agnostic reference system, not “an n8n workflow.”"
       ctaSubject="Reaching out — CRM Sync"
     >

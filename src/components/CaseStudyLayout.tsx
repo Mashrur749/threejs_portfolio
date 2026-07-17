@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { color } from "@/lib/tokens";
 import { Reveal, PrimaryLink, CodeBlock as CodeBlockP, Decision as DecisionP } from "@/components/primitives";
@@ -11,6 +12,7 @@ export function CaseStudyLayout({
   eyebrow,
   title,
   lede,
+  cover,
   proofLinks = [],
   children,
   ctaSubject,
@@ -18,6 +20,7 @@ export function CaseStudyLayout({
   eyebrow: string;
   title: string;
   lede: ReactNode;
+  cover?: string;
   proofLinks?: ProofLink[];
   children: ReactNode;
   ctaSubject: string;
@@ -33,6 +36,7 @@ export function CaseStudyLayout({
         .cs-cta { margin-top: 3rem; padding: 1.75rem; background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.3); border-radius: 0.75rem; text-align: center; }
         .cs-cta h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
         .cs-cta p { color: ${color.textMuted}; margin-bottom: 1.25rem; }
+        .cs-cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0.75rem; margin-bottom: 2rem; border: 1px solid ${color.border}; display: block; }
       `}</style>
       <div className="cs-wrap">
         <Link
@@ -86,6 +90,17 @@ export function CaseStudyLayout({
               </a>
             ))}
           </div>
+        )}
+
+        {cover && (
+          <Image
+            src={cover}
+            alt={`${title} — cover`}
+            width={1600}
+            height={900}
+            className="cs-cover"
+            priority
+          />
         )}
 
         {children}

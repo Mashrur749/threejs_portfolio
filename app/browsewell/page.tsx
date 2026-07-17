@@ -9,6 +9,7 @@ export default function BrowseWellCaseStudy() {
     <CaseStudyLayout
       eyebrow="Independent product · shipped"
       title="BrowseWell"
+      cover="/covers/browsewell.png"
       lede="A browser-native attention-management system — not a website blocker, but a policy and intervention engine that operates across dynamic, SPA-driven sites. Live on the Chrome Web Store."
       ctaSubject="Reaching out — BrowseWell"
       proofLinks={[

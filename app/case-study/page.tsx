@@ -32,6 +32,7 @@ export default function CaseStudy() {
     <CaseStudyLayout
       eyebrow="Enterprise production · Critical Mass"
       title="Content Sync Validator"
+      cover="/covers/content-sync-validator.png"
       lede="An automated content-validation tool that compares staging vs. production content and surfaces discrepancies before release — replacing an error-prone manual process and restoring team confidence."
       ctaSubject="Reaching out — Content Sync Validator"
     >

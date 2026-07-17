@@ -27,13 +27,14 @@ function ProjectCard({ project, isMobile }: { project: Project; isMobile: boolea
       flexDirection: "column",
       gridColumn: featured && !isMobile ? "1 / -1" : "auto",
     }}>
-      {project.image && (
+      {(project.cover || project.image) && (
         <Image
-          src={project.image}
+          src={project.cover ?? project.image!}
           alt={`${project.title} preview`}
-          width={1200}
-          height={600}
+          width={1600}
+          height={900}
           style={{ width: "100%", height: isMobile ? 180 : 220, objectFit: "cover", display: "block", borderBottom: `1px solid ${color.border}` }}
+          priority={featured}
         />
       )}
       <div style={{ padding: isMobile ? "1.25rem" : "1.75rem", display: "flex", flexDirection: "column", flex: 1 }}>

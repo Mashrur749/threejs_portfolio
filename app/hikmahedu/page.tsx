@@ -7,6 +7,7 @@ export default function HikmahEduCaseStudy() {
     <CaseStudyLayout
       eyebrow="0-to-1 product · client engagement"
       title="HikmahEdu"
+      cover="/covers/hikmahedu.png"
       lede="An education brand and digital platform I led from initial brand direction through product structure, user experience, visual design, and a reusable design system — translating an education-business concept into a cohesive, launch-ready product. Built for a client."
       ctaSubject="Reaching out — HikmahEdu"
       proofLinks={[{ label: "Visit hikmahedu.com →", href: SITE, primary: true }]}

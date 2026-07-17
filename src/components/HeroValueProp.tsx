@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/Logo";
 
 const metrics = [
   { value: "300×", label: "Faster content deployments" },
@@ -134,20 +135,30 @@ export default function HeroValueProp() {
               maxWidth: isMobile ? "100%" : "640px",
             }}
           >
-            <p
+            <div
               className="hero-eyebrow"
               style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: isMobile ? "0.8rem" : "0.85rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#f97316",
-                fontWeight: 600,
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                justifyContent: isMobile ? "center" : "flex-start",
                 marginBottom: isMobile ? "0.75rem" : "1rem",
               }}
             >
-              Senior Product Engineer & Technical Lead · Calgary, Canada
-            </p>
+              <Logo size={26} />
+              <span
+                style={{
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: isMobile ? "0.8rem" : "0.85rem",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#f97316",
+                  fontWeight: 600,
+                }}
+              >
+                Senior Product Engineer & Technical Lead · Calgary
+              </span>
+            </div>
 
             <h1
               className="hero-title"
