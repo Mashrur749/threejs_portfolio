@@ -27,18 +27,7 @@ export function CaseStudyLayout({
 }) {
   return (
     <div style={pageStyle}>
-      <style jsx>{`
-        .cs-wrap { max-width: 800px; margin: 0 auto; padding-top: 2rem; }
-        .cs-proof { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
-        @media (max-width: 600px) { .cs-proof { flex-direction: column; } }
-        .cs-section { margin-bottom: 2.5rem; }
-        .cs-h2 { font-size: 1.4rem; margin-bottom: 0.75rem; line-height: 1.2; }
-        .cs-cta { margin-top: 3rem; padding: 1.75rem; background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.3); border-radius: 0.75rem; text-align: center; }
-        .cs-cta h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-        .cs-cta p { color: ${color.textMuted}; margin-bottom: 1.25rem; }
-        .cs-cover { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0.75rem; margin-bottom: 2rem; border: 1px solid ${color.border}; display: block; }
-      `}</style>
-      <div className="cs-wrap">
+      <div style={{ maxWidth: "800px", margin: "0 auto", paddingTop: "2rem" }}>
         <Link
           href="/"
           style={{
@@ -67,7 +56,7 @@ export function CaseStudyLayout({
         </p>
 
         {proofLinks.length > 0 && (
-          <div className="cs-proof">
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "2.5rem" }}>
             {proofLinks.map((l) => (
               <a
                 key={l.href}
@@ -98,16 +87,16 @@ export function CaseStudyLayout({
             alt={`${title} — cover`}
             width={1600}
             height={900}
-            className="cs-cover"
             priority
+            style={{ width: "100%", height: "auto", aspectRatio: "16 / 9", objectFit: "cover", borderRadius: "0.75rem", marginBottom: "2rem", border: `1px solid ${color.border}`, display: "block" }}
           />
         )}
 
         {children}
 
-        <div className="cs-cta">
-          <h3>Want to talk?</h3>
-          <p>I&apos;m open to senior product-engineering and technical-lead roles.</p>
+        <div style={{ marginTop: "3rem", padding: "1.75rem", background: "rgba(249,115,22,0.08)", border: "1px solid rgba(249,115,22,0.3)", borderRadius: "0.75rem", textAlign: "center" }}>
+          <h3 style={{ fontSize: "1.25rem", marginBottom: "0.5rem" }}>Want to talk?</h3>
+          <p style={{ color: color.textMuted, marginBottom: "1.25rem" }}>I&apos;m open to senior product-engineering and technical-lead roles.</p>
           <PrimaryLink href={`mailto:rmashrur.w749@gmail.com?subject=${ctaSubject}`} style={{ display: "inline-block" }}>
             Get in touch
           </PrimaryLink>
@@ -121,8 +110,8 @@ export function CaseStudyLayout({
 export function CSSection({ title, accent, children }: { title: string; accent?: boolean; children: ReactNode }) {
   return (
     <Reveal>
-      <section className="cs-section">
-        <h2 className="cs-h2" style={{ color: accent ? color.accent : color.text }}>{title}</h2>
+      <section style={{ marginBottom: "2.5rem" }}>
+        <h2 style={{ fontSize: "1.4rem", marginBottom: "0.75rem", lineHeight: 1.2, color: accent ? color.accent : color.text }}>{title}</h2>
         {children}
       </section>
     </Reveal>

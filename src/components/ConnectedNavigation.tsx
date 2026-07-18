@@ -72,7 +72,7 @@ export default function ConnectedNavigation() {
   return (
     <>
       {/* Main navigation container */}
-      <div style={{
+      <div className="connected-nav-rail" style={{
         position: 'fixed',
         right: '24px',
         top: '50%',
@@ -219,29 +219,6 @@ export default function ConnectedNavigation() {
           {Math.round(scrollProgress * 100)}%
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes gentlePulse {
-          0% {
-            opacity: 0.5;
-            transform: translate(-50%, -50%) scale(1);
-          }
-          50% {
-            opacity: 0.2;
-            transform: translate(-50%, -50%) scale(1.3);
-          }
-          100% {
-            opacity: 0.5;
-            transform: translate(-50%, -50%) scale(1);
-          }
-        }
-        
-        @media (max-width: 768px) {
-          div[style*="right: '24px'"] {
-            right: 12px !important;
-          }
-        }
-      `}</style>
     </>
   )
 }

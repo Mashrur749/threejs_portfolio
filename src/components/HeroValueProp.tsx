@@ -22,49 +22,10 @@ export default function HeroValueProp() {
 
   return (
     <>
-      <style jsx>{`
-        @keyframes heroFadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(16px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .hero-eyebrow,
-        .hero-title,
-        .hero-sub,
-        .hero-meta,
-        .hero-metrics,
-        .hero-cta,
-        .hero-portrait {
-          opacity: 0;
-          animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        .hero-eyebrow {
-          animation-delay: 0.05s;
-        }
-        .hero-title {
-          animation-delay: 0.15s;
-        }
-        .hero-sub {
-          animation-delay: 0.28s;
-        }
-        .hero-meta {
-          animation-delay: 0.4s;
-        }
-        .hero-metrics {
-          animation-delay: 0.52s;
-        }
-        .hero-cta {
-          animation-delay: 0.64s;
-        }
-        .hero-portrait {
-          animation-delay: 0.2s;
-        }
-      `}</style>
+      {/* Hero content renders statically visible at first paint — no opacity-gated
+          entrance. A styled-jsx opacity:0 entrance caused a FOUC blink because
+          styled-jsx in a Client Component isn't inlined into the SSR HTML, so
+          content showed, then blinked out, then faded back in. Static = instant. */}
 
       <section
         id="hero"
