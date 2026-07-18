@@ -73,11 +73,12 @@ export default function HeroValueProp() {
               }}
             >
               <Image
-                src="/images/headshot.jpg"
+                src="/images/headshot.png"
                 alt="Portrait of Mashrur Rahman"
                 width={200}
                 height={200}
                 priority
+                quality={100}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -148,8 +149,8 @@ export default function HeroValueProp() {
               }}
             >
               I build reliable web platforms, browser-native products, and
-              automation systems that remove operational bottlenecks — so
-              teams scale without proportional headcount.
+              automation systems that remove operational bottlenecks — so teams
+              scale without proportional headcount.
             </p>
 
             {/* Status line */}
@@ -198,9 +199,7 @@ export default function HeroValueProp() {
                 gridTemplateColumns: "repeat(3, 1fr)",
                 gap: isMobile ? "10px" : "20px",
                 maxWidth: isMobile ? "100%" : "560px",
-                margin: isMobile
-                  ? "0 auto 1.5rem"
-                  : "0 0 2rem 0",
+                margin: isMobile ? "0 auto 1.5rem" : "0 0 2rem 0",
               }}
             >
               {metrics.map((m) => (
